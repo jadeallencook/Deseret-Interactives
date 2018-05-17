@@ -1,0 +1,19 @@
+{
+  "name": "deseret-interactives",
+  "version": "1.0.0",
+  "description": "Interactive applications for the news room.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jadeallencook/Deseret-Interactives.git"
+  },
+  "author": "Jade Allen Cook",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jadeallencook/Deseret-Interactives/issues"
+  },
+  "homepage": "https://github.com/jadeallencook/Deseret-Interactives#readme"
+}
