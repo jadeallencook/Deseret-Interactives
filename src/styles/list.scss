@@ -1,0 +1,27 @@
+div.interactive[data-type="list"] {
+    h1 {
+        border-bottom: solid medium black;
+        text-align: left;
+    }
+    a {
+        clear: both;
+        padding-bottom: 25px;
+        text-align: left;
+        display: block;
+        div {
+            background-color: grey;
+            width: 50%;
+            max-width: 400px;
+            margin: 0px 0px 15px 15px;
+            height: 250px;
+            float: right;
+        }
+    }
+    ul {
+        list-style: none;
+        padding: 0px;
+        li {
+            margin-bottom: 15px;
+        }
+    }
+}
