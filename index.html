@@ -7,47 +7,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="dist/newsroom.min.css" />
+    <link rel="stylesheet" href="style.css" />
     <title>Newsroom.js</title>
-    <style>
-        h1 {
-            margin: 25px 0px 0px 0px;
-        }
-        a {
-            background-color: #333;
-            color: #fff;
-            padding: 5px 15px;
-            display: block;
-            width: 250px;
-            margin: 25px auto 15px auto;
-        }
-        a:hover {
-            opacity: 0.5;
-        }
-        textarea {
-            width: 500px;
-            height: 100px;
-        }
-        small {
-            display: block;
-            font-size: 0.75em;
-            margin: 25px 0px;
-        }
-    </style>
 </head>
 
 <body>
     <h1>Newsroom.js</h1>
-    <span><i>Tools built for interactive data presentations!</i></span>
-
-<!-- list -->
-<a href="examples/list.html" target="_blank">List of Items</a>
-<textarea>
-<script src="https://www.deseretnews.com/project/newsroom.min.js"></script>
-<link rel="stylesheet" href="https://www.deseretnews.com/project/newsroom.min.css" />
-<div class="interactive" data-type="list" data-src="link/to/your.json" data-style="1"></div>
-</textarea>
-
-<small>Built by Jade Allen Cook for Deseret News</small>
+    <span>
+        <i>Tools built for interactive data presentations!</i>
+    </span>
+    <div id="wrapper">
+        <div class="interactive">
+            <span class="title">Item List With Anochors</span>
+            <span>Have a list of items or information you need laid out in a nice format? This is the right interactive for you! It even has anchor tags so you can include links that jump right to a certain item. You'll just need some data formatted in JSON to get started.</span>
+            <a href="examples/#list" target="_blank">Preview</a>
+            <a class="html" onclick="copyCode('list', this)">Copy Code</a>
+            <a href="src/json/templates/list-template.json" download="list-template">Download JSON</a>
+        </div>
+    </div>
+    <small>Built by @jadeallencook for the Deseret News</small>
+    <script src="app.js"></script>
 </body>
 
 </html>

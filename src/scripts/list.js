@@ -17,7 +17,7 @@ export default function List(container, json, style) {
                     titleElem.style.color = item.color;
                     titleElem.style.borderColor = item.color;
                 }
-                imgElem.style.backgroundImage = item.image;
+                imgElem.style.backgroundImage = 'url(' + item.image + ')';
                 if (item.float) {
                     var float = item.float;
                     imgElem.style.float = float;

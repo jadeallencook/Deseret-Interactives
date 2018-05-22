@@ -3,13 +3,19 @@ div.interactive[data-type="list"] {
         border-bottom: solid medium black;
         text-align: left;
     }
+    a:hover {
+        text-decoration: none;
+    }
     a {
+        color: #000;
         clear: both;
         padding-bottom: 25px;
         text-align: left;
         display: block;
         div {
             background-color: grey;
+            background-size: cover;
+            background-position: center center;
             width: 50%;
             max-width: 400px;
             margin: 0px 0px 15px 15px;

@@ -1,5 +1,6 @@
 [{
     "title": "50 West Club & Cafe ",
+    "image": "https://static1.squarespace.com/static/53ff6ee6e4b02adad6b9e8aa/t/59e51f878a02c74e66cb73b1/1508188045010/small+venues+large.jpg",
     "list": [{
         "category": "Location",
         "description": "50 W. 300 South, Salt Lake City "
@@ -24,6 +25,7 @@
     }]
 }, {
     "title": "Abravanel Hall ",
+    "image": "https://static1.squarespace.com/static/53ff6ee6e4b02adad6b9e8aa/t/59e51f878a02c74e66cb73b1/1508188045010/small+venues+large.jpg",
     "list": [{
         "category": "Location",
         "description": "123 W. South Temple, Salt Lake City "
@@ -48,6 +50,7 @@
     }]
 }, {
     "title": "The Acoustic Space ",
+    "image": "https://static1.squarespace.com/static/53ff6ee6e4b02adad6b9e8aa/t/59e51f878a02c74e66cb73b1/1508188045010/small+venues+large.jpg",
     "list": [{
         "category": "Location",
         "description": "124 S. 400 West, Salt Lake City "
@@ -75,6 +78,7 @@
     }]
 }, {
     "title": "Area 51 ",
+    "image": "https://static1.squarespace.com/static/53ff6ee6e4b02adad6b9e8aa/t/59e51f878a02c74e66cb73b1/1508188045010/small+venues+large.jpg",
     "list": [{
         "category": "Location",
         "description": "451 S. 400 West, Salt Lake City "
@@ -102,6 +106,7 @@
     }]
 }, {
     "title": "Assembly Hall ",
+    "image": "https://static1.squarespace.com/static/53ff6ee6e4b02adad6b9e8aa/t/59e51f878a02c74e66cb73b1/1508188045010/small+venues+large.jpg",
     "list": [{
         "category": "Location",
         "description": "Temple Square, 50 W. North Temple, Salt Lake City "
@@ -126,6 +131,7 @@
     }]
 }, {
     "title": "The Bayou ",
+    "image": "https://static1.squarespace.com/static/53ff6ee6e4b02adad6b9e8aa/t/59e51f878a02c74e66cb73b1/1508188045010/small+venues+large.jpg",
     "list": [{
         "category": "Location",
         "description": "645 S. State, Salt Lake City "
@@ -150,6 +156,7 @@
     }]
 }, {
     "title": "Clearlink Lounge ",
+    "image": "https://static1.squarespace.com/static/53ff6ee6e4b02adad6b9e8aa/t/59e51f878a02c74e66cb73b1/1508188045010/small+venues+large.jpg",
     "list": [{
         "category": "Location",
         "description": "2801 S. Decker Lake Drive, West Valley City "
@@ -162,6 +169,7 @@
     }]
 }, {
     "title": "Club X ",
+    "image": "https://static1.squarespace.com/static/53ff6ee6e4b02adad6b9e8aa/t/59e51f878a02c74e66cb73b1/1508188045010/small+venues+large.jpg",
     "list": [{
         "category": "Location",
         "description": "445 S. 400 West, Salt Lake City "
@@ -177,6 +185,7 @@
     }]
 }, {
     "title": "The Complex - The Grand ",
+    "image": "https://static1.squarespace.com/static/53ff6ee6e4b02adad6b9e8aa/t/59e51f878a02c74e66cb73b1/1508188045010/small+venues+large.jpg",
     "list": [{
         "category": "Location",
         "description": "536 W. 100 South, Salt Lake City "
@@ -201,6 +210,7 @@
     }]
 }, {
     "title": "The Complex - Papa Wolf’s ",
+    "image": "https://static1.squarespace.com/static/53ff6ee6e4b02adad6b9e8aa/t/59e51f878a02c74e66cb73b1/1508188045010/small+venues+large.jpg",
     "list": [{
         "category": "Location",
         "description": "536 W. 100 South, Salt Lake City "
@@ -228,6 +238,7 @@
     }]
 }, {
     "title": "The Complex - Rockwell ",
+    "image": "https://static1.squarespace.com/static/53ff6ee6e4b02adad6b9e8aa/t/59e51f878a02c74e66cb73b1/1508188045010/small+venues+large.jpg",
     "list": [{
         "category": "Location",
         "description": "536 W. 100 South, Salt Lake City "
@@ -252,6 +263,7 @@
     }]
 }, {
     "title": "The Complex - Vertigo ",
+    "image": "https://static1.squarespace.com/static/53ff6ee6e4b02adad6b9e8aa/t/59e51f878a02c74e66cb73b1/1508188045010/small+venues+large.jpg",
     "list": [{
         "category": "Location",
         "description": "536 W. 100 South, Salt Lake City "
@@ -276,6 +288,7 @@
     }]
 }, {
     "title": "David Gardner Hall - Dumke Recital Hall ",
+    "image": "https://static1.squarespace.com/static/53ff6ee6e4b02adad6b9e8aa/t/59e51f878a02c74e66cb73b1/1508188045010/small+venues+large.jpg",
     "list": [{
         "category": "Location",
         "description": "David Gardner Hall, 1375 Presidents Circle, Salt Lake City "
@@ -300,6 +313,7 @@
     }]
 }, {
     "title": "David Gardner Hall - Libby Gardner Concert Hall ",
+    "image": "https://static1.squarespace.com/static/53ff6ee6e4b02adad6b9e8aa/t/59e51f878a02c74e66cb73b1/1508188045010/small+venues+large.jpg",
     "list": [{
         "category": "Location",
         "description": "David Gardner Hall, 1375 Presidents Circle, Salt Lake City "
@@ -324,6 +338,7 @@
     }]
 }, {
     "title": "David Gardner Hall - Thompson Chamber Music Hall ",
+    "image": "https://static1.squarespace.com/static/53ff6ee6e4b02adad6b9e8aa/t/59e51f878a02c74e66cb73b1/1508188045010/small+venues+large.jpg",
     "list": [{
         "category": "Location",
         "description": "David Gardner Hall, 1375 Presidents Circle, Salt Lake City "
@@ -348,6 +363,7 @@
     }]
 }, {
     "title": "The Depot - Music Venue ",
+    "image": "https://static1.squarespace.com/static/53ff6ee6e4b02adad6b9e8aa/t/59e51f878a02c74e66cb73b1/1508188045010/small+venues+large.jpg",
     "list": [{
         "category": "Location",
         "description": "400 W. South Temple, Salt Lake City "
@@ -375,6 +391,7 @@
     }]
 }, {
     "title": "The Depot - Blue Goose ",
+    "image": "https://static1.squarespace.com/static/53ff6ee6e4b02adad6b9e8aa/t/59e51f878a02c74e66cb73b1/1508188045010/small+venues+large.jpg",
     "list": [{
         "category": "Location",
         "description": "400 W. South Temple, Salt Lake City "
@@ -402,6 +419,7 @@
     }]
 }, {
     "title": "The Depot - The 400 ",
+    "image": "https://static1.squarespace.com/static/53ff6ee6e4b02adad6b9e8aa/t/59e51f878a02c74e66cb73b1/1508188045010/small+venues+large.jpg",
     "list": [{
         "category": "Location",
         "description": "400 W. South Temple, Salt Lake City "
@@ -429,6 +447,7 @@
     }]
 }, {
     "title": "The Depot - Grand Hall ",
+    "image": "https://static1.squarespace.com/static/53ff6ee6e4b02adad6b9e8aa/t/59e51f878a02c74e66cb73b1/1508188045010/small+venues+large.jpg",
     "list": [{
         "category": "Location",
         "description": "400 W. South Temple, Salt Lake City "
@@ -456,6 +475,7 @@
     }]
 }, {
     "title": "Eccles Theater Delta Performance Hall ",
+    "image": "https://static1.squarespace.com/static/53ff6ee6e4b02adad6b9e8aa/t/59e51f878a02c74e66cb73b1/1508188045010/small+venues+large.jpg",
     "list": [{
         "category": "Location",
         "description": "131 S. Main, Salt Lake City "
@@ -480,6 +500,7 @@
     }]
 }, {
     "title": "Eccles Theater Regent Street Black Box ",
+    "image": "https://static1.squarespace.com/static/53ff6ee6e4b02adad6b9e8aa/t/59e51f878a02c74e66cb73b1/1508188045010/small+venues+large.jpg",
     "list": [{
         "category": "Location",
         "description": "131 S. Main, Salt Lake City "
@@ -504,6 +525,7 @@
     }]
 }, {
     "title": "Elevate ",
+    "image": "https://static1.squarespace.com/static/53ff6ee6e4b02adad6b9e8aa/t/59e51f878a02c74e66cb73b1/1508188045010/small+venues+large.jpg",
     "list": [{
         "category": "Location",
         "description": "149 W. 200 South, Salt Lake City "
@@ -528,6 +550,7 @@
     }]
 }, {
     "title": "The Falls Event Center ",
+    "image": "https://static1.squarespace.com/static/53ff6ee6e4b02adad6b9e8aa/t/59e51f878a02c74e66cb73b1/1508188045010/small+venues+large.jpg",
     "list": [{
         "category": "Location",
         "description": "580 S. 600 East, Salt Lake City "
@@ -555,6 +578,7 @@
     }]
 }, {
     "title": "Gallivan Center ",
+    "image": "https://static1.squarespace.com/static/53ff6ee6e4b02adad6b9e8aa/t/59e51f878a02c74e66cb73b1/1508188045010/small+venues+large.jpg",
     "list": [{
         "category": "Location",
         "description": "239 S. Main, Salt Lake City "
@@ -579,6 +603,7 @@
     }]
 }, {
     "title": "Garage on Beck ",
+    "image": "https://static1.squarespace.com/static/53ff6ee6e4b02adad6b9e8aa/t/59e51f878a02c74e66cb73b1/1508188045010/small+venues+large.jpg",
     "list": [{
         "category": "Location",
         "description": "1199 N. Beck Street, Salt Lake City "
@@ -603,6 +628,7 @@
     }]
 }, {
     "title": "Gracie’s ",
+    "image": "https://static1.squarespace.com/static/53ff6ee6e4b02adad6b9e8aa/t/59e51f878a02c74e66cb73b1/1508188045010/small+venues+large.jpg",
     "list": [{
         "category": "Location",
         "description": "326 S. West Temple, Salt Lake City "
@@ -627,6 +653,7 @@
     }]
 }, {
     "title": "The Grand America Hotel - Lobby Lounge ",
+    "image": "https://static1.squarespace.com/static/53ff6ee6e4b02adad6b9e8aa/t/59e51f878a02c74e66cb73b1/1508188045010/small+venues+large.jpg",
     "list": [{
         "category": "Location",
         "description": "555 S. Main, Salt Lake City "
@@ -654,6 +681,7 @@
     }]
 }, {
     "title": "The Heavy Metal Shop ",
+    "image": "https://static1.squarespace.com/static/53ff6ee6e4b02adad6b9e8aa/t/59e51f878a02c74e66cb73b1/1508188045010/small+venues+large.jpg",
     "list": [{
         "category": "Location",
         "description": "63 Exchange Place, Salt Lake City "
@@ -681,6 +709,7 @@
     }]
 }, {
     "title": "In the Venue ",
+    "image": "https://static1.squarespace.com/static/53ff6ee6e4b02adad6b9e8aa/t/59e51f878a02c74e66cb73b1/1508188045010/small+venues+large.jpg",
     "list": [{
         "category": "Location",
         "description": "219 S. 600 West, Salt Lake City "
@@ -705,6 +734,7 @@
     }]
 }, {
     "title": "Infinity Event Center ",
+    "image": "https://static1.squarespace.com/static/53ff6ee6e4b02adad6b9e8aa/t/59e51f878a02c74e66cb73b1/1508188045010/small+venues+large.jpg",
     "list": [{
         "category": "Location",
         "description": "26 E. 600 South, Salt Lake City "
@@ -732,6 +762,7 @@
     }]
 }, {
     "title": "Janet Quinney Lawson Capitol Theatre ",
+    "image": "https://static1.squarespace.com/static/53ff6ee6e4b02adad6b9e8aa/t/59e51f878a02c74e66cb73b1/1508188045010/small+venues+large.jpg",
     "list": [{
         "category": "Location",
         "description": "50 W. 200 South, Salt Lake City "
@@ -756,6 +787,7 @@
     }]
 }, {
     "title": "Johnny’s On Second ",
+    "image": "https://static1.squarespace.com/static/53ff6ee6e4b02adad6b9e8aa/t/59e51f878a02c74e66cb73b1/1508188045010/small+venues+large.jpg",
     "list": [{
         "category": "Location",
         "description": "165 E. 200 South, Salt Lake City "
@@ -783,6 +815,7 @@
     }]
 }, {
     "title": "Keys on Main ",
+    "image": "https://static1.squarespace.com/static/53ff6ee6e4b02adad6b9e8aa/t/59e51f878a02c74e66cb73b1/1508188045010/small+venues+large.jpg",
     "list": [{
         "category": "Location",
         "description": "242 S. Main, Salt Lake City "
@@ -810,6 +843,7 @@
     }]
 }, {
     "title": "Kilby Court ",
+    "image": "https://static1.squarespace.com/static/53ff6ee6e4b02adad6b9e8aa/t/59e51f878a02c74e66cb73b1/1508188045010/small+venues+large.jpg",
     "list": [{
         "category": "Location",
         "description": "741 S. Kilby Court, Salt Lake City "
@@ -837,6 +871,7 @@
     }]
 }, {
     "title": "Kingsbury Hall ",
+    "image": "https://static1.squarespace.com/static/53ff6ee6e4b02adad6b9e8aa/t/59e51f878a02c74e66cb73b1/1508188045010/small+venues+large.jpg",
     "list": [{
         "category": "Location",
         "description": "1395 Presidents Circle, Salt Lake City "
@@ -861,6 +896,7 @@
     }]
 }, {
     "title": "LDS Conference Center ",
+    "image": "https://static1.squarespace.com/static/53ff6ee6e4b02adad6b9e8aa/t/59e51f878a02c74e66cb73b1/1508188045010/small+venues+large.jpg",
     "list": [{
         "category": "Location",
         "description": "60 W. North Temple "
@@ -888,6 +924,7 @@
     }]
 }, {
     "title": "Liquid Joe’s ",
+    "image": "https://static1.squarespace.com/static/53ff6ee6e4b02adad6b9e8aa/t/59e51f878a02c74e66cb73b1/1508188045010/small+venues+large.jpg",
     "list": [{
         "category": "Location",
         "description": "1249 E. 3300 South, Salt Lake City "
@@ -912,6 +949,7 @@
     }]
 }, {
     "title": "The Loading Dock ",
+    "image": "https://static1.squarespace.com/static/53ff6ee6e4b02adad6b9e8aa/t/59e51f878a02c74e66cb73b1/1508188045010/small+venues+large.jpg",
     "list": [{
         "category": "Location",
         "description": "445 S. 400 West, Salt Lake City "
@@ -936,6 +974,7 @@
     }]
 }, {
     "title": "Maverik Center ",
+    "image": "https://static1.squarespace.com/static/53ff6ee6e4b02adad6b9e8aa/t/59e51f878a02c74e66cb73b1/1508188045010/small+venues+large.jpg",
     "list": [{
         "category": "Location",
         "description": "3200 S. Decker Lake Drive, West Valley City "
@@ -960,6 +999,7 @@
     }]
 }, {
     "title": "The Metro Music Hall ",
+    "image": "https://static1.squarespace.com/static/53ff6ee6e4b02adad6b9e8aa/t/59e51f878a02c74e66cb73b1/1508188045010/small+venues+large.jpg",
     "list": [{
         "category": "Location",
         "description": "615 W. 100 South, Salt Lake City "
@@ -987,6 +1027,7 @@
     }]
 }, {
     "title": "Pale Horse Sound ",
+    "image": "https://static1.squarespace.com/static/53ff6ee6e4b02adad6b9e8aa/t/59e51f878a02c74e66cb73b1/1508188045010/small+venues+large.jpg",
     "list": [{
         "category": "Location",
         "description": "1989 S. 1100 East Suite A, Salt Lake City "
@@ -1014,6 +1055,7 @@
     }]
 }, {
     "title": "Poplar Street Pub ",
+    "image": "https://static1.squarespace.com/static/53ff6ee6e4b02adad6b9e8aa/t/59e51f878a02c74e66cb73b1/1508188045010/small+venues+large.jpg",
     "list": [{
         "category": "Location",
         "description": "242 S. 200 West, Salt Lake City "
@@ -1038,6 +1080,7 @@
     }]
 }, {
     "title": "Red Butte Garden Ampitheatre ",
+    "image": "https://static1.squarespace.com/static/53ff6ee6e4b02adad6b9e8aa/t/59e51f878a02c74e66cb73b1/1508188045010/small+venues+large.jpg",
     "list": [{
         "category": "Location",
         "description": "2155 Red Butte Canyon Road, Salt Lake City "
@@ -1062,6 +1105,7 @@
     }]
 }, {
     "title": "Rose Wagner Jeanne Wagner Theatre ",
+    "image": "https://static1.squarespace.com/static/53ff6ee6e4b02adad6b9e8aa/t/59e51f878a02c74e66cb73b1/1508188045010/small+venues+large.jpg",
     "list": [{
         "category": "Location",
         "description": "138 W. 300 South, Salt Lake City "
@@ -1086,6 +1130,7 @@
     }]
 }, {
     "title": "Rose Wagner Leona Wagner Black Box ",
+    "image": "https://static1.squarespace.com/static/53ff6ee6e4b02adad6b9e8aa/t/59e51f878a02c74e66cb73b1/1508188045010/small+venues+large.jpg",
     "list": [{
         "category": "Location",
         "description": "138 W. 300 South, Salt Lake City "
@@ -1110,6 +1155,7 @@
     }]
 }, {
     "title": "Rose Wagner Studio Theatre ",
+    "image": "https://static1.squarespace.com/static/53ff6ee6e4b02adad6b9e8aa/t/59e51f878a02c74e66cb73b1/1508188045010/small+venues+large.jpg",
     "list": [{
         "category": "Location",
         "description": "138 W. 300 South, Salt Lake City "
@@ -1134,6 +1180,7 @@
     }]
 }, {
     "title": "Salt Lake City Tabernacle ",
+    "image": "https://static1.squarespace.com/static/53ff6ee6e4b02adad6b9e8aa/t/59e51f878a02c74e66cb73b1/1508188045010/small+venues+large.jpg",
     "list": [{
         "category": "Location",
         "description": "Temple Square, 50 W. North Temple, Salt Lake City "
@@ -1158,6 +1205,7 @@
     }]
 }, {
     "title": "Salt Palace ",
+    "image": "https://static1.squarespace.com/static/53ff6ee6e4b02adad6b9e8aa/t/59e51f878a02c74e66cb73b1/1508188045010/small+venues+large.jpg",
     "list": [{
         "category": "Location",
         "description": "100 W. South Temple, Salt Lake City "
@@ -1185,6 +1233,7 @@
     }]
 }, {
     "title": "Saltair ",
+    "image": "https://static1.squarespace.com/static/53ff6ee6e4b02adad6b9e8aa/t/59e51f878a02c74e66cb73b1/1508188045010/small+venues+large.jpg",
     "list": [{
         "category": "Location",
         "description": "12408 W. Saltair Drive, Magna "
@@ -1209,6 +1258,7 @@
     }]
 }, {
     "title": "Sky SLC ",
+    "image": "https://static1.squarespace.com/static/53ff6ee6e4b02adad6b9e8aa/t/59e51f878a02c74e66cb73b1/1508188045010/small+venues+large.jpg",
     "list": [{
         "category": "Location",
         "description": "149 Pierpont Ave., Salt Lake City "
@@ -1236,6 +1286,7 @@
     }]
 }, {
     "title": "The State Room ",
+    "image": "https://static1.squarespace.com/static/53ff6ee6e4b02adad6b9e8aa/t/59e51f878a02c74e66cb73b1/1508188045010/small+venues+large.jpg",
     "list": [{
         "category": "Location",
         "description": "638 S. State, Salt Lake City "
@@ -1263,6 +1314,7 @@
     }]
 }, {
     "title": "Tavernacle Social Club ",
+    "image": "https://static1.squarespace.com/static/53ff6ee6e4b02adad6b9e8aa/t/59e51f878a02c74e66cb73b1/1508188045010/small+venues+large.jpg",
     "list": [{
         "category": "Location",
         "description": "201 E. 300 South, Salt Lake City "
@@ -1290,6 +1342,7 @@
     }]
 }, {
     "title": "The Underground ",
+    "image": "https://static1.squarespace.com/static/53ff6ee6e4b02adad6b9e8aa/t/59e51f878a02c74e66cb73b1/1508188045010/small+venues+large.jpg",
     "list": [{
         "category": "Location",
         "description": "833 S. Main, Salt Lake City "
@@ -1305,6 +1358,7 @@
     }]
 }, {
     "title": "The Union Event Center ",
+    "image": "https://static1.squarespace.com/static/53ff6ee6e4b02adad6b9e8aa/t/59e51f878a02c74e66cb73b1/1508188045010/small+venues+large.jpg",
     "list": [{
         "category": "Location",
         "description": "235 N. 500 West, Salt Lake City "
@@ -1332,6 +1386,7 @@
     }]
 }, {
     "title": "Urban Lounge ",
+    "image": "https://static1.squarespace.com/static/53ff6ee6e4b02adad6b9e8aa/t/59e51f878a02c74e66cb73b1/1508188045010/small+venues+large.jpg",
     "list": [{
         "category": "Location",
         "description": "241 S. 500 East "
@@ -1356,6 +1411,7 @@
     }]
 }, {
     "title": "USANA Amphitheatre ",
+    "image": "https://static1.squarespace.com/static/53ff6ee6e4b02adad6b9e8aa/t/59e51f878a02c74e66cb73b1/1508188045010/small+venues+large.jpg",
     "list": [{
         "category": "Location",
         "description": "5150 Upper Ridge Road, West Valley City "
@@ -1383,6 +1439,7 @@
     }]
 }, {
     "title": "Vivint Smart Home Arena ",
+    "image": "https://static1.squarespace.com/static/53ff6ee6e4b02adad6b9e8aa/t/59e51f878a02c74e66cb73b1/1508188045010/small+venues+large.jpg",
     "list": [{
         "category": "Location",
         "description": "301 W. South Temple "
