@@ -1,4 +1,5 @@
 (function () {
+    // add new interactives here
     var interactives = {
         list: {
             type: "list",

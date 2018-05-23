@@ -1,6 +1,10 @@
+// import new interactives here
 import List from './list.js';
 
 window.Newsroom = {
+    parameter: function(interactive, parameter) {
+        return interactive.getAttribute('data-' + parameter);
+    },
     ajax: function (src) {
         return new Promise(function (res, rej) {
             var request = new XMLHttpRequest;
@@ -17,7 +21,9 @@ window.Newsroom = {
             var interactive = interactives[x],
                 type = interactive.getAttribute('data-type');
             if (!type) console.warn('Newsroom Interactives: There was no type set for the interactive.');
-            else if (type === 'list') new List(interactive, interactive.getAttribute('data-src'), interactive.getAttribute('data-style'));
+            // follow pattern below to add new interactives
+            else if (type === 'list') new List(interactive, Newsroom.parameter(interactive, 'src'), Newsroom.parameter(interactive, 'style'));
+            console.warn('Newsroom Interactives: There was no type set for the interactive.');
         }
     }
 }
