@@ -4,20 +4,13 @@ Tools built for interactive data presentations!
 
 ### Creating A New Interactive
 
-To create a new interactive, start by generating a style and script file with the same name in these directories:
-
-```
-    src/scripts/my-interactive.js
-    src/styles/my-interactive.scss
-```
-
-In the newly created script file, export your interactive as a function.
+To create a new interactive, start by generating a script in "src/scripts/my-interactive.js" and stylesheet in "src/styles/my-interactive.scss" with the same name. In the newly created script file, export your interactive as a function.
 
 ```js
     export default function MyInteractive(container, otherPatameters) {}
 ```
 
-Then import the function into the "app.js". 
+Then import the function into the "src/scripts/app.js". 
 
 ```js
     import MyInteractive from './my-ineractive.js';
