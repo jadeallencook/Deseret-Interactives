@@ -6,7 +6,8 @@
   "scripts": {
     "styles": "scss src/styles/main.scss:dist/newsroom.min.css --watch",
     "scripts": "webpack --watch",
-    "server": "php -S localhost:8000"
+    "server": "php -S localhost:8000",
+    "new": "php new.php $1"
   },
   "repository": {
     "type": "git",
