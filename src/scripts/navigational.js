@@ -1,1 +1,3 @@
-export default function Navigational(container) {}
+export default function Navigational(container, json) {
+    console.log(json);
+}

@@ -1,6 +1,10 @@
 (function () {
     // add new interactives here
     var interactives = {
+		navigational: {
+            type: "navigational",
+			json: "src/json/religion-bills.json"
+		},
         list: {
             type: "list",
             src: "../src/json/music-venues-short.json"

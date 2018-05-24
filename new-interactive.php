@@ -36,7 +36,7 @@ fclose($file);
 // main app.js
 $string = file_get_contents("app.js");
 $string = str_replace("var interactives = {", "var interactives = {\n\t" . $name . ": '<div class=\"interactive\" data-type=\"" . $name . "\"></div>',", $string);
-$file = fopen("examples/app.js", "w") or die("Unable to open file!");
+$file = fopen("app.js", "w") or die("Unable to open file!");
 fwrite($file, $string);
 fclose($file);
 

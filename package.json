@@ -7,7 +7,8 @@
     "styles": "scss src/styles/main.scss:dist/newsroom.min.css --watch",
     "scripts": "webpack --watch",
     "server": "php -S localhost:8000",
-    "new": "php new.php $1"
+    "new": "php new-interactive.php $1",
+    "pass": "php new-parameter.php $1 $2 $3"
   },
   "repository": {
     "type": "git",
