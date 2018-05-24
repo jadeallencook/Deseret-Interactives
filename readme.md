@@ -4,33 +4,17 @@ Tools built for interactive data presentations!
 
 ### Creating A New Interactive
 
-To create a new interactive, start by generating a script in "src/scripts/" and a stylesheet in "src/styles/" with the same name. In the newly created script file, export your interactive as a function.
-
-```js
-    export default function MyInteractive(container, otherPatameters) {}
-```
-
-Then import the function into the "src/scripts/app.js". 
-
-```js
-    import MyInteractive from './my-ineractive.js';
-```
-
-And attach it to the "init" method on the "Newsroom" object.
-
-```js
-    else if (type === 'my-interactive') new MyInteractive(interactive, Newsroom.parameter(interactive, 'example'));
-```
-
-Now that you have the development enviroment setup, you'll need a preview so you can see what you're working on. To create the preview, edit this file: 
+To create a new interactive, run the following script.
 
 ```sh
-    examples/app.js
+    npm run new myInteractive
 ```
 
-In the "interactives" object, create a new object with the title of your interactive (the key will be the hash that you pass via the homepage). The only nessasry key/value pair you'll need is a "type" because the type corresponds with the type you pass "src/scripts/app.js". Then to complete everything, just copy/paste the interactive element in the "index.html" that describes your project. You'll notice that the "preview" link goes to "examples/#myInteractive".
+That will generate a script and scss file in the "src" folder. To pass parameters to your interactive, just do the following.
 
-### Development Tools 
+```sh
+    npm run pass myInteractive myParameter myValue
+```
 
 Turn on Webpack, SCSS, and PHP once you have an interactive created that you want to start building. If you don't have any of those, you can use NPM to install them! 
 
