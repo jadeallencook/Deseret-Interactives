@@ -29,5 +29,48 @@ div.interactive[data-type="list"] ul {
     width: 100%;
     float: none;
     margin: 15px 0px; } }
+div.interactive[data-type="timeline"] {
+  width: 350px;
+  margin: 25px 25px 25px 0px;
+  float: left;
+  overflow: hidden;
+  text-align: left; }
+  div.interactive[data-type="timeline"] h1 {
+    line-height: 1em; }
+  div.interactive[data-type="timeline"] h2.header-title {
+    border-bottom: solid thin grey;
+    padding-bottom: 25px; }
+  div.interactive[data-type="timeline"] div.timeline-container div.timeline {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin-top: 25px; }
+    div.interactive[data-type="timeline"] div.timeline-container div.timeline div.timeline-spot {
+      height: 25px;
+      width: 100%; }
+      div.interactive[data-type="timeline"] div.timeline-container div.timeline div.timeline-spot div.dot {
+        background-color: white;
+        border: solid medium red;
+        height: 8px;
+        width: 8px;
+        border-radius: 100%;
+        margin-top: -8px; }
+      div.interactive[data-type="timeline"] div.timeline-container div.timeline div.timeline-spot div.line {
+        width: 100%;
+        height: 3px;
+        background-color: red;
+        position: relative;
+        z-index: -5; }
+      div.interactive[data-type="timeline"] div.timeline-container div.timeline div.timeline-spot div.large {
+        height: 16px;
+        width: 16px;
+        margin-top: -12px; }
+      div.interactive[data-type="timeline"] div.timeline-container div.timeline div.timeline-spot div.dot:hover {
+        cursor: pointer; }
+  div.interactive[data-type="timeline"] div.timeline-container img.timeline-image {
+    max-width: 100%;
+    max-height: 150px;
+    margin: 25px 0px; }
+  div.interactive[data-type="timeline"] div.timeline-container span.image-caption {
+    font-size: 0.75em; }
 
 /*# sourceMappingURL=newsroom.min.css.map */

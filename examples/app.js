@@ -4,6 +4,12 @@
         list: {
             type: "list",
             src: "../src/json/music-venues.json"
+        }, timeline: {
+            type: "timeline",
+            src: "../src/json/ancestry-1.json",
+            color: "green",
+            title: "The Early Years",
+            height: "625"
         }
     }
     var hash = window.location.hash.replace('#', '');

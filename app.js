@@ -1,7 +1,8 @@
 var libs = '<script src="https://www.deseretnews.com/project/newsroom.min.js"></\script>\n';
 libs += '<link rel="stylesheet" href="https://www.deseretnews.com/project/newsroom.min.css" />\n';
 var interactives = {
-    list: '<div class="interactive" data-type="list" data-src="link/to/your.json" data-style="1"></div>'
+    list: '<div class="interactive" data-type="list" data-src="https://www.linkto.com/your.json" data-style="1"></div>',
+    timeline: '<div class="interactive" data-type="timeline" data-src="https://www.linkto.com/your.json" data-color="green" data-title="My Title" data-height="625"></div>'
 }
 
 function fallbackCopyTextToClipboard(text) {
