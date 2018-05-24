@@ -40,6 +40,9 @@ div.interactive[data-type="timeline"] {
   div.interactive[data-type="timeline"] h2.header-title {
     border-bottom: solid thin grey;
     padding-bottom: 25px; }
+  div.interactive[data-type="timeline"] div.timeline-container h2 {
+    font-weight: bold;
+    margin-bottom: 5px; }
   div.interactive[data-type="timeline"] div.timeline-container div.timeline {
     display: grid;
     grid-template-columns: 1fr 1fr;

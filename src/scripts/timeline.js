@@ -52,6 +52,7 @@ export default function Timeline(container, json, color, title, height) {
                 dot.onclick = function () {
                     var num = parseInt(this.getAttribute('data-num'));
                     var selected = json[num];
+                    if ('ga' in window) ga('send', 'event', 'Timeline', title, selected.year);
                     buildDate(selected, num);
                     clearInterval(autoTimeline);
                 }

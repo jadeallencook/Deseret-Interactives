@@ -12,6 +12,10 @@ div.interactive[data-type="timeline"] {
         padding-bottom: 25px;
     }
     div.timeline-container {
+        h2 {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
         div.timeline {
             display: grid;
             grid-template-columns: 1fr 1fr;
