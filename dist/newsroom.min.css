@@ -24,4 +24,10 @@ div.interactive[data-type="list"] ul {
   div.interactive[data-type="list"] ul li {
     margin-bottom: 15px; }
 
+@media only screen and (max-device-width: 480px) {
+  div.interactive[data-type="list"] a div {
+    width: 100%;
+    float: none;
+    margin: 15px 0px; } }
+
 /*# sourceMappingURL=newsroom.min.css.map */

@@ -12,8 +12,14 @@
         div#wrapper {
             padding-left: 0;
             width: calc(100% - 200px);
-            margin: 0 100px;
+            margin: 0px 100px;
             padding: 25px 0px;
+        }
+        @media only screen and (max-device-width: 480px) {
+            div#wrapper {
+                width: calc(100% - 20px);
+                margin: 0px 10px;
+            }
         }
     </style>
 </head>

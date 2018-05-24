@@ -31,3 +31,13 @@ div.interactive[data-type="list"] {
         }
     }
 }
+
+@media only screen and (max-device-width: 480px) {
+    div.interactive[data-type="list"] {
+        a div {
+            width: 100%;
+            float: none;
+            margin: 15px 0px;
+        }
+    }
+}
