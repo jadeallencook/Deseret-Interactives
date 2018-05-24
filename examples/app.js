@@ -3,13 +3,13 @@
     var interactives = {
         list: {
             type: "list",
-            src: "../src/json/music-venues.json"
+            src: "../src/json/music-venues-short.json"
         }, timeline: {
             type: "timeline",
             src: "../src/json/ancestry-1.json",
             color: "green",
             title: "The Early Years",
-            height: "625"
+            height: "635"
         }
     }
     var hash = window.location.hash.replace('#', '');

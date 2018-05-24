@@ -10,7 +10,7 @@ export default function List(container, json, style) {
                     listElem = document.createElement('a'),
                     titleElem = document.createElement('h1'),
                     imgElem = document.createElement('div'),
-                    subListElem = document.createElement('ul');
+                    subListElem = document.createElement('div');
                 listElem.setAttribute('id', item.title.replace(/[^A-Za-z0-9]/g, ''));
                 titleElem.innerText = item.title;
                 if (item.color) {
@@ -18,6 +18,7 @@ export default function List(container, json, style) {
                     titleElem.style.borderColor = item.color;
                 }
                 imgElem.style.backgroundImage = 'url(' + item.image + ')';
+                imgElem.classList.add('item-image');
                 if (item.float) {
                     var float = item.float;
                     imgElem.style.float = float;
@@ -25,7 +26,7 @@ export default function List(container, json, style) {
                     else if (float === 'left') imgElem.style.margin = '0px 15px 15px 0px';
                 }
                 for (var y = 0; y < list.length; y++) {
-                    var itemElem = document.createElement('li');
+                    var itemElem = document.createElement('p');
                     itemElem.innerText = list[y].category + ': ' + list[y].description;
                     subListElem.appendChild(itemElem);
                 }
