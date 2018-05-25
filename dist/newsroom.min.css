@@ -79,7 +79,7 @@ div.interactive[data-type="timeline"] {
     font-size: 0.75em; }
 
 div.interactive[data-type="faqs"] {
-  width: 350px;
+  width: 300px;
   height: 450px;
   float: left;
   margin: 25px 25px 25px 0px;
