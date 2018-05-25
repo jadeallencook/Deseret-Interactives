@@ -5,7 +5,7 @@ $name = $argv[1];
 
 // create new scss and js files
 $file = fopen("src/styles/" . $name . ".scss", "w") or die("Unable to open file!");
-fwrite($file, "div.interactive[data-type=\"" . $name . "\"] {}");
+fwrite($file, "div.interactive[data-type=\"" . $name . "\"] {}\n@media only screen and (max-device-width: 480px) {div.interactive[data-type=\"" . $name . "\"] {}}");
 fclose($file);
 $file = fopen("src/scripts/" . $name . ".js", "w") or die("Unable to open file!");
 fwrite($file, "export default function " . ucwords($name) . "(container) {}");

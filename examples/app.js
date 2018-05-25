@@ -1,9 +1,14 @@
 (function () {
     // add new interactives here
     var interactives = {
+		faqs: {
+			type: "faqs",
+			menuImage: "../src/images/cn-white-temple.svg",
+			json: "../src/json/temple-info.json"
+		},
 		navigational: {
             type: "navigational",
-			json: "src/json/religion-bills.json"
+			json: "../src/json/religion-bills.json"
 		},
         list: {
             type: "list",
