@@ -1,6 +1,12 @@
 (function () {
     // add new interactives here
     var interactives = {
+		bullets: {
+			type: "bullets",
+			color: "#4089b3",
+			title: "How institutions can build trust",
+			json: "../src/json/building-trust.json"
+		},
 		faqs: {
 			type: "faqs",
 			menuImage: "../src/images/cn-white-temple.svg",

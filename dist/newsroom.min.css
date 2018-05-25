@@ -129,5 +129,31 @@ div.interactive[data-type="faqs"] {
   div.interactive[data-type="faqs"] {
     margin: 25px 0px;
     width: 100%; } }
+div.interactive[data-type="bullets"] {
+  display: block;
+  float: left;
+  margin: 15px 25px 0px 0px;
+  width: 300px; }
+  div.interactive[data-type="bullets"] h1 {
+    font-size: 1.5em;
+    line-height: 1em; }
+  div.interactive[data-type="bullets"] div {
+    width: 100%;
+    background-color: grey;
+    box-sizing: border-box;
+    padding: 5px 15px;
+    margin-bottom: 5px;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: white; }
+  div.interactive[data-type="bullets"] ul {
+    margin: 0px;
+    margin-bottom: 15px; }
+
+@media only screen and (max-device-width: 480px) {
+  div.interactive[data-type="bullets"] {
+    margin: 25px 0px;
+    float: none;
+    width: 100%; } }
 
 /*# sourceMappingURL=newsroom.min.css.map */
