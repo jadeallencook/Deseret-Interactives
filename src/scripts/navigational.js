@@ -9,6 +9,25 @@ export default function Navigational(container, json) {
         var color = json.settings.color;
         var categories = json.categories;
         var states = [];
+        function resize() {
+            var elem = document.querySelector('div.icons');
+            if (window.innerWidth > 800) {
+                var gridColumns = '';
+                R.e(categories, function (category) {
+                    gridColumns += '1fr ';
+                });
+                elem.style.gridTemplateColumns = gridColumns;
+            } else if (window.innerWidth > 600) {
+                elem.style.gridTemplateColumns = '1fr 1fr 1fr 1fr';
+            } else if (window.innerWidth > 500) {
+                elem.style.gridTemplateColumns = '1fr 1fr 1fr';
+            } else if (window.innerWidth > 350) {
+                elem.style.gridTemplateColumns = '1fr 1fr 1fr';
+            } else {
+                elem.style.gridTemplateColumns = '1fr';
+            }
+        }
+        window.onresize = resize;
         var get = {
             states: function () {
                 R.e(json.bullets, function (section) {
@@ -18,14 +37,24 @@ export default function Navigational(container, json) {
             }
         }
         var containers = {
+            snap: function() {
+                var elem = R.c('a', '▲');
+                elem.classList.add('snap');
+                elem.setAttribute('href', '#snap');
+                if (color) elem.style.backgroundColor = color;
+                var snap = R.c('a');
+                snap.classList.add('snap-location');
+                snap.setAttribute('id', 'snap');
+                R.a(container, snap);
+                R.a(container, elem);
+            },
             icons: function () {
-                var elem, gridColumns = '';
+                var elem;
                 if (!document.querySelector('div.icons')) elem = R.c('div');
                 else elem = document.querySelector('div.icons');
                 elem.innerHTML = null;
                 elem.classList.add('icons');
                 R.e(categories, function (category) {
-                    gridColumns += '1fr ';
                     var iconElem = R.c(['a', 'img', 'span']);
                     var anchor = category.title.toLowerCase();
                     anchor = anchor.replace(/\W/g, '');
@@ -34,17 +63,17 @@ export default function Navigational(container, json) {
                     R.a(elem, iconElem);
                     iconElem.childNodes[0].setAttribute('src', category.image);
                     iconElem.childNodes[1].innerText = category.title;
-                    iconElem.onclick = function() {
+                    iconElem.onclick = function () {
                         if ('ga' in window) ga('send', 'event', 'Navigational', 'Icon Clicked', this.getAttribute('href'));
-                        var scroll = setTimeout(function() {
+                        var scroll = setTimeout(function () {
                             window.scrollBy(0, -75);
                             clearTimeout(scroll);
                         }, 1);
                     }
                     if (color) iconElem.childNodes[1].style.color = color;
                 });
-                elem.style.gridTemplateColumns = gridColumns;
                 container.append(elem);
+                resize();
             },
             dropdown: function () {
                 get.states();
@@ -152,6 +181,7 @@ export default function Navigational(container, json) {
                 });
             },
             build: function () {
+                containers.snap();
                 containers.icons();
                 containers.dropdown();
                 containers.description();
