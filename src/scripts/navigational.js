@@ -35,6 +35,7 @@ export default function Navigational(container, json) {
                     iconElem.childNodes[0].setAttribute('src', category.image);
                     iconElem.childNodes[1].innerText = category.title;
                     iconElem.onclick = function() {
+                        if ('ga' in window) ga('send', 'event', 'Navigational', 'Icon Clicked', this.getAttribute('href'));
                         var scroll = setTimeout(function() {
                             window.scrollBy(0, -75);
                             clearTimeout(scroll);
@@ -67,6 +68,7 @@ export default function Navigational(container, json) {
                 R.a(dropdown.childNodes[0], viewAll);
                 dropdown.childNodes[0].onchange = function () {
                     var selected = this.value;
+                    if ('ga' in window) ga('send', 'event', 'Navigational', 'Dropdown Selected', selected);
                     R.e(document.querySelectorAll('a.section ul li'), function (elem) {
                         elem.style.display = 'block';
                     });
