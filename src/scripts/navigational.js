@@ -53,8 +53,37 @@ export default function Navigational(container, json) {
                 R.a(dropdown.childNodes[0], defaultOption);
                 R.e(states, function (state) {
                     var option = R.c('option', state);
+                    option.setAttribute('value', state);
                     R.a(dropdown.childNodes[0], option);
                 });
+                var viewAll = R.c('option', 'View All');
+                viewAll.setAttribute('value', 'all');
+                R.a(dropdown.childNodes[0], viewAll);
+                dropdown.childNodes[0].onchange = function () {
+                    var selected = this.value;
+                    if (selected !== 'all') {
+                        R.e(document.querySelectorAll('a.section ul li'), function (elem) {
+                            var state = elem.getAttribute('data-state');
+                            if (state !== selected) elem.style.display = 'none';
+                            else elem.style.display = 'block';
+                        });
+                        R.e(document.querySelectorAll('a.section ul'), function (elem) {
+                            var children = false;
+                            R.e(elem.childNodes, function (child) {
+                                if (child.style.display === 'block') children = true;
+                            });
+                            if (!children) elem.previousSibling.style.display = 'none';
+                            else elem.previousSibling.style.display = 'block';
+                        });
+                    } else {
+                        R.e(document.querySelectorAll('a.section ul li'), function (elem) {
+                            elem.style.display = 'block';
+                        });
+                        R.e(document.querySelectorAll('a.section ul'), function (elem) {
+                            elem.previousSibling.style.display = 'block';
+                        });
+                    }
+                }
                 R.a(container, dropdown);
             },
             description: function () {
@@ -89,12 +118,17 @@ export default function Navigational(container, json) {
                             R.e(subs[sub.title], function (item) {
                                 var subElem = R.c('li', item.description);
                                 subElem.style.backgroundImage = 'url(' + sub.image + ')';
+                                subElem.setAttribute('data-state', item.state);
                                 R.a(subList, subElem);
+                                for (var x = 0; x < item.bills.length; x++) {
+                                    var bill = item.bills[x];
+                                    var link = '<a href="' + item.links[x] + '" target="_blank">' + bill + '</a>';
+                                    subElem.innerHTML = subElem.innerHTML.replace(bill, link);
+                                }
                             })
                             R.a(section, subList);
                         }
                     });
-                    console.log(subs);
                     R.a(container, section);
                 });
             },

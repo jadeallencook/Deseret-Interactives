@@ -142,6 +142,8 @@ div.interactive[data-type="navigational"] {
         background-size: 20px;
         background-repeat: no-repeat;
         background-position: 0 .25em; }
+        div.interactive[data-type="navigational"] a.section ul li a {
+          color: #000; }
 
 div.interactive[data-type="faqs"] {
   width: 300px;

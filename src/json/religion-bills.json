@@ -689,7 +689,7 @@
             "subcategory": "Dead",
             "state": "Mississippi",
             "bills": ["HB618", "SB2828"],
-            "links": ["http://billstatus.ls.state.ms.us/documents/2018/pdf/HB/0600-0699/HB0618IN.pdf http://billstatus.ls.state.ms.us/documents/2018/html/SB/2800-2899/SB2828IN.htm"],
+            "links": ["http://billstatus.ls.state.ms.us/documents/2018/pdf/HB/0600-0699/HB0618IN.pdf", "http://billstatus.ls.state.ms.us/documents/2018/html/SB/2800-2899/SB2828IN.htm"],
             "description": "HB618 and SB2828 would have repealed the Protecting Freedom of Conscience from Government Discrimination Act. Additionally, HB618 would have repealed the Mississippi Religious Freedom Restoration Act. "
         },
         {
