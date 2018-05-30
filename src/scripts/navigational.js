@@ -116,7 +116,7 @@ export default function Navigational(container, json) {
                             R.a(section, listTitle);
                             var subList = R.c('ul');
                             R.e(subs[sub.title], function (item) {
-                                var subElem = R.c('li', item.description);
+                                var subElem = R.c('li', item.state + ': ' + item.description);
                                 subElem.style.backgroundImage = 'url(' + sub.image + ')';
                                 subElem.setAttribute('data-state', item.state);
                                 R.a(subList, subElem);
