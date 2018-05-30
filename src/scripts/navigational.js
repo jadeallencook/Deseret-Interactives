@@ -34,6 +34,12 @@ export default function Navigational(container, json) {
                     R.a(elem, iconElem);
                     iconElem.childNodes[0].setAttribute('src', category.image);
                     iconElem.childNodes[1].innerText = category.title;
+                    iconElem.onclick = function() {
+                        var scroll = setTimeout(function() {
+                            window.scrollBy(0, -75);
+                            clearTimeout(scroll);
+                        }, 1);
+                    }
                     if (color) iconElem.childNodes[1].style.color = color;
                 });
                 elem.style.gridTemplateColumns = gridColumns;
@@ -61,6 +67,15 @@ export default function Navigational(container, json) {
                 R.a(dropdown.childNodes[0], viewAll);
                 dropdown.childNodes[0].onchange = function () {
                     var selected = this.value;
+                    R.e(document.querySelectorAll('a.section ul li'), function (elem) {
+                        elem.style.display = 'block';
+                    });
+                    R.e(document.querySelectorAll('a.section ul'), function (elem) {
+                        elem.previousSibling.style.display = 'block';
+                    });
+                    R.e(document.querySelectorAll('a.section'), function (elem) {
+                        elem.style.display = 'block';
+                    });
                     if (selected !== 'all') {
                         R.e(document.querySelectorAll('a.section ul li'), function (elem) {
                             var state = elem.getAttribute('data-state');
@@ -75,12 +90,14 @@ export default function Navigational(container, json) {
                             if (!children) elem.previousSibling.style.display = 'none';
                             else elem.previousSibling.style.display = 'block';
                         });
-                    } else {
-                        R.e(document.querySelectorAll('a.section ul li'), function (elem) {
-                            elem.style.display = 'block';
-                        });
-                        R.e(document.querySelectorAll('a.section ul'), function (elem) {
-                            elem.previousSibling.style.display = 'block';
+                        R.e(document.querySelectorAll('a.section'), function (elem) {
+                            var showSection = false;
+                            R.e(elem.childNodes, function (label) {
+                                if (label.tagName === 'SPAN') {
+                                    if (label.style.display === 'block') showSection = true;
+                                }
+                            });
+                            if (!showSection) elem.style.display = 'none';
                         });
                     }
                 }
