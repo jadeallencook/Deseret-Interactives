@@ -36,11 +36,11 @@ window.Newsroom = {
     },
     rapid: function () {
         // append
-        this.a = function(container, elem) {
+        this.a = function (container, elem) {
             container.appendChild(elem);
         }
         // create 
-        this.c = function(elems, text) {
+        this.c = function (elems, text) {
             var elem = null;
             if (Array.isArray(elems)) {
                 var container = document.createElement(elems[0]);
@@ -53,6 +53,12 @@ window.Newsroom = {
                 var elem = document.createElement(elems);
                 if (text) elem.innerText = text;
                 return elem;
+            }
+        }
+        // each
+        this.e = function (array, callback) {
+            for (var x = 0; x < array.length; x++) {
+                callback(array[x]);
             }
         }
     }

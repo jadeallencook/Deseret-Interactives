@@ -78,6 +78,71 @@ div.interactive[data-type="timeline"] {
   div.interactive[data-type="timeline"] div.timeline-container span.image-caption {
     font-size: 0.75em; }
 
+div.interactive[data-type="navigational"] {
+  padding: 50px 0px; }
+  div.interactive[data-type="navigational"] div.icons {
+    display: grid;
+    text-align: center; }
+    div.interactive[data-type="navigational"] div.icons a:hover {
+      opacity: 0.5;
+      cursor: pointer;
+      text-decoration: none; }
+    div.interactive[data-type="navigational"] div.icons a {
+      white-space: nowrap;
+      color: #000; }
+      div.interactive[data-type="navigational"] div.icons a img {
+        width: 75px;
+        margin: 5px auto;
+        display: block; }
+      div.interactive[data-type="navigational"] div.icons a span {
+        font-size: 0.75em; }
+  div.interactive[data-type="navigational"] .custom-select {
+    margin: 25px auto 0px auto;
+    display: block; }
+  div.interactive[data-type="navigational"] .custom-select select {
+    background: transparent;
+    width: 100%;
+    padding: 5px;
+    font-size: 16px;
+    line-height: 1.1;
+    border: 0;
+    border-radius: 0;
+    margin-bottom: 2px; }
+  div.interactive[data-type="navigational"] p {
+    margin: 25px 0px; }
+  div.interactive[data-type="navigational"] a.section:hover {
+    text-decoration: none; }
+  div.interactive[data-type="navigational"] a.section {
+    display: block;
+    float: left;
+    color: #000;
+    margin-bottom: 50px; }
+    div.interactive[data-type="navigational"] a.section img {
+      width: 150px;
+      display: block;
+      float: left;
+      margin: 0px 25px 5px 0px; }
+    div.interactive[data-type="navigational"] a.section h2 {
+      display: block;
+      color: #000;
+      font-weight: bold; }
+    div.interactive[data-type="navigational"] a.section span.description {
+      margin-bottom: 25px;
+      display: block; }
+    div.interactive[data-type="navigational"] a.section span.sub-title {
+      display: block;
+      font-weight: bold; }
+    div.interactive[data-type="navigational"] a.section ul {
+      list-style-type: none;
+      padding: 0px;
+      margin: 0px; }
+      div.interactive[data-type="navigational"] a.section ul li {
+        padding-left: 30px;
+        margin: 15px 0px;
+        background-size: 20px;
+        background-repeat: no-repeat;
+        background-position: 0 .25em; }
+
 div.interactive[data-type="faqs"] {
   width: 300px;
   height: 450px;
