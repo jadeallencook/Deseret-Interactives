@@ -81,15 +81,16 @@ div.interactive[data-type="timeline"] {
 div.interactive[data-type="navigational"] {
   padding: 50px 0px; }
   div.interactive[data-type="navigational"] div.icons {
-    display: grid;
     text-align: center; }
     div.interactive[data-type="navigational"] div.icons a:hover {
       opacity: 0.5;
       cursor: pointer;
       text-decoration: none; }
     div.interactive[data-type="navigational"] div.icons a {
+      display: inline-block;
       white-space: nowrap;
-      color: #000; }
+      color: #000;
+      margin: 5px; }
       div.interactive[data-type="navigational"] div.icons a img {
         width: 75px;
         margin: 5px auto;
@@ -101,13 +102,14 @@ div.interactive[data-type="navigational"] {
     display: block; }
   div.interactive[data-type="navigational"] .custom-select select {
     background: transparent;
-    width: 100%;
+    width: 110%;
     padding: 5px;
     font-size: 16px;
     line-height: 1.1;
     border: 0;
     border-radius: 0;
-    margin-bottom: 2px; }
+    margin-bottom: 2px;
+    -webkit-appearance: none; }
   div.interactive[data-type="navigational"] p {
     margin: 25px 0px; }
   div.interactive[data-type="navigational"] a.section:hover {

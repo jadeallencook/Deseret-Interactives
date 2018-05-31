@@ -9,25 +9,6 @@ export default function Navigational(container, json) {
         var color = json.settings.color;
         var categories = json.categories;
         var states = [];
-        function resize() {
-            var elem = document.querySelector('div.icons');
-            if (window.innerWidth > 800) {
-                var gridColumns = '';
-                R.e(categories, function (category) {
-                    gridColumns += '1fr ';
-                });
-                elem.style.gridTemplateColumns = gridColumns;
-            } else if (window.innerWidth > 600) {
-                elem.style.gridTemplateColumns = '1fr 1fr 1fr 1fr';
-            } else if (window.innerWidth > 500) {
-                elem.style.gridTemplateColumns = '1fr 1fr 1fr';
-            } else if (window.innerWidth > 350) {
-                elem.style.gridTemplateColumns = '1fr 1fr 1fr';
-            } else {
-                elem.style.gridTemplateColumns = '1fr';
-            }
-        }
-        window.onresize = resize;
         var get = {
             states: function () {
                 R.e(json.bullets, function (section) {
@@ -73,7 +54,6 @@ export default function Navigational(container, json) {
                     if (color) iconElem.childNodes[1].style.color = color;
                 });
                 container.append(elem);
-                resize();
             },
             dropdown: function () {
                 get.states();

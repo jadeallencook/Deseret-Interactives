@@ -1,7 +1,6 @@
 div.interactive[data-type="navigational"] {
     padding: 50px 0px;
     div.icons {
-        display: grid;
         text-align: center;
         a:hover {
             opacity: 0.5;
@@ -9,8 +8,10 @@ div.interactive[data-type="navigational"] {
             text-decoration: none;
         }
         a {
+            display: inline-block;
             white-space: nowrap;
             color: #000;
+            margin: 5px;
             img {
                 width: 75px;
                 margin: 5px auto;
@@ -27,13 +28,14 @@ div.interactive[data-type="navigational"] {
     }
     .custom-select select {
         background: transparent;
-        width: 100%;
+        width: 110%;
         padding: 5px;
         font-size: 16px;
         line-height: 1.1;
         border: 0;
         border-radius: 0;
         margin-bottom: 2px;
+        -webkit-appearance:none;
     }
     p {
         margin: 25px 0px;
