@@ -116,6 +116,14 @@
         },
         {
             "category": "On Campus",
+            "subcategory": "Passed",
+            "state": "Virginia",
+            "bills": ["HB344"],
+            "links": ["http://lis.virginia.gov/cgi-bin/legp604.exe?181+ful+HB344ER"],
+            "description": "HB344 requires public college and university leaders to adopt and distribute a free-speech policy and publish an annual report outlining violations. "
+        },
+        {
+            "category": "On Campus",
             "subcategory": "Pending",
             "state": "California",
             "bills": ["AB2374"],
@@ -173,14 +181,6 @@
         {
             "category": "On Campus",
             "subcategory": "Pending",
-            "state": "Michigan",
-            "bills": ["HJRP"],
-            "links": ["http://www.legislature.mi.gov/documents/2017-2018/jointresolutionintroduced/House/pdf/2017-HIJR-P.pdf"],
-            "description": "HJRP would give the state legislature the authority to pass legislation related to free-speech policies at public colleges and universities."
-        },
-        {
-            "category": "On Campus",
-            "subcategory": "Pending",
             "state": "Minnesota",
             "bills": ["HF2726", "SF2469"],
             "links": ["https://www.revisor.mn.gov/bills/text.php?number=HF2726&version=latest&session=ls90&session_year=2018&session_number=0 ", "https://www.revisor.mn.gov/bills/text.php?number=SF2469&version=latest&session=ls90&session_year=2018&session_number=0"],
@@ -233,6 +233,22 @@
             "bills": ["HB4440 ", "SB1085"],
             "links": ["http://www.scstatehouse.gov/sess122_2017-2018/prever/4440_20171213.htm", "http://www.scstatehouse.gov/sess122_2017-2018/prever/1085_20180306.htm"],
             "description": "HB4440 and SB1085 would require public college and university leaders to adopt a free speech policy and publish an annual report of related violations. Additionally, SB1085 would instruct school officials to outline sanctions awaiting a student who interferes with the speech rights of another student. "
+        },
+        {
+            "category": "On Campus",
+            "subcategory": "Pending",
+            "state": "West Virginia",
+            "bills": ["HB4203", "SB111"],
+            "links": ["http://www.wvlegislature.gov/Bill_Text_HTML/2018_SESSIONS/RS/bills/hb4203%20intr.pdf", "http://www.wvlegislature.gov/Bill_Text_HTML/2018_SESSIONS/RS/bills/SB111%20INTR.pdf"],
+            "description": "HB4203 and SB111 would require public school and university leaders to develop a campus policy on free expression and publish an annual report on related violations. Additionally, SB111 would ensure religious student groups receive the same perks as other groups. "
+        },
+        {
+            "category": "On Campus",
+            "subcategory": "Pending",
+            "state": "West Virginia",
+            "bills": ["HB2335"],
+            "links": ["http://www.wvlegislature.gov/Bill_Text_HTML/2018_SESSIONS/RS/bills/hb2335%20intr.pdf"],
+            "description": "HB2335 would prevent public college and university leaders from basing faculty hiring and firing decisions, as well as student grades, on religious or political beliefs. "
         },
         {
             "category": "On Campus",
@@ -296,7 +312,23 @@
             "state": "Utah",
             "bills": ["HB398"],
             "links": ["https://le.utah.gov/~2018/bills/hbillint/HB0398S01.pdf"],
-            "description": "HB398 would prohibit a college or university from punishing speech acts that do not include discriminatory harassment. "
+            "description": "HB 398 would have prohibited a college or university from punishing speech acts that do not include discriminatory harassment. "
+        },
+        {
+            "category": "On Campus",
+            "subcategory": "Dead",
+            "state": "Virginia",
+            "bills": ["HB1274"],
+            "links": ["http://lis.virginia.gov/cgi-bin/legp604.exe?181+ful+HB1274+hil"],
+            "description": "HB1274 would have affirmed the right of anyone lawfully on campus to freely express his or her opinions. Additionally, it would have made it illegal to treat a student organization differently than other campus groups because of an act of lawful expression or faith-based membership policies. "
+        },
+        {
+            "category": "On Campus",
+            "subcategory": "Dead",
+            "state": "Wyoming",
+            "bills": ["HB137"],
+            "links": ["http://www.wyoleg.gov/2018/Introduced/HB0137.pdf"],
+            "description": "HB137 would have required public college and university leaders to adopt a campus policy on free speech and publish an annual report on related violations."
         },
         {
             "category": "Service Refusals",
@@ -324,6 +356,14 @@
         },
         {
             "category": "Service Refusals",
+            "subcategory": "Pending",
+            "state": "Washington",
+            "bills": ["HB1178"],
+            "links": ["http://lawfilesext.leg.wa.gov/biennium/2017-18/Pdf/Bills/House%20Bills/1178.pdf"],
+            "description": "HB1178 would protect corporations, state employees, hospitals and other residents who believe marriage is properly between one man and one woman from state interference. "
+        },
+        {
+            "category": "Service Refusals",
             "subcategory": "Dead",
             "state": "Colorado",
             "bills": ["HB18-1206"],
@@ -347,7 +387,7 @@
             "description": "SB1250 would have prevented the state from penalizing residents who object to same-sex marriage for religious reasons."
         },
         {
-            "category": "LGBT Rights",
+            "category": "LGBT rights",
             "subcategory": "Passed",
             "state": "New Hampshire",
             "bills": ["HB1319"],
@@ -355,7 +395,7 @@
             "description": "HB1319 prevents discrimination based on gender identity in housing, hiring and public accommodation."
         },
         {
-            "category": "LGBT Rights",
+            "category": "LGBT rights",
             "subcategory": "Pending",
             "state": "Alaska",
             "bills": ["HB184"],
@@ -363,7 +403,7 @@
             "description": "HB184 would prohibit discrimination based on sexual orientation or gender identity in housing, hiring and public accommodation, but provide exemptions for religious organizations.  "
         },
         {
-            "category": "LGBT Rights",
+            "category": "LGBT rights",
             "subcategory": "Pending",
             "state": "Arizona",
             "bills": ["HB2437", "HB2586", "HB2462", "SB1314"],
@@ -371,7 +411,7 @@
             "description": "HB2437, HB2586, HB2462 and SB1314 all seek to prevent discrimination based on sexual orientation or gender identity. They would provide exemptions for religious employers. "
         },
         {
-            "category": "LGBT Rights",
+            "category": "LGBT rights",
             "subcategory": "Pending",
             "state": "Georgia",
             "bills": ["HB987"],
@@ -379,7 +419,7 @@
             "description": "HB987 would prohibit discrimination based on sexual orientation or gender identity in housing, hiring and public accommodation, but provide exemptions for religious organizations. "
         },
         {
-            "category": "LGBT Rights",
+            "category": "LGBT rights",
             "subcategory": "Pending",
             "state": "Hawaii",
             "bills": ["HB2139", "SB2353"],
@@ -387,7 +427,7 @@
             "description": "HB2139 and SB2353 would prohibit discrimination based on sexual orientation or gender identity in the context of any state-funded program. "
         },
         {
-            "category": "LGBT Rights",
+            "category": "LGBT rights",
             "subcategory": "Pending",
             "state": "Idaho",
             "bills": ["HB408"],
@@ -395,7 +435,7 @@
             "description": "HB408 would prohibit discrimination based on sexual orientation or gender identity in housing, hiring and public accommodation. "
         },
         {
-            "category": "LGBT Rights",
+            "category": "LGBT rights",
             "subcategory": "Pending",
             "state": "Indiana",
             "bills": ["SB285"],
@@ -403,7 +443,7 @@
             "description": "SB285 would prohibit discrimination based on sexual orientation or gender identity in housing, hiring and public accommodation, but it would exempt religious employers. "
         },
         {
-            "category": "LGBT Rights",
+            "category": "LGBT rights",
             "subcategory": "Pending",
             "state": "Kentucky",
             "bills": ["SB190", "HB195"],
@@ -411,7 +451,7 @@
             "description": "SB190 and HB195 would prohibit discrimination based on sexual orientation or gender identity in housing, hiring and public accommodation."
         },
         {
-            "category": "LGBT Rights",
+            "category": "LGBT rights",
             "subcategory": "Pending",
             "state": "Louisiana",
             "bills": ["SB219"],
@@ -419,7 +459,7 @@
             "description": "SB219 would amend hiring laws to ensure that job candidates are not discriminated against on the basis of their sexual orientation or gender identity. Religious employers would be exempt. "
         },
         {
-            "category": "LGBT Rights",
+            "category": "LGBT rights",
             "subcategory": "Pending",
             "state": "Missouri",
             "bills": ["HB1360", "HB2100", "HB1782", "SB753"],
@@ -427,7 +467,7 @@
             "description": "HB1360, HB2100, HB1782 and SB753 would prohibit discrimination based on sexual orientation and gender identity in housing, hiring and public accommodation. They would exempt religious employers. "
         },
         {
-            "category": "LGBT Rights",
+            "category": "LGBT rights",
             "subcategory": "Pending",
             "state": "New York",
             "bills": ["AB3358"],
@@ -435,7 +475,23 @@
             "description": "AB3358 would prohibit discrimination based on gender identity or expression in housing, hiring, education and public accommodation. Religious schools would still be allowed to restrict admission to members of their own faith."
         },
         {
-            "category": "LGBT Rights",
+            "category": "LGBT rights",
+            "subcategory": "Pending",
+            "state": "West Virginia",
+            "bills": ["HB4319", "SB471"],
+            "links": ["http://www.wvlegislature.gov/Bill_Text_HTML/2018_SESSIONS/RS/bills/hb4319%20intr.pdf", "http://www.wvlegislature.gov/Bill_Text_HTML/2018_SESSIONS/RS/bills/SB471%20INTR.pdf"],
+            "description": "HB4319 and SB471 would prohibit discrimination based on sexual orientation or gender identity in housing, hiring and public accommodation. "
+        },
+        {
+            "category": "LGBT rights",
+            "subcategory": "Pending",
+            "state": "West Virginia",
+            "bills": ["HB2670", "HB2623", "SB99"],
+            "links": ["http://www.wvlegislature.gov/Bill_Text_HTML/2018_SESSIONS/RS/bills/hb2670%20intr.pdf", "http://www.wvlegislature.gov/Bill_Status/bills_text.cfm?billdoc=hb2623%20intr.htm&yr=2018&sesstype=RS&i=2623", "http://www.wvlegislature.gov/Bill_Text_HTML/2018_SESSIONS/RS/bills/SB99%20INTR.pdf"],
+            "description": "HB2670, HB2623 and SB99 would prohibit discrimination based on sexual orientation in housing, hiring and public accommodation. It would provide exemptions for religious corporations, associations and schools, except when these organizations provide a state-funded service. "
+        },
+        {
+            "category": "LGBT rights",
             "subcategory": "Dead",
             "state": "Florida",
             "bills": ["SB66", "HB347"],
@@ -443,7 +499,7 @@
             "description": "SB66 and HB347 would have prevented discrimination based on sexual orientation or gender identity in housing, hiring and public accomodation and also created exemptions for religious groups. "
         },
         {
-            "category": "LGBT Rights",
+            "category": "LGBT rights",
             "subcategory": "Dead",
             "state": "Mississippi",
             "bills": ["HB545", "SB2933"],
@@ -451,7 +507,7 @@
             "description": "HB545 and SB2933 would have created the Mississippi Civil Rights Act, prohibiting discrimination based on religion, national origin, immigrant status, sexual orientation, gender identity, disability or familial status in the context of hiring, housing and public accommodation. They would have exempted religious employers. "
         },
         {
-            "category": "LGBT Rights",
+            "category": "LGBT rights",
             "subcategory": "Dead",
             "state": "Mississippi",
             "bills": ["HB597", "SB2829"],
@@ -459,7 +515,7 @@
             "description": "HB597 and SB2829 would have prohibited discrimination based on sexual orientation or gender identity in the realm of housing."
         },
         {
-            "category": "LGBT Rights",
+            "category": "LGBT rights",
             "subcategory": "Dead",
             "state": "Nebraska",
             "bills": ["LB173"],
@@ -467,12 +523,36 @@
             "description": "LB173 would have prohibited discrimination based on sexual orientation or gender identity in housing, hiring and public accommodation."
         },
         {
-            "category": "LGBT Rights",
+            "category": "LGBT rights",
             "subcategory": "Dead",
             "state": "New York",
             "bills": ["SB7010"],
             "links": ["http://assembly.state.ny.us/leg/?default_fld=&bn=S07010&term=2017&Summary=Y&Actions=Y&Text=Y&Committee%26nbspVotes=Y&Floor%26nbspVotes=Y"],
             "description": "SB7010 would have prohibited discrimination based on gender identity or expression in housing, hiring, education and public accommodation. Religious schools would have still been allowed to restrict admission to members of their own faith."
+        },
+        {
+            "category": "LGBT rights",
+            "subcategory": "Dead",
+            "state": "Virginia",
+            "bills": ["HB401"],
+            "links": ["https://lis.virginia.gov/cgi-bin/legp604.exe?181+ful+HB401+pdf"],
+            "description": "HB401 would have prohibited discrimination based on sexual orientation or gender identity in employment and housing. It would have allowed religious organizations to sell or rent their properties only to members of their faith groups. "
+        },
+        {
+            "category": "LGBT rights",
+            "subcategory": "Dead",
+            "state": "Virginia",
+            "bills": ["HB971", "HB1547", "SB423"],
+            "links": ["https://lis.virginia.gov/cgi-bin/legp604.exe?181+ful+HB971+pdf", "https://lis.virginia.gov/cgi-bin/legp604.exe?181+ful+HB1547+pdf", "https://lis.virginia.gov/cgi-bin/legp604.exe?181+ful+SB423+pdf"],
+            "description": "HB971, HB1547 and SB423 would have prohibited discrimination based on gender identity in housing. HB1547 and SB423 would have also prohibited sexual orientation discrimination. "
+        },
+        {
+            "category": "LGBT rights",
+            "subcategory": "Dead",
+            "state": "Wisconsin",
+            "bills": ["SB867"],
+            "links": ["http://docs.legis.wisconsin.gov/2017/related/proposals/sb867.pdf"],
+            "description": "SB867 would have prohibited discrimination based on gender identity in employment. "
         },
         {
             "category": "Health Care",
@@ -580,6 +660,22 @@
         },
         {
             "category": "Health Care",
+            "subcategory": "Pending",
+            "state": "Virginia",
+            "bills": ["SB907"],
+            "links": ["http://lis.virginia.gov/cgi-bin/legp604.exe?181+ful+SB907S1"],
+            "description": "SB907 would mandate contraception coverage in employer health plans. It would exempt employers with religious objections to birth control, so long as employees were properly notified. "
+        },
+        {
+            "category": "Health Care",
+            "subcategory": "Pending",
+            "state": "Washington",
+            "bills": ["SB6102", "HB2908"],
+            "links": ["http://lawfilesext.leg.wa.gov/biennium/2017-18/Pdf/Bills/Senate%20Bills/6102-S.pdf", "http://lawfilesext.leg.wa.gov/biennium/2017-18/Pdf/Bills/House%20Bills/2908.pdf"],
+            "description": "SB6102 and HB2908 would mandate contraception coverage in employer health plans, unless a plan is offered by a religious employer with moral objections to birth control. "
+        },
+        {
+            "category": "Health Care",
             "subcategory": "Dead",
             "state": "Colorado",
             "bills": ["HB18-1438"],
@@ -617,6 +713,22 @@
             "bills": ["HB2627"],
             "links": ["http://www.capitol.tn.gov/Bills/110/Bill/HB2627.pdf"],
             "description": "HB2627 would have required coverage of contraception in employer health plans, except plans offered by religious employers who object to birth control. "
+        },
+        {
+            "category": "Health Care",
+            "subcategory": "Dead",
+            "state": "Virginia",
+            "bills": ["HB21"],
+            "links": ["http://lis.virginia.gov/cgi-bin/legp604.exe?181+ful+HB21"],
+            "description": "HB21 would have mandated contraception coverage in employer health plans. It would have exempted employers with religious objections to birth control, so long as employees were properly notified. "
+        },
+        {
+            "category": "Health Care",
+            "subcategory": "Dead",
+            "state": "Virginia",
+            "bills": ["HB631"],
+            "links": ["http://lis.virginia.gov/cgi-bin/legp604.exe?181+ful+HB631"],
+            "description": "HB631 would have required employers who do not cover contraception for religious reasons to clearly notify current and prospective employees of this policy."
         },
         {
             "category": "Misc.",
@@ -684,10 +796,26 @@
         },
         {
             "category": "Misc.",
+            "subcategory": "Pending",
+            "state": "West Virginia",
+            "bills": ["HB3097", "SB93"],
+            "links": ["http://www.wvlegislature.gov/Bill_Text_HTML/2018_SESSIONS/RS/bills/hb3097%20intr.pdf", "http://www.wvlegislature.gov/Bill_Text_HTML/2018_SESSIONS/RS/bills/SB93%20INTR.pdf"],
+            "description": "HB3097 and SB93 would ensure there is a compelling state interest behind any policy that burdens a resident's religious exercise rights. The bills are similar to the federal Religious Freedom Restoration Act, but don't use that title. "
+        },
+        {
+            "category": "Misc.",
+            "subcategory": "Pending",
+            "state": "West Virginia",
+            "bills": ["HB4010"],
+            "links": ["http://www.wvlegislature.gov/Bill_Text_HTML/2018_SESSIONS/RS/bills/hb4010%20intr.pdf"],
+            "description": "HB4010 would ensure that no religious representative or house of worship could be forced to participate in a marriage ceremony that violates his or her sincerely held beliefs. "
+        },
+        {
+            "category": "Misc.",
             "subcategory": "Dead",
             "state": "Mississippi",
             "bills": ["HB618", "SB2828"],
-            "links": ["http://billstatus.ls.state.ms.us/documents/2018/pdf/HB/0600-0699/HB0618IN.pdf", "http://billstatus.ls.state.ms.us/documents/2018/html/SB/2800-2899/SB2828IN.htm"],
+            "links": ["http://billstatus.ls.state.ms.us/documents/2018/pdf/HB/0600-0699/HB0618IN.pdf http://billstatus.ls.state.ms.us/documents/2018/html/SB/2800-2899/SB2828IN.htm"],
             "description": "HB618 and SB2828 would have repealed the Protecting Freedom of Conscience from Government Discrimination Act. Additionally, HB618 would have repealed the Mississippi Religious Freedom Restoration Act. "
         },
         {
