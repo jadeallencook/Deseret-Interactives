@@ -126,7 +126,7 @@ export default function Navigational(container, json) {
                     section.setAttribute('id', anchor);
                     section.childNodes[0].setAttribute('src', category.image);
                     section.childNodes[1].innerText = category.title;
-                    section.childNodes[2].innerText = category.description;
+                    section.childNodes[2].innerHTML = category.description;
                     section.childNodes[2].classList.add('description');
                     if (color) section.childNodes[1].style.color = color;
                     var subs = {};

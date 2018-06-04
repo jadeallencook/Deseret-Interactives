@@ -51,7 +51,7 @@ window.Newsroom = {
                 return container;
             } else {
                 var elem = document.createElement(elems);
-                if (text) elem.innerText = text;
+                if (text) elem.innerHTML = text;
                 return elem;
             }
         }
