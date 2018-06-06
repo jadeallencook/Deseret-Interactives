@@ -1,6 +1,12 @@
 (function () {
     // add new interactives here
     var interactives = {
+		slideshow: {
+			type: "slideshow",
+			title: "Coral Bleaching",
+			color: "#67A0B6",
+			json: "../src/json/coral-bleaching.json"
+		},
 		bullets: {
 			type: "bullets",
 			color: "#4089b3",
