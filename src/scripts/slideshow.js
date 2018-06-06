@@ -11,6 +11,7 @@ export default function Slideshow(container, title, color, json) {
         R.a(container, next);
         next.onclick = function() {
             current++;
+            if ('ga' in window) ga('send', 'event', 'Slideshow', title, (current + 1));
             show(current);
         }
         
