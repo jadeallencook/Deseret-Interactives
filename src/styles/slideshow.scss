@@ -40,7 +40,7 @@ div.interactive[data-type="slideshow"] {
     div {
         width: 75px;
         margin-left: 25px;
-        background-color: rgba(255, 255, 255, 0.5);
+        background-color: rgba(255, 255, 255, 0.35);
         float: right;
         height: 550px;
         position: relative;
@@ -48,13 +48,13 @@ div.interactive[data-type="slideshow"] {
             background-color: rgba(255, 255, 255, 0);
             width: 0;
             height: 0;
-            border-top: 60px solid transparent;
-            border-bottom: 60px solid transparent;
-            border-left: 60px solid #888;
+            border-top: 30px solid transparent;
+            border-bottom: 30px solid transparent;
+            border-left: 30px solid #888;
             left: -1px;
             position: absolute;
             margin-left: 0px;
-            top: 40%;
+            top: 45%;
         }
     }
     div:hover {
