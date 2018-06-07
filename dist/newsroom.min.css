@@ -283,7 +283,7 @@ div.interactive[data-type="slideshow"] {
     left: 10%;
     width: 65%; }
   div.interactive[data-type="slideshow"] div {
-    width: 75px;
+    width: 45px;
     margin-left: 25px;
     background-color: rgba(255, 255, 255, 0.35);
     float: right;
