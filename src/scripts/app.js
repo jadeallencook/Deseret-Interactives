@@ -5,6 +5,7 @@ import Navigational from './navigational.js';
 import Faqs from './faqs.js';
 import Bullets from './bullets.js';
 import Slideshow from './slideshow.js';
+import Choropleth from './choropleth.js';
 
 window.Newsroom = {
     parameter: function (interactive, parameter) {
@@ -33,6 +34,7 @@ window.Newsroom = {
             else if (type === 'faqs') new Faqs(interactive, Newsroom.parameter(interactive, 'menuImage'), Newsroom.parameter(interactive, 'json'));
             else if (type === 'bullets') new Bullets(interactive, Newsroom.parameter(interactive, 'color'), Newsroom.parameter(interactive, 'title'), Newsroom.parameter(interactive, 'json'));
             else if (type === 'slideshow') new Slideshow(interactive, Newsroom.parameter(interactive, 'title'), Newsroom.parameter(interactive, 'color'), Newsroom.parameter(interactive, 'json'));
+			else if (type === 'choropleth') new Choropleth(interactive, Newsroom.parameter(interactive, 'usm'));
 			else console.warn('Newsroom Interactives: There was no type set for the interactive.');
         }
     },

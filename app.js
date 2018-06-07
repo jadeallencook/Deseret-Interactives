@@ -1,6 +1,7 @@
 var libs = '<script src="https://www.deseretnews.com/project/newsroom.min.js"></\script>\n';
 libs += '<link rel="stylesheet" href="https://www.deseretnews.com/project/newsroom.min.css" />\n';
 var interactives = {
+	choropleth: '<div class="interactive" data-type="choropleth" data-usm="#"></div>',
 	slideshow: '<div class="interactive" data-type="slideshow" data-title="#" data-color="#" data-json="#"></div>',
 	bullets: '<div class="interactive" data-type="bullets" data-color="#" data-title="#" data-json="#"></div>',
 	faqs: '<div class="interactive" data-type="faqs" data-menuImage="#" data-json="#"></div>',

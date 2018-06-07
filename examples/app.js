@@ -1,6 +1,10 @@
 (function () {
     // add new interactives here
     var interactives = {
+		choropleth: {
+			type: "choropleth",
+			usm: "../src/json/choropleth.json"
+		},
 		slideshow: {
 			type: "slideshow",
 			title: "Coral Bleaching",
