@@ -31,7 +31,7 @@ export default function Choropleth(container, usm) {
             attribution: 'Developed by <a href="#" target="_blank">Jade Allen Cook</a> for <a href="#" target="_blank">Deseret News</a>',
             maxZoom: 18,
             id: 'mapbox.streets',
-            accessToken: 'pk.eyJ1IjoiamFkZWFsbGVuY29vayIsImEiOiJjamU3cTA5ZDgwNTNnMnFvMWRjdnI1aXYzIn0.63_s4EQVQur7r670eBY3DA',
+            accessToken: 'pk.eyJ1IjoiamFkZWNvb2siLCJhIjoiY2ppNmt2MmVqMDF1cTN1cGZocW81bDF6byJ9.vp9JctWvs_8Jgxy17qSTZw',
             style: 'mapbox://styles/mapbox/light-v9'
         }).addTo(map);
 
