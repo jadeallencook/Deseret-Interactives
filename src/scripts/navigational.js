@@ -18,7 +18,7 @@ export default function Navigational(container, json) {
             }
         }
         var containers = {
-            snap: function() {
+            snap: function () {
                 var elem = R.c('a', '▲');
                 elem.classList.add('snap');
                 elem.setAttribute('href', '#snap');
@@ -36,22 +36,24 @@ export default function Navigational(container, json) {
                 elem.innerHTML = null;
                 elem.classList.add('icons');
                 R.e(categories, function (category) {
-                    var iconElem = R.c(['a', 'img', 'span']);
-                    var anchor = category.title.toLowerCase();
-                    anchor = anchor.replace(/\W/g, '');
-                    anchor = '#' + anchor;
-                    iconElem.setAttribute('href', anchor);
-                    R.a(elem, iconElem);
-                    iconElem.childNodes[0].setAttribute('src', category.image);
-                    iconElem.childNodes[1].innerText = category.title;
-                    iconElem.onclick = function () {
-                        if ('ga' in window) ga('send', 'event', 'Navigational', 'Icon Clicked', this.getAttribute('href'));
-                        var scroll = setTimeout(function () {
-                            window.scrollBy(0, -75);
-                            clearTimeout(scroll);
-                        }, 1);
+                    if (category.title) {
+                        var iconElem = R.c(['a', 'img', 'span']);
+                        var anchor = category.title.toLowerCase();
+                        anchor = anchor.replace(/\W/g, '');
+                        anchor = '#' + anchor;
+                        iconElem.setAttribute('href', anchor);
+                        R.a(elem, iconElem);
+                        iconElem.childNodes[0].setAttribute('src', category.image);
+                        iconElem.childNodes[1].innerText = category.title;
+                        iconElem.onclick = function () {
+                            if ('ga' in window) ga('send', 'event', 'Navigational', 'Icon Clicked', this.getAttribute('href'));
+                            var scroll = setTimeout(function () {
+                                window.scrollBy(0, -75);
+                                clearTimeout(scroll);
+                            }, 1);
+                        }
+                        if (color) iconElem.childNodes[1].style.color = color;
                     }
-                    if (color) iconElem.childNodes[1].style.color = color;
                 });
                 container.append(elem);
             },
@@ -119,45 +121,51 @@ export default function Navigational(container, json) {
             },
             sections: function () {
                 R.e(categories, function (category) {
-                    var section = R.c(['a', 'img', 'h2', 'span']);
-                    section.classList.add('section');
-                    var anchor = category.title.toLowerCase();
-                    anchor = anchor.replace(/\W/g, '');
-                    section.setAttribute('id', anchor);
-                    section.childNodes[0].setAttribute('src', category.image);
-                    section.childNodes[1].innerText = category.title;
-                    section.childNodes[2].innerHTML = category.description;
-                    section.childNodes[2].classList.add('description');
-                    if (color) section.childNodes[1].style.color = color;
-                    var subs = {};
-                    R.e(json.subcategories, function (sub) {
-                        subs[sub.title] = [];
-                    });
-                    R.e(json.bullets, function (bullet) {
-                        if (category.title === bullet.category) subs[bullet.subcategory].push(bullet);
-                    });
-                    R.e(json.subcategories, function (sub) {
-                        if (subs[sub.title].length > 0) {
-                            var listTitle = R.c('span');
-                            listTitle.innerText = sub.title;
-                            listTitle.classList.add('sub-title');
-                            R.a(section, listTitle);
-                            var subList = R.c('ul');
-                            R.e(subs[sub.title], function (item) {
-                                var subElem = R.c('li', item.state + ': ' + item.description);
-                                subElem.style.backgroundImage = 'url(' + sub.image + ')';
-                                subElem.setAttribute('data-state', item.state);
-                                R.a(subList, subElem);
-                                for (var x = 0; x < item.bills.length; x++) {
-                                    var bill = item.bills[x];
-                                    var link = '<a href="' + item.links[x] + '" target="_blank">' + bill + '</a>';
-                                    subElem.innerHTML = subElem.innerHTML.replace(bill, link);
-                                }
-                            })
-                            R.a(section, subList);
-                        }
-                    });
-                    R.a(container, section);
+                    if (category.title) {
+                        var section = R.c(['a', 'img', 'h2', 'span']);
+                        section.classList.add('section');
+                        var anchor = category.title.toLowerCase();
+                        anchor = anchor.replace(/\W/g, '');
+                        section.setAttribute('id', anchor);
+                        section.childNodes[0].setAttribute('src', category.image);
+                        section.childNodes[1].innerText = category.title;
+                        section.childNodes[2].innerHTML = category.description;
+                        section.childNodes[2].classList.add('description');
+                        if (color) section.childNodes[1].style.color = color;
+                        var subs = {};
+                        R.e(json.subcategories, function (sub) {
+                            subs[sub.title] = [];
+                        });
+                        R.e(json.bullets, function (bullet) {
+                            if (category.title === bullet.category) subs[bullet.subcategory].push(bullet);
+                        });
+                        R.e(json.subcategories, function (sub) {
+                            if (subs[sub.title].length > 0) {
+                                var listTitle = R.c('span');
+                                listTitle.innerText = sub.title;
+                                listTitle.classList.add('sub-title');
+                                R.a(section, listTitle);
+                                var subList = R.c('ul');
+                                R.e(subs[sub.title], function (item) {
+                                    var subElem = R.c('li', item.state + ': ' + item.description);
+                                    subElem.style.backgroundImage = 'url(' + sub.image + ')';
+                                    subElem.setAttribute('data-state', item.state);
+                                    R.a(subList, subElem);
+                                    for (var x = 0; x < item.bills.length; x++) {
+                                        var bill = item.bills[x];
+                                        var link = '<a href="' + item.links[x] + '" target="_blank">' + bill + '</a>';
+                                        subElem.innerHTML = subElem.innerHTML.replace(bill, link);
+                                    }
+                                })
+                                R.a(section, subList);
+                            }
+                        });
+                        R.a(container, section);
+                    } else {
+                        var image = R.c('img');
+                        image.setAttribute('src', category.image);
+                        R.a(container, image);
+                    }
                 });
             },
             build: function () {

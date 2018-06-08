@@ -80,6 +80,9 @@ div.interactive[data-type="timeline"] {
 
 div.interactive[data-type="navigational"] {
   padding: 50px 0px; }
+  div.interactive[data-type="navigational"] img {
+    width: 100%;
+    margin-bottom: 65px; }
   div.interactive[data-type="navigational"] div.icons {
     text-align: center; }
     div.interactive[data-type="navigational"] div.icons a:hover {
