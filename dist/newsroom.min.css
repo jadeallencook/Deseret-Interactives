@@ -80,6 +80,11 @@ div.interactive[data-type="timeline"] {
 
 div.interactive[data-type="navigational"] {
   padding: 50px 0px; }
+  div.interactive[data-type="navigational"] p:first-of-type {
+    font-size: 1em;
+    overflow: hidden;
+    color: #000;
+    line-height: 1em; }
   div.interactive[data-type="navigational"] img {
     width: 100%;
     margin-bottom: 65px; }
@@ -95,7 +100,7 @@ div.interactive[data-type="navigational"] {
       color: #000;
       margin: 5px; }
       div.interactive[data-type="navigational"] div.icons a img {
-        width: 75px;
+        width: 70px;
         margin: 5px auto;
         display: block; }
       div.interactive[data-type="navigational"] div.icons a span {

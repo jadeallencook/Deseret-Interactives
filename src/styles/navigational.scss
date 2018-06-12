@@ -1,5 +1,11 @@
 div.interactive[data-type="navigational"] {
     padding: 50px 0px;
+    p:first-of-type {
+        font-size: 1em;
+        overflow: hidden;
+        color: #000;
+        line-height: 1em;
+    }
     img {
         width: 100%;
         margin-bottom: 65px;
@@ -17,7 +23,7 @@ div.interactive[data-type="navigational"] {
             color: #000;
             margin: 5px;
             img {
-                width: 75px;
+                width: 70px;
                 margin: 5px auto;
                 display: block;
             }
@@ -39,7 +45,7 @@ div.interactive[data-type="navigational"] {
         border: 0;
         border-radius: 0;
         margin-bottom: 2px;
-        -webkit-appearance:none;
+        -webkit-appearance: none;
     }
     p {
         margin: 25px 0px;
