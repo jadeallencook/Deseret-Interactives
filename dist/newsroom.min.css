@@ -95,7 +95,7 @@ div.interactive[data-type="navigational"] {
     font-size: 1em;
     overflow: hidden;
     color: #000;
-    line-height: 1em; }
+    line-height: 1.2em; }
   div.interactive[data-type="navigational"] img {
     width: 100%;
     margin-bottom: 65px; }
@@ -376,6 +376,17 @@ div.interactive[data-type="lineGraph"] div#graph {
       border-right: thin dashed grey;
       height: 30px;
       margin-top: -8px; }
+      div.interactive[data-type="lineGraph"] div#graph div.row div.year div.dot {
+        height: 10px;
+        width: 10px;
+        border-radius: 5px;
+        background-color: grey;
+        cursor: pointer;
+        margin-right: -5px;
+        margin-top: 10px;
+        float: right; }
+      div.interactive[data-type="lineGraph"] div#graph div.row div.year div.dot:hover {
+        opacity: 0.5; }
     div.interactive[data-type="lineGraph"] div#graph div.row div.year-label {
       float: right;
       width: 10px;
