@@ -1,0 +1,20 @@
+{
+    "title": "Youth suicide rates on the rise",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce dapibus, tellus ac cursus commodo.",
+    "footer": "*Tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Aenean lacinia bibendum nulla sed consectetur.",
+    "lines": [{
+        "title": "Utah",
+        "color": "green",
+        "values": [3, 4.7, 4.6, 5.8, 4.6, 5.9, 8.1, 8.5, 11.1]
+    }, {
+        "title": "U.S.",
+        "color": "blue",
+        "values": [2.4, 2.9, 3.1, 3, 3.4, 3.5, 3.7, 4, 4.2]
+    }],
+    "increment": 2,
+    "years": {
+        "start": 2007,
+        "end": 2015,
+        "increment": 1
+    }
+}

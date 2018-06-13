@@ -1,0 +1,40 @@
+div.interactive[data-type="lineGraph"] {
+    span {
+        font-size: 0.75em;
+        font-style: italic;
+        display: block;
+    }
+    div#graph {
+        margin-bottom: 35px;
+        div.row {
+            border-bottom: solid thin grey;
+            width: 80%;
+            height: 15px;
+            margin-left: 45px;
+            white-space: nowrap;
+            div.value {
+                margin-left: -45px;
+                margin-top: 18px;
+            }
+            div.year {
+                display: inline-block;
+                width: 10px;
+                border-right: thin dashed grey;    
+                height: 30px;
+                margin-top: -8px;
+            }
+            div.year-label {
+                float: right;
+                width: 10px;
+                margin-top: -5px;
+                margin-right: 5px;
+                margin-left: -5px;
+                height: 30px;
+                font-size: 0.75em;
+                text-align: center;
+                border-right: thin dashed rgba(0,0,0,0);
+            }
+        }
+    }
+}
+@media only screen and (max-device-width: 480px) {div.interactive[data-type="lineGraph"] {}}

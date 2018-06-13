@@ -1,3 +1,14 @@
+div.interactive h2 {
+  font-size: 2em;
+  font-weight: bold;
+  line-height: 1em; }
+
+div.interactive.inline {
+  display: block;
+  float: left;
+  margin: 15px 25px 25px 0px;
+  width: 300px; }
+
 div.interactive[data-type="list"] {
   margin-top: 50px; }
   div.interactive[data-type="list"] h1 {
@@ -343,5 +354,37 @@ div.interactive[data-type="choropleth"] {
     float: left;
     margin-right: 8px;
     opacity: 0.7; }
+
+div.interactive[data-type="lineGraph"] span {
+  font-size: 0.75em;
+  font-style: italic;
+  display: block; }
+div.interactive[data-type="lineGraph"] div#graph {
+  margin-bottom: 35px; }
+  div.interactive[data-type="lineGraph"] div#graph div.row {
+    border-bottom: solid thin grey;
+    width: 80%;
+    height: 15px;
+    margin-left: 45px;
+    white-space: nowrap; }
+    div.interactive[data-type="lineGraph"] div#graph div.row div.value {
+      margin-left: -45px;
+      margin-top: 18px; }
+    div.interactive[data-type="lineGraph"] div#graph div.row div.year {
+      display: inline-block;
+      width: 10px;
+      border-right: thin dashed grey;
+      height: 30px;
+      margin-top: -8px; }
+    div.interactive[data-type="lineGraph"] div#graph div.row div.year-label {
+      float: right;
+      width: 10px;
+      margin-top: -5px;
+      margin-right: 5px;
+      margin-left: -5px;
+      height: 30px;
+      font-size: 0.75em;
+      text-align: center;
+      border-right: thin dashed rgba(0, 0, 0, 0); }
 
 /*# sourceMappingURL=newsroom.min.css.map */

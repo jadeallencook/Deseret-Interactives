@@ -6,6 +6,7 @@ import Faqs from './faqs.js';
 import Bullets from './bullets.js';
 import Slideshow from './slideshow.js';
 import Choropleth from './choropleth.js';
+import LineGraph from './lineGraph.js';
 
 window.Newsroom = {
     parameter: function (interactive, parameter) {
@@ -34,8 +35,9 @@ window.Newsroom = {
             else if (type === 'faqs') new Faqs(interactive, Newsroom.parameter(interactive, 'menuImage'), Newsroom.parameter(interactive, 'json'));
             else if (type === 'bullets') new Bullets(interactive, Newsroom.parameter(interactive, 'color'), Newsroom.parameter(interactive, 'title'), Newsroom.parameter(interactive, 'json'));
             else if (type === 'slideshow') new Slideshow(interactive, Newsroom.parameter(interactive, 'title'), Newsroom.parameter(interactive, 'color'), Newsroom.parameter(interactive, 'json'));
-			else if (type === 'choropleth') new Choropleth(interactive, Newsroom.parameter(interactive, 'usm'));
-			else console.warn('Newsroom Interactives: There was no type set for the interactive.');
+            else if (type === 'choropleth') new Choropleth(interactive, Newsroom.parameter(interactive, 'usm'));
+            else if (type === 'lineGraph') new LineGraph(interactive);
+            else console.warn('Newsroom Interactives: There was no type set for the interactive.');
         }
     },
     rapid: function () {
@@ -54,16 +56,46 @@ window.Newsroom = {
                 }
                 return container;
             } else {
-                var elem = document.createElement(elems);
+                var elem 
+                if (elems.includes('.')) {
+                    var className = elems.substr(elems.indexOf('.') + 1),
+                    elemName = elems.substr(0, elems.indexOf('.')); 
+                    elem = document.createElement(elemName);
+                    elem.classList.add(className);
+                } else if (elems.includes('#')) {
+                    var id = elems.substr(elems.indexOf('#') + 1),
+                    elemName = elems.substr(0, elems.indexOf('#')); 
+                    elem = document.createElement(elemName);
+                    elem.setAttribute('id', id);
+                } else {
+                    elem = document.createElement(elems);
+                }
                 if (text) elem.innerHTML = text;
                 return elem;
             }
         }
         // each
         this.e = function (array, callback) {
-            for (var x = 0; x < array.length; x++) {
-                callback(array[x]);
+            var num;
+            if (array.length) num = array.length;
+            else num = array;
+            for (var x = 0; x < num; x++) {
+                var value;
+                if (!array[x]) value = num - x;
+                else value = array[x];
+                callback(value);
             }
+        }
+        // prepend
+        this.p = function(container, elem) {
+            container.prepend(elem);
+        }
+        // min & max
+        this.min = function (array) {
+            return Math.min.apply(Math, array);
+        }
+        this.max = function (array) {
+            return Math.max.apply(Math, array);
         }
     }
 }

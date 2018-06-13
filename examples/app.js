@@ -1,6 +1,9 @@
 (function () {
     // add new interactives here
     var interactives = {
+		lineGraph: {
+			type: "lineGraph"
+		},
 		choropleth: {
 			type: "choropleth",
 			usm: "../src/json/choropleth.json"
