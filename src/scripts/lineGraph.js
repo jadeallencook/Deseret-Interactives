@@ -43,15 +43,15 @@ export default function LineGraph(container) {
 
         // insert values into graph
         R.e(response.lines, function(line) {
-            console.log(line);
             var num = 0;
             R.e(line.values, function(value) {
                 var dot = R.c('div.dot');
                 dot.setAttribute('data-value', value);
-                var row = Math.floor((Math.floor(value) / response.increment)) * response.increment;
+                var row = (Math.floor((Math.floor(value) / response.increment)) * response.increment) + response.increment;
                 var elem = document.getElementById('row-' + row).childNodes[num + 1];
-                console.log(elem);
-                if (line.color) dot.style.backgroundColor = line.color;
+                dot.style.marginLeft = (elem.offsetWidth - 6) + 'px';
+                dot.style.marginTop = ((elem.offsetHeight * ((row - value) * 0.5)) - 2) + 'px';
+                if (line.color) dot.style.borderColor = line.color;
                 R.a(elem, dot);
                 num++;
             })
