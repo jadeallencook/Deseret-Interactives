@@ -18,7 +18,7 @@ export default function LineGraph(container) {
             if (tempMin < min || !min) min = tempMin;
             if (tempMax > max || !max) max = tempMax;
         });
-        
+
         min = Math.floor(min);
         max = Math.ceil(max);
         var rows = (max - min) + 1;
@@ -29,7 +29,7 @@ export default function LineGraph(container) {
             R.a(row, R.c('div.value', num))
             row.setAttribute('id', 'row-' + num);
             var years = ((response.years.end - (response.years.start - 1)) / response.years.increment);
-            R.e(years, function(year) {
+            R.e(years, function (year) {
                 year = (response.years.start + (year * response.years.increment)) - 1;
                 var column;
                 if (num === min) column = R.c('div.year-label', '\'' + year.toString().slice(2, 4));
@@ -42,9 +42,9 @@ export default function LineGraph(container) {
         R.a(container, graph);
 
         // insert values into graph
-        R.e(response.lines, function(line) {
+        R.e(response.lines, function (line) {
             var num = 0;
-            R.e(line.values, function(value) {
+            R.e(line.values, function (value) {
                 var dot = R.c('div.dot');
                 dot.setAttribute('data-value', value);
                 var row = (Math.floor((Math.floor(value) / response.increment)) * response.increment) + response.increment;
@@ -52,6 +52,20 @@ export default function LineGraph(container) {
                 dot.style.marginLeft = (elem.offsetWidth - 6) + 'px';
                 dot.style.marginTop = ((elem.offsetHeight * ((row - value) * 0.5)) - 2) + 'px';
                 if (line.color) dot.style.borderColor = line.color;
+                dot.onmouseover = function () {
+                    R.a(this, R.c('div.hud', this.getAttribute('data-value')));
+                }
+                dot.onclick = function () {
+                    R.e(document.querySelectorAll('div.dot'), function (clear) {
+                        clear.innerHTML = '';
+                    });
+                    R.a(this, R.c('div.hud', this.getAttribute('data-value')));
+                }
+                dot.onmouseout = function () {
+                    R.e(document.querySelectorAll('div.dot'), function (clear) {
+                        clear.innerHTML = '';
+                    });
+                }
                 R.a(elem, dot);
                 num++;
             })

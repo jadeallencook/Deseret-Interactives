@@ -9,6 +9,11 @@ div.interactive.inline {
   margin: 15px 25px 25px 0px;
   width: 300px; }
 
+@media only screen and (max-device-width: 480px) {
+  div.interactive.inline {
+    float: none;
+    width: 100%;
+    margin: 25px 0px; } }
 div.interactive[data-type="list"] {
   margin-top: 50px; }
   div.interactive[data-type="list"] h1 {
@@ -385,6 +390,16 @@ div.interactive[data-type="lineGraph"] div#graph {
         cursor: pointer;
         position: absolute;
         float: right; }
+        div.interactive[data-type="lineGraph"] div#graph div.row div.year div.dot div.hud {
+          background-color: white;
+          padding: 5px;
+          font-size: 0.75em;
+          position: absolute;
+          margin-top: -35px;
+          border: solid thin grey;
+          z-index: 9999;
+          border-radius: 3px;
+          margin-left: -8px; }
       div.interactive[data-type="lineGraph"] div#graph div.row div.year div.dot:hover {
         background-color: grey; }
     div.interactive[data-type="lineGraph"] div#graph div.row div.year-label {

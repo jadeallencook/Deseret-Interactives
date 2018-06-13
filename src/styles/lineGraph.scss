@@ -31,6 +31,17 @@ div.interactive[data-type="lineGraph"] {
                     cursor: pointer;
                     position: absolute;
                     float: right;
+                    div.hud {
+                        background-color: white;
+                        padding: 5px;
+                        font-size: 0.75em;
+                        position: absolute;
+                        margin-top: -35px;
+                        border: solid thin grey;
+                        z-index: 9999;
+                        border-radius: 3px;
+                        margin-left: -8px;
+                    }
                 }
                 div.dot:hover {
                     background-color: grey;
