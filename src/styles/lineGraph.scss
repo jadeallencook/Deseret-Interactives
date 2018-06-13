@@ -4,6 +4,22 @@ div.interactive[data-type="lineGraph"] {
         font-style: italic;
         display: block;
     }
+    div.keys {
+        margin-bottom: 15px;
+        text-align: center;
+        div.key {
+            display: inline-block;
+            margin: 0px 5px;
+            font-size: 0.75em;
+            div.color {
+                height: 10px;
+                width: 10px;
+                display: inline-block;
+                margin-left: 5px;
+                border-radius: 5px;
+            }
+        }
+    }
     div#graph {
         margin-bottom: 35px;
         div.row {
@@ -31,6 +47,7 @@ div.interactive[data-type="lineGraph"] {
                     cursor: pointer;
                     position: absolute;
                     float: right;
+                    z-index: 9999;
                     div.hud {
                         background-color: white;
                         padding: 5px;
@@ -41,6 +58,14 @@ div.interactive[data-type="lineGraph"] {
                         z-index: 9999;
                         border-radius: 3px;
                         margin-left: -8px;
+                    }
+                    div.line {
+                        border-top: solid 2px grey;
+                        margin-right: 6px;
+                        margin-top: 1px;
+                        width: 30px;
+                        transform-origin: right bottom;
+                        float: right;
                     }
                 }
                 div.dot:hover {
