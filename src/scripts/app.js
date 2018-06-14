@@ -28,7 +28,6 @@ window.Newsroom = {
             var interactive = interactives[x],
                 type = interactive.getAttribute('data-type');
             if (!type) console.warn('Newsroom Interactives: There was no type set for the interactive.');
-            // follow pattern below to add new interactives
             else if (type === 'list') new List(interactive, Newsroom.parameter(interactive, 'src'), Newsroom.parameter(interactive, 'style'));
             else if (type === 'timeline') new Timeline(interactive, Newsroom.parameter(interactive, 'src'), Newsroom.parameter(interactive, 'color'), Newsroom.parameter(interactive, 'title'), Newsroom.parameter(interactive, 'height'));
             else if (type === 'navigational') new Navigational(interactive, Newsroom.parameter(interactive, 'json'));
@@ -36,7 +35,7 @@ window.Newsroom = {
             else if (type === 'bullets') new Bullets(interactive, Newsroom.parameter(interactive, 'color'), Newsroom.parameter(interactive, 'title'), Newsroom.parameter(interactive, 'json'));
             else if (type === 'slideshow') new Slideshow(interactive, Newsroom.parameter(interactive, 'title'), Newsroom.parameter(interactive, 'color'), Newsroom.parameter(interactive, 'json'));
             else if (type === 'choropleth') new Choropleth(interactive, Newsroom.parameter(interactive, 'usm'));
-            else if (type === 'lineGraph') new LineGraph(interactive);
+            else if (type === 'lineGraph') new LineGraph(interactive, Newsroom.parameter(interactive, 'json'));
             else console.warn('Newsroom Interactives: There was no type set for the interactive.');
         }
     },

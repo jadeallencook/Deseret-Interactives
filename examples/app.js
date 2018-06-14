@@ -2,7 +2,8 @@
     // add new interactives here
     var interactives = {
 		lineGraph: {
-			type: "lineGraph"
+			type: "lineGraph",
+			json: "../src/json/suicide-rate.json"
 		},
 		choropleth: {
 			type: "choropleth",
