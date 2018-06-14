@@ -1,5 +1,5 @@
-export default function LineGraph(container) {
-    Newsroom.ajax('../src/json/suicide-rate.json').then(function (response) {
+export default function LineGraph(container, json) {
+    Newsroom.ajax(json).then(function (response) {
 
         // setup interactive
         var R = new Newsroom.rapid;
@@ -96,10 +96,12 @@ export default function LineGraph(container) {
                 }
                 dot.onmouseover = function () {
                     R.a(this, R.c('div.hud', this.getAttribute('data-value')));
+                    if ('ga' in window) ga('send', 'event', 'Line Graph', window.location.pathname, this.getAttribute('data-value'));
                 }
                 dot.onclick = function () {
                     document.querySelector('div.hud').remove();
                     R.a(this, R.c('div.hud', this.getAttribute('data-value')));
+                    if ('ga' in window) ga('send', 'event', 'Line Graph', window.location.pathname, this.getAttribute('data-value'));
                 }
                 dot.onmouseout = function () {
                     document.querySelector('div.hud').remove();
