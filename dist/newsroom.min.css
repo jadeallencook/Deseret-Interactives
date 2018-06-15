@@ -434,4 +434,44 @@ div.interactive[data-type="lineGraph"] div#graph {
       text-align: center;
       border-right: thin dashed rgba(0, 0, 0, 0); }
 
+div.interactive[data-type="profile"] {
+  margin: 25px 0px; }
+  div.interactive[data-type="profile"] div.profile {
+    display: inline-block;
+    padding-right: 25px;
+    box-sizing: border-box;
+    width: 50%;
+    margin: 0px 0px 25px 0px; }
+    div.interactive[data-type="profile"] div.profile div.info {
+      display: inline-block; }
+      div.interactive[data-type="profile"] div.profile div.info div.profile-image {
+        width: 125px;
+        height: 150px;
+        background-position: center center;
+        background-size: cover;
+        margin-right: 15px;
+        float: left;
+        vertical-align: top; }
+      div.interactive[data-type="profile"] div.profile div.info h2.profile-name {
+        font-size: 1.25em;
+        display: inline;
+        vertical-align: top; }
+    div.interactive[data-type="profile"] div.profile div.bullet {
+      padding: 15px 0px;
+      border-bottom: solid thin grey;
+      font-size: 0.75em; }
+    div.interactive[data-type="profile"] div.profile div.bullet.view-all {
+      border-bottom: none;
+      text-align: center;
+      cursor: pointer; }
+      div.interactive[data-type="profile"] div.profile div.bullet.view-all span.arrow {
+        margin-left: 25px;
+        font-size: 2em;
+        position: absolute;
+        margin-top: -10px; }
+
+@media only screen and (max-device-width: 480px) {
+  div.interactive[data-type="profile"] div.profile {
+    width: 100%; } }
+
 /*# sourceMappingURL=newsroom.min.css.map */
