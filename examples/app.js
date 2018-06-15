@@ -1,6 +1,12 @@
 (function () {
     // add new interactives here
     var interactives = {
+		profile: {
+			type: "profile",
+			allLink: "#",
+			allText: "View all apostles",
+			json: "../src/json/apostles.json"
+		},
 		lineGraph: {
 			type: "lineGraph",
 			json: "../src/json/suicide-rate.json"
