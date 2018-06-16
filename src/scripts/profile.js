@@ -15,7 +15,6 @@ export default function Profile(container, allLink, allText, json) {
             R.e(profile.bullets, function (bullet) {
                 R.a(elem, R.c('div.bullet', '<b>' + bullet.bullet + ':</b> ' + bullet.text));
             });
-            elem.style.width = '100%';
             return elem;
         }
 
@@ -28,6 +27,7 @@ export default function Profile(container, allLink, allText, json) {
                 window.location = allLink;
             }
             R.a(document.querySelector('div.profile'), viewAll);
+            document.querySelector('div.profile').style.width = '100%';
         } else {
             var count = 0;
             R.e(list, function () {
