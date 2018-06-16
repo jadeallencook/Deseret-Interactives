@@ -20,6 +20,7 @@ export default function Profile(container, allLink, allText, json) {
 
         if (list.length === 1) {
             container.classList.add('inline');
+            container.style.gridTemplateColumns = '1fr';
             R.a(container, profile(0));
             var viewAll = R.c('div.bullet', allText + '<span class="arrow">&#x3e;</span>');
             viewAll.classList.add('view-all');
