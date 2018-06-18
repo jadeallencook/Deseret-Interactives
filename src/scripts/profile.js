@@ -22,12 +22,14 @@ export default function Profile(container, allLink, allText, json) {
             container.classList.add('inline');
             container.style.gridTemplateColumns = '1fr';
             R.a(container, profile(0));
-            var viewAll = R.c('div.bullet', allText + '<span class="arrow">&#x3e;</span>');
-            viewAll.classList.add('view-all');
-            viewAll.onclick = function() {
-                window.location = allLink;
+            if (allLink && allText) {
+                var viewAll = R.c('div.bullet', allText + '<span class="arrow">&#x3e;</span>');
+                viewAll.classList.add('view-all');
+                viewAll.onclick = function () {
+                    window.location = allLink;
+                }
+                R.a(document.querySelector('div.profile'), viewAll);
             }
-            R.a(document.querySelector('div.profile'), viewAll);
             document.querySelector('div.profile').style.width = '100%';
         } else {
             var count = 0;
