@@ -5,7 +5,7 @@
 			type: "profile",
 			allLink: "#",
 			allText: "View all apostles",
-			json: "../src/json/ballard.json"
+			json: "../src/json/apostles.json"
 		},
 		lineGraph: {
 			type: "lineGraph",

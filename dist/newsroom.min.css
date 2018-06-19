@@ -437,13 +437,14 @@ div.interactive[data-type="lineGraph"] div#graph {
 div.interactive[data-type="profile"] {
   margin: 25px 0px;
   display: grid;
-  grid-template-columns: 1fr 1fr; }
+  grid-template-columns: 1fr; }
   div.interactive[data-type="profile"] div.profile {
     display: inline-block;
     padding-right: 25px;
     box-sizing: border-box;
     width: 100%;
-    margin: 0px 0px 25px 0px; }
+    max-width: 350px;
+    margin: 0px auto 25px auto; }
     div.interactive[data-type="profile"] div.profile div.info {
       display: inline-block; }
       div.interactive[data-type="profile"] div.profile div.info div.profile-image {
