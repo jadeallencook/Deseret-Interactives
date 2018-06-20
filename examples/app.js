@@ -3,9 +3,10 @@
     var interactives = {
 		profile: {
 			type: "profile",
+			color: "#4089b3",
 			allLink: "#",
 			allText: "View all apostles",
-			json: "../src/json/apostles.json"
+			json: "../src/json/ballard.json"
 		},
 		lineGraph: {
 			type: "lineGraph",

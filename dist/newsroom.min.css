@@ -6,7 +6,7 @@ div.interactive h2 {
 div.interactive.inline {
   display: block;
   float: left;
-  margin: 15px 25px 15px 0px;
+  margin: 10px 25px 15px 0px;
   width: 300px; }
 
 @media only screen and (max-device-width: 480px) {
@@ -435,7 +435,6 @@ div.interactive[data-type="lineGraph"] div#graph {
       border-right: thin dashed rgba(0, 0, 0, 0); }
 
 div.interactive[data-type="profile"] {
-  margin: 25px 0px;
   display: grid;
   grid-template-columns: 1fr; }
   div.interactive[data-type="profile"] div.profile {

@@ -1,4 +1,4 @@
-export default function Profile(container, allLink, allText, json) {
+export default function Profile(container, color, allLink, allText, json) {
     Newsroom.ajax(json).then(function (list) {
 
         var R = new Newsroom.rapid;
@@ -22,6 +22,12 @@ export default function Profile(container, allLink, allText, json) {
             container.classList.add('inline');
             container.style.gridTemplateColumns = '1fr';
             R.a(container, profile(0));
+            container.style.paddingTop = '25px';
+            var border = 'solid thick ';
+            if (color) border += color;
+            else border += 'grey';
+            container.style.borderTop = border;
+            container.style.borderBottom = border;
             if (allLink && allText) {
                 var viewAll = R.c('div.bullet', allText + '<span class="arrow">&#x3e;</span>');
                 viewAll.classList.add('view-all');
