@@ -113,6 +113,10 @@ export default function Navigational(container, json) {
                             if (!showSection) elem.style.display = 'none';
                         });
                     }
+                    var scrollDepth = this.parentNode.nextSibling.getBoundingClientRect().height;
+                    scrollDepth = scrollDepth + this.parentNode.nextSibling.offsetTop;
+                    scrollDepth = scrollDepth - 40;
+                    window.scrollBy(0, scrollDepth);
                 }
                 R.a(container, dropdown);
             },
