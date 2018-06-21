@@ -2,12 +2,16 @@ div.interactive[data-type="guessingGame"] {
     text-align: center;
     margin-bottom: 25px;
     margin-top: 25px;
-    img.gallary-preview {
+    div.gallary-preview {
         width: 150px;
         margin: 0px 2.5px 0px 2.5px;
         display: inline-block;
+        background-size: cover;
+        background-position: center center;
+        height: 100px;
+        background-color: grey;
     }
-    img.gallary-preview:hover {
+    div.gallary-preview:hover {
         cursor: pointer;
         opacity: 0.5;
     }
@@ -24,5 +28,41 @@ div.interactive[data-type="guessingGame"] {
         cursor: pointer;
         border-radius: 3px;
     }
+    img.answer-preview,
+    input.answer-input {
+        display: block;
+        margin: 0px auto 25px auto;
+    }
+    img.answer-preview {
+        width: 100%;
+    }
+    input.answer-input {
+        width: 90%;
+        max-width: 250px;
+        padding: 15px;
+        font-size: 1em;
+        border: solid thin grey;
+    }
+    div.submit-answers {
+        margin-top: 15px;
+        padding-top: 20px;
+        border-top: solid thin grey;
+        input {
+            display: block;
+            margin: 0px auto 25px auto;
+            width: 90%;
+            max-width: 250px;
+            padding: 15px;
+            font-size: 1em;
+            border: solid thin grey;
+        }
+    }
+    img.pswp__img {
+        max-height: none;
+        max-width: none;
+    }
 }
-@media only screen and (max-device-width: 480px) {div.interactive[data-type="guessingGame"] {}}
+
+@media only screen and (max-device-width: 480px) {
+    div.interactive[data-type="guessingGame"] {}
+}
