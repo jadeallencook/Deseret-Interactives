@@ -10,9 +10,6 @@ export default function GuessingGame(container, json) {
         var R = new Newsroom.rapid,
             pswpElement = document.querySelectorAll('.pswp')[0];
 
-        document.onclick = clear;
-        document.onscroll = clear;
-
         function clear() {
             if (pswpElement.getAttribute('aria-hidden') !== 'false') {
                 do {
@@ -63,22 +60,75 @@ export default function GuessingGame(container, json) {
 
         Promise.all(promises).then(function () {
             R.e(json, function (image) {
-                var elem = R.c('img');
-                elem.src = image;
+                var elem = R.c('div');
+                elem.style.backgroundImage = 'url(' + image + ')';
                 elem.classList.add('gallary-preview');
                 R.a(container, elem);
                 elem.onclick = gallery;
             });
             var submitBtn = R.c('button.submit-answers', 'Submit answers');
             R.a(container, submitBtn);
+            submitBtn.onclick = function () {
+                document.onclick = null;
+                document.onscroll = null;
+                container.innerHTML = null;
+                var count = 0;
+                R.e(json, function (image) {
+                    var elem = R.c('img'),
+                        input = R.c('input');
+                    elem.src = image;
+                    elem.classList.add('answer-preview');
+                    input.type = 'text';
+                    input.classList.add('answer-input');
+                    input.placeholder = 'Enter location';
+                    input.id = 'input-' + count;
+                    count++;
+                    R.a(container, elem);
+                    R.a(container, input);
+                });
+                var form = R.c('div.submit-answers'),
+                    email = R.c('input');
+                email.type = 'text';
+                email.placeholder = 'Email address';
+                R.a(form, email);
+                var submit = R.c('button.submit-answers', 'Submit all answers');
+                R.a(form, submit);
+                R.a(container, form);
+                submit.onclick = function () {
+                    if (email.value) {
+                        var answers = {
+                            email: email.value,
+                            answers: []
+                        }
+                        email.style.borderColor = 'grey';
+                        R.e(document.querySelectorAll('input.answer-input'), function (answer) {
+                            answers.answers.push(answer.value);
+                        });
+                        console.log(answers);
+                    } else {
+                        email.style.borderColor = 'red';
+                    }
+                }
+            }
         });
 
         function gallery() {
-            R.e(json, function (image) {
-                var elem = R.c('img');
-                elem.src = image;
-                R.a(container, elem);
+            var url = this.style.backgroundImage.replace('url("', '').replace('")', ''),
+                temp = [],
+                found = false,
+                count = 0;
+            R.e(items, function (item) {
+                if (item.src !== url && !found) {
+                    temp.unshift(item);
+                    count++;
+                } else {
+                    found = true;
+                }
             });
+            R.e(count, function(num) {
+                items.shift();
+            });
+            items = items.concat(temp);
             var options = {
                 history: false,
                 focus: false,
