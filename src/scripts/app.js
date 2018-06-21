@@ -8,6 +8,7 @@ import Slideshow from './slideshow.js';
 import Choropleth from './choropleth.js';
 import LineGraph from './lineGraph.js';
 import Profile from './profile.js';
+import GuessingGame from './guessingGame.js';
 
 window.Newsroom = {
     parameter: function (interactive, parameter) {
@@ -38,6 +39,7 @@ window.Newsroom = {
             else if (type === 'choropleth') new Choropleth(interactive, Newsroom.parameter(interactive, 'usm'));
             else if (type === 'lineGraph') new LineGraph(interactive, Newsroom.parameter(interactive, 'json'));
             else if (type === 'profile') new Profile(interactive, Newsroom.parameter(interactive, 'color'), Newsroom.parameter(interactive, 'allLink'), Newsroom.parameter(interactive, 'allText'), Newsroom.parameter(interactive, 'json'));
+			else if (type === 'guessingGame') new GuessingGame(interactive, Newsroom.parameter(interactive, 'json'));
 			else console.warn('Newsroom Interactives: There was no type set for the interactive.');
         }
     },

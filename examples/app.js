@@ -1,6 +1,10 @@
 (function () {
     // add new interactives here
     var interactives = {
+		guessingGame: {
+			type: "guessingGame",
+			json: "../src/json/scavengar-hunt.json"
+		},
 		profile: {
 			type: "profile",
 			color: "#4089b3",
