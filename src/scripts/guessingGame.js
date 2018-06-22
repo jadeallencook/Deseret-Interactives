@@ -3,13 +3,15 @@ import PhotoSwipeUI_Default from '../libs/PhotoSwipe/photoswipe-ui-default';
 import Firebase from '../libs/Firebase/firebase';
 
 export default function GuessingGame(container, json) {
+
+    var R = new Newsroom.rapid;
+    R.a(container, R.c('h1', 'Loading...'));
+
     Newsroom.ajax(json).then(function (json) {
 
         var photoswipeUI = '<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true"><div class="pswp__bg"></div><div class="pswp__scroll-wrap"> <div class="pswp__container"> <div class="pswp__item"></div><div class="pswp__item"></div><div class="pswp__item"></div></div><div class="pswp__ui pswp__ui--hidden"> <div class="pswp__top-bar"> <div class="pswp__counter"></div><button class="pswp__button pswp__button--close" title="Close (Esc)"></button> <button class="pswp__button pswp__button--share" title="Share"></button> <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button> <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button> <div class="pswp__preloader"> <div class="pswp__preloader__icn"> <div class="pswp__preloader__cut"> <div class="pswp__preloader__donut"></div></div></div></div></div><div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap"> <div class="pswp__share-tooltip"></div></div><button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)"> </button> <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"> </button> <div class="pswp__caption"> <div class="pswp__caption__center"></div></div></div></div></div>';
-        container.innerHTML = photoswipeUI;
-
-        var R = new Newsroom.rapid,
-            pswpElement = document.querySelectorAll('.pswp')[0];
+        container.innerHTML += photoswipeUI
+        var pswpElement = document.querySelectorAll('.pswp')[0];
 
         function importCSS(file) {
             return new Promise(function (res) {
@@ -27,13 +29,16 @@ export default function GuessingGame(container, json) {
         importCSS('https://www.deseretnews.com/project/assets/libs/PhotoSwipe/default-skin/default-skin.css');
 
         var promises = [],
-            items = [];
+            items = [],
+            imagesLoaded = 0;
         R.e(json, function (image) {
             promises.push(new Promise(function (res) {
                 var temp = new Image();
                 temp.src = image;
                 image = temp;
                 image.onload = function () {
+                    imagesLoaded++;
+                    if (imagesLoaded === json.length) container.children[0].remove();
                     items.push({
                         src: this.src,
                         w: this.width,
@@ -100,7 +105,7 @@ export default function GuessingGame(container, json) {
                             container.innerHTML = null;
                             var header = R.c('h1', 'Thank you!');
                             R.a(container, header);
-                        }).catch(function(error) {
+                        }).catch(function (error) {
                             console.log(error);
                         });
                     } else {
