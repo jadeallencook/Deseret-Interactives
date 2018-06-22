@@ -95,11 +95,13 @@ export default function GuessingGame(container, json) {
                         var header = R.c('h1', 'Submitting...');
                         R.a(container, header);
                         window.scrollBy(0, (0 - window.innerHeight));
-                        window.scrollBy(0, document.querySelector('#wrapper > div > h1').offsetTop - 75);
+                        window.scrollBy(0, container.offsetTop - 75);
                         Firebase.database().ref('/scavenger-hunt').push(answers).then(function () {
                             container.innerHTML = null;
                             var header = R.c('h1', 'Thank you!');
                             R.a(container, header);
+                        }).catch(function(error) {
+                            console.log(error);
                         });
                     } else {
                         email.style.borderColor = 'red';
