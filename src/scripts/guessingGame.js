@@ -120,6 +120,7 @@ export default function GuessingGame(container, json) {
                 temp = [],
                 found = false,
                 count = 0;
+            if ('ga' in window) ga('send', 'event', 'Guessing Game', 'Image Clicked', url);
             R.e(items, function (item) {
                 if (item.src !== url && !found) {
                     temp.unshift(item);
