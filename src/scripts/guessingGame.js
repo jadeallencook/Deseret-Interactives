@@ -23,8 +23,8 @@ export default function GuessingGame(container, json) {
             });
         }
 
-        importCSS('../src/libs/PhotoSwipe/photoswipe.css');
-        importCSS('../src/libs/PhotoSwipe/default-skin/default-skin.css');
+        importCSS('https://www.deseretnews.com/project/assets/libs/PhotoSwipe/photoswipe.css');
+        importCSS('https://www.deseretnews.com/project/assets/libs/PhotoSwipe/default-skin/default-skin.css');
 
         var promises = [],
             items = [];
