@@ -1,5 +1,6 @@
 import PhotoSwipe from '../libs/PhotoSwipe/photoswipe';
 import PhotoSwipeUI_Default from '../libs/PhotoSwipe/photoswipe-ui-default';
+import Firebase from '../libs/Firebase/firebase';
 
 export default function GuessingGame(container, json) {
     Newsroom.ajax(json).then(function (json) {
@@ -9,20 +10,6 @@ export default function GuessingGame(container, json) {
 
         var R = new Newsroom.rapid,
             pswpElement = document.querySelectorAll('.pswp')[0];
-
-        function clear() {
-            if (pswpElement.getAttribute('aria-hidden') !== 'false') {
-                do {
-                    var test = false;
-                    R.e(container.children, function (elem) {
-                        if (elem.nodeName === 'IMG' && !elem.classList.contains('gallary-preview')) {
-                            elem.remove();
-                            test = true;
-                        }
-                    });
-                } while (test);
-            }
-        }
 
         function importCSS(file) {
             return new Promise(function (res) {
@@ -104,7 +91,16 @@ export default function GuessingGame(container, json) {
                         R.e(document.querySelectorAll('input.answer-input'), function (answer) {
                             answers.answers.push(answer.value);
                         });
-                        console.log(answers);
+                        container.innerHTML = null;
+                        var header = R.c('h1', 'Submitting...');
+                        R.a(container, header);
+                        window.scrollBy(0, (0 - window.innerHeight));
+                        window.scrollBy(0, document.querySelector('#wrapper > div > h1').offsetTop - 75);
+                        Firebase.database().ref('/scavenger-hunt').push(answers).then(function () {
+                            container.innerHTML = null;
+                            var header = R.c('h1', 'Thank you!');
+                            R.a(container, header);
+                        });
                     } else {
                         email.style.borderColor = 'red';
                     }
@@ -125,7 +121,7 @@ export default function GuessingGame(container, json) {
                     found = true;
                 }
             });
-            R.e(count, function(num) {
+            R.e(count, function (num) {
                 items.shift();
             });
             items = items.concat(temp);

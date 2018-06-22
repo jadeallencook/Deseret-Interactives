@@ -529,5 +529,11 @@ div.interactive[data-type="guessingGame"] {
   div.interactive[data-type="guessingGame"] img.pswp__img {
     max-height: none;
     max-width: none; }
+  div.interactive[data-type="guessingGame"] div.pswp__top-bar {
+    position: absolute;
+    bottom: 45px;
+    width: 100%; }
+    div.interactive[data-type="guessingGame"] div.pswp__top-bar button.pswp__button--close {
+      margin-top: 45px; }
 
 /*# sourceMappingURL=newsroom.min.css.map */

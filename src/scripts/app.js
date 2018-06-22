@@ -9,6 +9,7 @@ import Choropleth from './choropleth.js';
 import LineGraph from './lineGraph.js';
 import Profile from './profile.js';
 import GuessingGame from './guessingGame.js';
+import Firebase from '../libs/Firebase/firebase';
 
 window.Newsroom = {
     parameter: function (interactive, parameter) {
@@ -26,6 +27,14 @@ window.Newsroom = {
     },
     init: function () {
         var interactives = document.getElementsByClassName('interactive');
+        Firebase.initializeApp({
+            apiKey: "AIzaSyDpJaDpX8MPIOTXJg_oKMY4-0e0AvizW8c",
+            authDomain: "dn-interactives.firebaseapp.com",
+            databaseURL: "https://dn-interactives.firebaseio.com",
+            projectId: "dn-interactives",
+            storageBucket: "",
+            messagingSenderId: "403753384515"
+        });
         for (var x = 0; x < interactives.length; x++) {
             var interactive = interactives[x],
                 type = interactive.getAttribute('data-type');
@@ -39,8 +48,8 @@ window.Newsroom = {
             else if (type === 'choropleth') new Choropleth(interactive, Newsroom.parameter(interactive, 'usm'));
             else if (type === 'lineGraph') new LineGraph(interactive, Newsroom.parameter(interactive, 'json'));
             else if (type === 'profile') new Profile(interactive, Newsroom.parameter(interactive, 'color'), Newsroom.parameter(interactive, 'allLink'), Newsroom.parameter(interactive, 'allText'), Newsroom.parameter(interactive, 'json'));
-			else if (type === 'guessingGame') new GuessingGame(interactive, Newsroom.parameter(interactive, 'json'));
-			else console.warn('Newsroom Interactives: There was no type set for the interactive.');
+            else if (type === 'guessingGame') new GuessingGame(interactive, Newsroom.parameter(interactive, 'json'));
+            else console.warn('Newsroom Interactives: There was no type set for the interactive.');
         }
     },
     rapid: function () {
@@ -59,15 +68,15 @@ window.Newsroom = {
                 }
                 return container;
             } else {
-                var elem 
+                var elem
                 if (elems.includes('.')) {
                     var className = elems.substr(elems.indexOf('.') + 1),
-                    elemName = elems.substr(0, elems.indexOf('.')); 
+                        elemName = elems.substr(0, elems.indexOf('.'));
                     elem = document.createElement(elemName);
                     elem.classList.add(className);
                 } else if (elems.includes('#')) {
                     var id = elems.substr(elems.indexOf('#') + 1),
-                    elemName = elems.substr(0, elems.indexOf('#')); 
+                        elemName = elems.substr(0, elems.indexOf('#'));
                     elem = document.createElement(elemName);
                     elem.setAttribute('id', id);
                 } else {
@@ -90,7 +99,7 @@ window.Newsroom = {
             }
         }
         // prepend
-        this.p = function(container, elem) {
+        this.p = function (container, elem) {
             container.prepend(elem);
         }
         // min & max

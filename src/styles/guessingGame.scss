@@ -61,6 +61,14 @@ div.interactive[data-type="guessingGame"] {
         max-height: none;
         max-width: none;
     }
+    div.pswp__top-bar {
+        position: absolute;
+        bottom: 45px;
+        width: 100%;
+        button.pswp__button--close {
+            margin-top: 45px;
+        }
+    }
 }
 
 @media only screen and (max-device-width: 480px) {
