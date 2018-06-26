@@ -1,0 +1,25 @@
+[{
+    "image": "../src/images/button_02.png",
+    "hover": "../src/images/hover-button_02.png",
+    "text": "Generalized anxiety disorder",
+    "header": "",
+    "html": ""
+}, {
+    "image": "../src/images/button_03.png",
+    "hover": "../src/images/hover-button_03.png",
+    "text": "Phobias",
+    "header": "",
+    "html": ""
+}, {
+    "image": "../src/images/button_04.png",
+    "hover": "../src/images/hover-button_04.png",
+    "text": "Panic disorder",
+    "header": "",
+    "html": ""
+}, {
+    "image": "../src/images/button_05.png",
+    "hover": "../src/images/hover-button_05.png",
+    "text": "Social anxiety",
+    "header": "",
+    "html": ""
+}]
