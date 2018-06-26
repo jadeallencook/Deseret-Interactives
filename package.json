@@ -9,7 +9,7 @@
     "server": "php -S localhost:8000",
     "new": "php new-interactive.php $1",
     "pass": "php new-parameter.php $1 $2 $3",
-    "dev": "npm run scripts>/dev/null 2>/dev/null & npm run styles>/dev/null 2>/dev/null & npm run server>/dev/null 2>/dev/null &"
+    "dev": "npm run scripts & npm run styles & npm run server &"
   },
   "repository": {
     "type": "git",
