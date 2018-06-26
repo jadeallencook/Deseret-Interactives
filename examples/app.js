@@ -1,6 +1,11 @@
 (function () {
     // add new interactives here
     var interactives = {
+		qAndA: {
+			type: "qAndA",
+			background: "../src/images/paint-background.png",
+			json: "../src/json/anxiety.json"
+		},
 		guessingGame: {
 			type: "guessingGame",
 			json: "../src/json/scavengar-hunt.json"

@@ -10,6 +10,7 @@ import LineGraph from './lineGraph.js';
 import Profile from './profile.js';
 import GuessingGame from './guessingGame.js';
 import Firebase from '../libs/Firebase/firebase';
+import QAndA from './qAndA.js';
 
 window.Newsroom = {
     parameter: function (interactive, parameter) {
@@ -49,7 +50,8 @@ window.Newsroom = {
             else if (type === 'lineGraph') new LineGraph(interactive, Newsroom.parameter(interactive, 'json'));
             else if (type === 'profile') new Profile(interactive, Newsroom.parameter(interactive, 'color'), Newsroom.parameter(interactive, 'allLink'), Newsroom.parameter(interactive, 'allText'), Newsroom.parameter(interactive, 'json'));
             else if (type === 'guessingGame') new GuessingGame(interactive, Newsroom.parameter(interactive, 'json'));
-            else console.warn('Newsroom Interactives: There was no type set for the interactive.');
+            else if (type === 'qAndA') new QAndA(interactive, Newsroom.parameter(interactive, 'background'), Newsroom.parameter(interactive, 'json'));
+			else console.warn('Newsroom Interactives: There was no type set for the interactive.');
         }
     },
     rapid: function () {
