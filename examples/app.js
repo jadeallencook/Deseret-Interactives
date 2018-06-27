@@ -4,7 +4,7 @@
 		qAndA: {
 			type: "qAndA",
 			color: "#171C53",
-			height: "525",
+			height: "425",
 			hoverBg: "../src/images/white-paint-background.png",
 			title: "Types of anxiety",
 			background: "../src/images/paint-background.png",
