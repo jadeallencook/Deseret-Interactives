@@ -22,7 +22,7 @@ export default function QAndA(container, color, height, hoverBg, title, backgrou
                     background.src = hoverBg;
                     background.classList.add('answer-background');
                     R.a(container, background);
-                    var close = R.c('span', 'x');
+                    var close = R.c('div');
                     close.classList.add('close');
                     close.onclick = function() {
                         questions();

@@ -558,12 +558,16 @@ div.interactive[data-type="qAndA"] {
     font-size: 1.5em; }
   div.interactive[data-type="qAndA"] img.answer-background {
     width: 100%; }
-  div.interactive[data-type="qAndA"] span.close {
+  div.interactive[data-type="qAndA"] div.close {
     position: absolute;
-    top: 35px;
+    top: 55px;
     right: 35px;
     font-size: 2em;
-    cursor: pointer; }
+    height: 20px;
+    width: 20px;
+    cursor: pointer;
+    background-image: url("https://www.deseretnews.com/project/assets/images/x.svg");
+    background-size: cover; }
   div.interactive[data-type="qAndA"] h4 {
     position: absolute;
     top: 50px;
