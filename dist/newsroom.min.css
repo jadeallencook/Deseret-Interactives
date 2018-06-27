@@ -536,4 +536,50 @@ div.interactive[data-type="guessingGame"] {
     div.interactive[data-type="guessingGame"] div.pswp__top-bar button.pswp__button--close {
       margin-top: 45px; }
 
+div.interactive[data-type="qAndA"] {
+  background-size: cover;
+  padding: 25px 0px;
+  position: relative; }
+  div.interactive[data-type="qAndA"] div.button {
+    position: relative;
+    cursor: pointer; }
+    div.interactive[data-type="qAndA"] div.button img {
+      width: 100%; }
+    div.interactive[data-type="qAndA"] div.button span {
+      position: absolute;
+      margin-top: 9%;
+      margin-left: 35px;
+      margin-right: 35%;
+      font-weight: bold;
+      font-size: 0.85em; }
+  div.interactive[data-type="qAndA"] h2 {
+    color: #fff;
+    margin: 0px 15px 15px 15px;
+    font-size: 1.5em; }
+  div.interactive[data-type="qAndA"] img.answer-background {
+    width: 100%; }
+  div.interactive[data-type="qAndA"] span.close {
+    position: absolute;
+    top: 35px;
+    right: 35px;
+    font-size: 2em;
+    cursor: pointer; }
+  div.interactive[data-type="qAndA"] h4 {
+    position: absolute;
+    top: 75px;
+    font-weight: 700;
+    left: 25px;
+    margin-right: 25px; }
+  div.interactive[data-type="qAndA"] span.html {
+    position: absolute;
+    top: 150px;
+    margin-right: 25px;
+    display: block;
+    left: 25px;
+    font-size: 0.75em; }
+    div.interactive[data-type="qAndA"] span.html ul {
+      margin: 0px; }
+      div.interactive[data-type="qAndA"] span.html ul li {
+        line-height: 1.25em; }
+
 /*# sourceMappingURL=newsroom.min.css.map */

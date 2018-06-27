@@ -50,7 +50,7 @@ window.Newsroom = {
             else if (type === 'lineGraph') new LineGraph(interactive, Newsroom.parameter(interactive, 'json'));
             else if (type === 'profile') new Profile(interactive, Newsroom.parameter(interactive, 'color'), Newsroom.parameter(interactive, 'allLink'), Newsroom.parameter(interactive, 'allText'), Newsroom.parameter(interactive, 'json'));
             else if (type === 'guessingGame') new GuessingGame(interactive, Newsroom.parameter(interactive, 'json'));
-            else if (type === 'qAndA') new QAndA(interactive, Newsroom.parameter(interactive, 'background'), Newsroom.parameter(interactive, 'json'));
+            else if (type === 'qAndA') new QAndA(interactive, Newsroom.parameter(interactive, 'height'), Newsroom.parameter(interactive, 'hoverBg'), Newsroom.parameter(interactive, 'title'), Newsroom.parameter(interactive, 'background'), Newsroom.parameter(interactive, 'json'));
 			else console.warn('Newsroom Interactives: There was no type set for the interactive.');
         }
     },

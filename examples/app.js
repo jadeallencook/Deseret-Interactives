@@ -3,6 +3,9 @@
     var interactives = {
 		qAndA: {
 			type: "qAndA",
+			height: "525",
+			hoverBg: "../src/images/white-paint-background.png",
+			title: "Types of anxiety",
 			background: "../src/images/paint-background.png",
 			json: "../src/json/anxiety.json"
 		},
