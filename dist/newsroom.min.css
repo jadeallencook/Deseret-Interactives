@@ -566,20 +566,21 @@ div.interactive[data-type="qAndA"] {
     cursor: pointer; }
   div.interactive[data-type="qAndA"] h4 {
     position: absolute;
-    top: 75px;
+    top: 50px;
     font-weight: 700;
-    left: 25px;
-    margin-right: 25px; }
+    left: 35px;
+    margin-right: 60px; }
   div.interactive[data-type="qAndA"] span.html {
     position: absolute;
-    top: 150px;
+    top: 115px;
     margin-right: 25px;
     display: block;
     left: 25px;
     font-size: 0.75em; }
     div.interactive[data-type="qAndA"] span.html ul {
-      margin: 0px; }
+      margin: 0px 20px 0px 0px; }
       div.interactive[data-type="qAndA"] span.html ul li {
+        margin-bottom: 5px;
         line-height: 1.25em; }
 
 @media only screen and (max-device-width: 480px) {
