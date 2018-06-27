@@ -1,7 +1,8 @@
-export default function QAndA(container, height, hoverBg, title, background, json) {
+export default function QAndA(container, color, height, hoverBg, title, background, json) {
     var R = new Newsroom.rapid;
     R.a(container, R.c('h1', 'Loading...'));
     container.classList.add('inline');
+    if (color) container.style.color = color;
     Newsroom.ajax(json).then(function (sections) {
         function questions() {
             container.innerHTML = null;
