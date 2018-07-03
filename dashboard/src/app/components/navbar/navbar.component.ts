@@ -9,7 +9,18 @@ import * as firebase from 'firebase';
 })
 export class NavbarComponent implements OnInit {
 
-  constructor(private router: Router) { }
+  signedIn: boolean = false;
+
+  constructor(private router: Router) {
+    firebase.auth().onAuthStateChanged((user) => {
+      if (!user) this.signedIn = false;
+      else this.signedIn = true;
+    });
+    router.events.subscribe(() => {
+      if (firebase.auth().currentUser) this.signedIn = true;
+      else this.signedIn = false;
+    });
+  }
 
   logout() {
     firebase.auth().signOut().then(() => {

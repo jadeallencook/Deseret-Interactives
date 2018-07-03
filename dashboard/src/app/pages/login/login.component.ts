@@ -20,6 +20,7 @@ export class LoginComponent implements OnInit {
     firebase.auth().onAuthStateChanged((user) => {
       if (user) this.router.navigate(['/home']);
     });
+    if (firebase.auth().currentUser) this.router.navigate(['/home']);
   }
 
   login() {
