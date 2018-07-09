@@ -475,15 +475,15 @@ var VenuesComponent = /** @class */ (function () {
         });
     };
     VenuesComponent.prototype.post = function () {
-        if (this.editor.id)
-            this.venues[this.editor.id] = this.venue;
-        else
-            this.venues.push(this.venue);
-        if (this.venue.name.length > 0) {
+        if (this.venue.name.length <= 0) {
             this.editor.warning = 'You forgot a name';
             this.alert();
         }
         else {
+            if (this.editor.id)
+                this.venues[this.editor.id] = this.venue;
+            else
+                this.venues.push(this.venue);
             this.update();
         }
     };
