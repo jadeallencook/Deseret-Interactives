@@ -1,6 +1,13 @@
 (function () {
     // add new interactives here
     var interactives = {
+		textBox: {
+			type: "textBox",
+			header: "Elit Ligula Adipiscing",
+			image: "../src/images/contact-icon.png",
+			json: "../src/json/text-box-example.json",
+			color: "#CCC"
+		},
 		qAndA: {
 			type: "qAndA",
 			color: "#171C53",

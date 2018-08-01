@@ -594,5 +594,25 @@ div.interactive[data-type="qAndA"] {
     margin: 0px auto; }
   div.interactive[data-type="qAndA"] div.button img {
     width: 90%; } }
+div.interactive[data-type="textBox"] {
+  box-sizing: border-box;
+  padding: 15px 15px 0px 15px;
+  color: #000; }
+  div.interactive[data-type="textBox"] img {
+    float: left;
+    width: 65px; }
+  div.interactive[data-type="textBox"] h2 {
+    display: inline-block;
+    width: 70%;
+    font-size: 1.5em;
+    margin-left: 10px;
+    text-transform: uppercase;
+    margin-bottom: 25px; }
+  div.interactive[data-type="textBox"] span {
+    font-weight: 100; }
+  div.interactive[data-type="textBox"] b,
+  div.interactive[data-type="textBox"] span {
+    font-size: 0.85em;
+    line-height: 0em; }
 
 /*# sourceMappingURL=newsroom.min.css.map */
