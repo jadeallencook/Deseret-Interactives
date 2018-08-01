@@ -28,11 +28,12 @@ export default function QAndA(container, color, height, hoverBg, title, backgrou
                         questions();
                     }
                     R.a(container, close);
-                    R.a(container, R.c('h4', section.header));
+                    var header = R.c('h4', section.header);
+                    R.a(container, header);
                     var html = R.c('span', section.html);
+                    html.style.top = (55 + header.offsetHeight) + 'px';
                     html.classList.add('html');
                     R.a(container, html);
-
                     answer(sections[num])
                 }
                 btn.onmouseover = function () {
