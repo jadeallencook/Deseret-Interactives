@@ -4,7 +4,7 @@
 		textBox: {
 			type: "textBox",
 			header: "Elit Ligula Adipiscing",
-			image: "../src/images/contact-icon.png",
+			image: "",
 			json: "../src/json/text-box-example.json",
 			color: "#CCC"
 		},
