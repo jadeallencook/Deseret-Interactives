@@ -20,7 +20,7 @@ export default function TextBox(container, header, image, json, color) {
         R.a(container, headerElem);
         for (var x = 0; x < json.length; x++) {
             var section = json[x];
-            R.a(container, R.c('b', section.bullet + ': '));
+            if (section.bullet) R.a(container, R.c('b', section.bullet + ': '));
             R.a(container, R.c('span', section.text));
             container.innerHTML += '<br /><br />';
         }
