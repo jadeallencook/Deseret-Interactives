@@ -6,43 +6,85 @@
 export const environment = {
   production: false,
   almanac: {
-    callings: {
-      ABC123: {
-        name: 'Test Calling',
-        people: ['XYX123']
-      },
-      DEF123: {
-        name: 'Another Calling',
-        people: ['XYX123']
+    // location options
+    countries: {
+      COUNTRY123: 'United States'
+    },
+    states: {
+      STATE123: 'Utah'
+    },
+    postals: {
+      84111: 'LOCATION123'
+    },
+    // names
+    names: {
+      NAME123 : {
+        first: 'Jade',
+        last: 'Cook',
+        person: 'PERSON123'
       }
     },
-    people: {
-      XYZ123: {
-        name: {
-          first: 'John',
-          last: 'Doe'
+    // dates
+    dates: {
+      DATE123: {
+        month: 12,
+        day: 14,
+        year: 1991,
+        person: {
+          deaths: [''],
+          births: ['PERSON123']
         },
+        callings: {
+          starts: [],
+          ends: []
+        }
+      },
+      DATE456: {
+        month: 12,
+        day: 14,
+        year: 2001,
+        person: {
+          deaths: ['PERSON123'],
+          births: ['']
+        },
+        callings: {
+          starts: [],
+          ends: []
+        }
+      }
+    },
+    // locations
+    locations: {
+      LOCATION123: {
+        street1: '123 Test Street',
+        street2: '',
+        state: 'STATE123',
+        postal: 84111,
+        country: 'COUNTRY123'
+      }
+    },
+    // callings
+    callings: {
+      CALLING123: {
+        name: 'Test Calling',
+        people: ['PERSON123']
+      }
+    },
+    // people
+    people: {
+      PERSON123: {
+        name: 'NAME123',
         birth: {
-          date: '01/01/1950',
-          location: {
-            street: '123 ABC Street',
-            state: 'Utah',
-            zip: 84111,
-            country: 'United States'
-          }
+          date: 'DATE123',
+          location: 'LOCATION123'
         },
         death: {
-          date: '01/01/2010',
-          location: {
-            street: '123 XYZ Street',
-            state: 'Utah',
-            zip: 84111,
-            country: 'United States'
-          }
+          date: 'DATE456',
+          location: 'LOCATION123'
         },
         photo: 'my-photo.jpg',
-        bio: 'Nullam quis risus eget urna mollis ornare vel eu leo. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Cras mattis consectetur purus sit amet fermentum. Nullam quis risus eget urna mollis ornare vel eu leo. Sed posuere consectetur est at lobortis. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum.',
-        callings: ['ABC123']
+        bio: 'Nullam quis risus eget urna mollis ornare vel eu leo.',
+        callings: ['CALLING123']
       }
     }
   }

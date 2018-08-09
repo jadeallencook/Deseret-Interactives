@@ -15,7 +15,7 @@ import { environment } from '../../../../environments/environment';
 
 export class CallingComponent implements OnInit {
 
-  @Input() uid: string = null;
+  @Input() uid: string = this.AlmanacService.guid();
   calling: Calling = new Calling();
   allCallings: Object = {};
   callingResults: Object = {};

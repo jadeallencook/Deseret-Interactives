@@ -1,22 +1,41 @@
 export class Location {
-    street: string = '';
+    street1: string = '';
+    street2: string = '';
     state: string = '';
-    zip: number = null;
+    postal: number = null;
     country: string = '';
+    events: Array<string> = [];
 }
 
 export class Event {
     date: string = '';
-    location: Location = new Location();;
+    location: string = '';
+    people: Array<string> = [];
+    callings: Array<string> = [];
 }
 
 export class Name {
     first: string = '';
     last: string = '';
+    person: string = '';
+}
+
+export class Date {
+    month: number = null;
+    day: number = null;
+    year: number = null;
+    person = {
+        deaths: [],
+        births: []
+    }
+    callings = {
+        starts: [],
+        ends: []
+    }
 }
 
 export class Person {
-    name: Name = new Name();
+    name: string = '';
     birth: Event = new Event();
     death: Event = new Event();
     photo: string = '';
@@ -26,5 +45,8 @@ export class Person {
 
 export class Calling {
     name: string = '';
+    start: Date = new Date();
+    end: Date = new Date();
     people: Array<string> = [''];
+    emeritus: boolean = null;
 }
