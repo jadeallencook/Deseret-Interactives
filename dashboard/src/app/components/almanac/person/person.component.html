@@ -1,0 +1,82 @@
+<section>
+  <h4>New Person</h4>
+  <form>
+    <div class="row">
+      <!-- basic -->
+      <div class="col-3">
+        <input type="text" autocomplete="given-name" class="form-control" [(ngModel)]="this.person.name.first" name="first name"
+          placeholder="First name">
+      </div>
+      <div class="col-3">
+        <input type="text" autocomplete="family-name" class="form-control" [(ngModel)]="this.person.name.last" name="last name" placeholder="Last name">
+      </div>
+      <div class="col-3">
+        <input type="text" autocomplete="bday" class="form-control" [(ngModel)]="this.person.birth.date" name="birth date" placeholder="Birth Date 00/00/0000">
+      </div>
+      <div class="col-3">
+        <input type="text" class="form-control" [(ngModel)]="this.person.death.date" name="birth death" placeholder="Death Date 00/00/0000">
+      </div>
+      <!-- birth -->
+      <div class="col-3">
+        <input type="text" autocomplete="address-level1" class="form-control" [(ngModel)]="this.person.birth.location.street" name="birth street"
+          placeholder="Birth Street">
+      </div>
+      <div class="col-3">
+        <input type="text" autocomplete="address-level1" class="form-control" [(ngModel)]="this.person.birth.location.state" name="birth state"
+          placeholder="Birth State">
+      </div>
+      <div class="col-3">
+        <input type="text" autocomplete="country-name" class="form-control" [(ngModel)]="this.person.birth.location.country" name="birth country"
+          placeholder="Birth Country">
+      </div>
+      <div class="col-3">
+        <input type="text" autocomplete="postal-code" class="form-control" [(ngModel)]="this.person.birth.location.zip" name="birth zip"
+          placeholder="Birth Zip" type="number">
+      </div>
+      <!-- death -->
+      <div class="col-3">
+        <input type="text" autocomplete="address-level1" class="form-control" [(ngModel)]="this.person.death.location.street" name="death street"
+          placeholder="Death Street">
+      </div>
+      <div class="col-3">
+        <input type="text" autocomplete="address-level1" class="form-control" [(ngModel)]="this.person.death.location.state" name="death state"
+          placeholder="Death State">
+      </div>
+      <div class="col-3">
+        <input type="text" autocomplete="country-name" class="form-control" [(ngModel)]="this.person.death.location.country" name="death country"
+          placeholder="Death Country">
+      </div>
+      <div class="col-3">
+        <input type="text" autocomplete="postal-code" class="form-control" [(ngModel)]="this.person.death.location.zip" name="death zip"
+          placeholder="Death Zip" type="number">
+      </div>
+      <!-- photo -->
+      <div class="col-12">
+        <input type="text" autocomplete="url" class="form-control" [(ngModel)]="this.person.photo" name="photo url" placeholder="Photo URL">
+      </div>
+      <!-- bio -->
+      <div class="col-12">
+        <textarea type="text" class="form-control" [(ngModel)]="this.person.bio" name="bio" placeholder="Bio"></textarea>
+      </div>
+      <!-- calling -->
+      <app-calling [uid]="this.uid"></app-calling>
+      <div class="col-12">
+        <br />
+        <ul>
+          <li>
+            <b>This Person's Calling</b>
+          </li>
+          <li *ngFor="let key of this.person.callings">
+            {{ callings[key].name }}
+          </li>
+        </ul>
+      </div>
+      <div class="col-12">
+        <br />
+        <button class="btn btn-primary" (click)="save()">Save Person</button>
+        <button class="btn btn-secondary" (click)="clear()">Clear Person</button>
+      </div>
+    </div>
+  </form>
+  <app-people (edit)="edit($event)"></app-people>
+</section>

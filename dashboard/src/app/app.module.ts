@@ -8,11 +8,16 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { LoginComponent } from './pages/login/login.component';
 import { HomeComponent } from './pages/home/home.component';
 import { VenuesComponent } from './pages/venues/venues.component';
+import { AlmanacComponent } from './pages/almanac/almanac.component';
+import { PersonComponent } from './components/almanac/person/person.component';
+import { CallingComponent } from './components/almanac/calling/calling.component';
+import { PeopleComponent } from './components/almanac/people/people.component';
 
 const appRoutes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'home', component: HomeComponent },
   { path: 'venues', component: VenuesComponent },
+  { path: 'almanac', component: AlmanacComponent },
   { path: '**', component: LoginComponent }
 ];
 
@@ -22,7 +27,11 @@ const appRoutes: Routes = [
     NavbarComponent,
     LoginComponent,
     HomeComponent,
-    VenuesComponent
+    VenuesComponent,
+    AlmanacComponent,
+    PersonComponent,
+    CallingComponent,
+    PeopleComponent
   ],
   imports: [
     BrowserModule,

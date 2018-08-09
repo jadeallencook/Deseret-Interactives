@@ -1,0 +1,15 @@
+<h1>Almanac</h1>
+
+<!--
+<div class="dropdown">
+  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
+    aria-expanded="false">
+    New Entry
+  </button>
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+    <a (click)="changeSection('person')" class="dropdown-item">Person</a>
+  </div>
+</div>
+-->
+
+<app-person *ngIf="section === 'person'"></app-person>

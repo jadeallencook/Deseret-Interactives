@@ -1,0 +1,16 @@
+<table class="table table-hover table-dark">
+  <thead>
+    <tr>
+      <th scope="col">First</th>
+      <th scope="col">Last</th>
+      <th scope="col">Birth State</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let person of people()" (click)="editPerson(person.uid)">
+      <td>{{ person.name.first }}</td>
+      <td>{{ person.name.last }}</td>
+      <td>{{ person.birth.location.state }}</td>
+    </tr>
+  </tbody>
+</table>
