@@ -24,11 +24,11 @@ export class Date {
     month: number = null;
     day: number = null;
     year: number = null;
-    person = {
+    people: Object = {
         deaths: [],
         births: []
     }
-    callings = {
+    callings: Object = {
         starts: [],
         ends: []
     }

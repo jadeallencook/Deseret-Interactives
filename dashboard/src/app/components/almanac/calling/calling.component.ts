@@ -15,29 +15,33 @@ import { environment } from '../../../../environments/environment';
 
 export class CallingComponent implements OnInit {
 
-  @Input() uid: string = this.AlmanacService.guid();
+  @Input() uid: string;
   calling: Calling = new Calling();
-  allCallings: Object = {};
+  allCallings: Object = environment.almanac.callings;
   callingResults: Object = {};
   callings: Object = {};
 
   constructor(private AlmanacService: AlmanacService) {
-    this.allCallings = environment.almanac.callings;
   }
 
   getKeys(obj) {
     return Object.keys(obj);
   }
 
-  addCalling() {
-    this.calling.people.push(this.uid);
-    var uid = this.AlmanacService.guid();
-    environment.almanac.people[this.uid].callings.push(uid);
-    environment.almanac.callings[uid] = JSON.parse(JSON.stringify(this.calling));
+  reset() {
+    this.calling = new Calling();
+  }
+
+  add() {
+    environment.almanac.callings[this.AlmanacService.guid()] = JSON.parse(JSON.stringify(this.calling));
+    this.findCalling();
+    this.reset();
   }
 
   addCallingToPerson(key) {
-    if (environment.almanac.people[this.uid]) environment.almanac.people[this.uid].callings.push(key);
+    if (!environment.almanac.people[this.uid]) environment.almanac.people[this.uid] = new Person();
+    else environment.almanac.people[this.uid].callings.push(key);
+    console.log(environment.almanac.people);
   }
 
   findCalling() {

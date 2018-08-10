@@ -7,10 +7,10 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let person of people()" (click)="editPerson(person.uid)">
-      <td>{{ person.name.first }}</td>
-      <td>{{ person.name.last }}</td>
-      <td>{{ person.birth.location.state }}</td>
+    <tr *ngFor="let person of people" (click)="editPerson(person.uid)">
+      <td>{{ this.almanac.getName(person.name).first }}</td>
+      <td>{{ this.almanac.getName(person.name).last }}</td>
+      <td>{{ this.almanac.getState(person.birth.location) }}</td>
     </tr>
   </tbody>
 </table>
