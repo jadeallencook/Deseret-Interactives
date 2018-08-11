@@ -25,10 +25,12 @@ export class PersonComponent implements OnInit {
     birth: this.almanac.getStates(null),
     death: this.almanac.getStates(null)
   }
+  error: string = '';
 
   constructor(private almanac: AlmanacService) { }
 
   edit(uid: string) {
+    this.clear();
     this.uid = uid;
     this.person = this.people[uid];
     this.name = this.almanac.getName(this.person.name);
@@ -49,15 +51,57 @@ export class PersonComponent implements OnInit {
     this.deathLocation = new Location();
   }
 
+  validate() {
+    var valid = true;
+    if (!this.name.first || !this.name.first || !this.person.bio) valid = false;
+    if (!this.name.first) this.error = 'Umm, looks like you forgot the first name...';
+    else if (!this.name.last) this.error = 'So you got the first name but where\'s the last name?';
+    else if (!this.person.bio) this.error = 'Please write a little bio for this person before you upload...';
+    if (valid) {
+      return true;
+    } else {
+      var message = setInterval(() => {
+        this.error = '';
+        clearInterval(message);
+      }, 3000);
+      return false;
+    }
+  }
+
   save() {
-    let person = this.person;
-    const personUID = this.uid
-    let nameUID = this.almanac.guid();
-    if (environment.almanac['people'][personUID]) nameUID = environment.almanac['people'][personUID].name;
-    person.name = nameUID;
-    environment.almanac['names'][nameUID] = this.name;
-    environment.almanac['people'][personUID] = person;
-    this.clear();
+    if (this.validate()) {
+      // generate uids
+      const uids = {
+        person: this.uid,
+        name: this.almanac.guid(),
+        dates: {
+          birth: this.almanac.guid(),
+          death: this.almanac.guid()
+        },
+        locations: {
+          birth: this.almanac.guid(),
+          death: this.almanac.guid()
+        }
+      }
+      // check name
+      if (!this.person.name) this.person.name = uids.name;
+      environment.almanac.names[this.person.name] = this.name;
+      environment.almanac.people[uids.person] = this.person;
+      // check birth location/date
+      console.log(this.birthDate);
+      // check death location/date
+      this.clear();
+    }
+  }
+
+  formatDateInput(event, objKey) {
+    if (event.keyCode !== 8 && this[objKey] && isFinite(event.key)) {
+      if (this[objKey].length === 2) this[objKey] += '/';
+      if (this[objKey].length === 5) this[objKey] += '/';
+      if (this[objKey].length > 9) this[objKey] = this[objKey].substring(0,10);
+    } else if (!isFinite(event.key) && event.keyCode !== 8 && !event.returnValue) {
+      this[objKey] = this[objKey].substring(0, this[objKey].length - 1)
+    }
   }
 
   updateStates() {

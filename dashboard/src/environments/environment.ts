@@ -279,37 +279,37 @@ export const environment = {
       }
     },
     "postals": {
-      84111: "LOCATION123"
+      84111: "d257df6d-5fca-70a5-9d7e-a0bab213f7aa"
     },
     // names
     "names": {
-      "NAME123": {
-        "first": "Jade",
-        "last": "Cook",
-        "person": "PERSON123"
+      "316e37df-71ef-06d6-6606-fc3cfc58e4e4": {
+        "first": "John",
+        "last": "Smith",
+        "person": "940eca25-7bf9-82db-7974-03ed857d1615"
       }
     },
     // dates
     "dates": {
-      "DATE123": {
+      "0593cef3-c473-f216-4509-eb2140195d7d": {
         "month": 12,
         "day": 14,
         "year": 1991,
         "person": {
           "deaths": [""],
-          "births": ["PERSON123"]
+          "births": ["940eca25-7bf9-82db-7974-03ed857d1615"]
         },
         "callings": {
           "starts": [],
           "ends": []
         }
       },
-      "DATE456": {
+      "ac9d0d50-f354-c8f2-7495-f875f83c6e1e": {
         "month": 12,
         "day": 14,
         "year": 2001,
         "person": {
-          "deaths": ["PERSON123"],
+          "deaths": ["940eca25-7bf9-82db-7974-03ed857d1615"],
           "births": [""]
         },
         "callings": {
@@ -320,7 +320,7 @@ export const environment = {
     },
     // locations
     "locations": {
-      "LOCATION123": {
+      "d257df6d-5fca-70a5-9d7e-a0bab213f7aa": {
         "street1": "123 Test Street",
         "street2": "",
         "state": "7baa8029-5525-8eaa-df44-f6ad2c77bd8e",
@@ -328,28 +328,28 @@ export const environment = {
         "country": "9e1c5261-ade3-fbe8-06bc-8aa47f4996a2"
       }
     },
-    // callings
     "callings": {
-      "CALLING123": {
+    // callings
+      "50a1a992-e1d3-44d1-21bb-229878229e94": {
         "name": "Test Calling",
-        "people": ["PERSON123"]
+        "people": ["940eca25-7bf9-82db-7974-03ed857d1615"]
       }
     },
     // people
     "people": {
-      "PERSON123": {
-        "name": "NAME123",
+      "940eca25-7bf9-82db-7974-03ed857d1615": {
+        "name": "316e37df-71ef-06d6-6606-fc3cfc58e4e4",
         "birth": {
-          "date": "DATE123",
-          "location": "LOCATION123"
+          "date": "0593cef3-c473-f216-4509-eb2140195d7d",
+          "location": "d257df6d-5fca-70a5-9d7e-a0bab213f7aa"
         },
         "death": {
-          "date": "DATE456",
-          "location": "LOCATION123"
+          "date": "ac9d0d50-f354-c8f2-7495-f875f83c6e1e",
+          "location": "d257df6d-5fca-70a5-9d7e-a0bab213f7aa"
         },
         "photo": "my-photo.jpg",
         "bio": "Nullam quis risus eget urna mollis ornare vel eu leo.",
-        "callings": ["CALLING123"]
+        "callings": ["50a1a992-e1d3-44d1-21bb-229878229e94"]
       }
     }
   }

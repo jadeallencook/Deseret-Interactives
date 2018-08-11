@@ -11,9 +11,13 @@ import { AlmanacService } from '../../../services/almanac.service';
 export class PeopleComponent implements OnInit {
 
   @Output() edit: EventEmitter<string> = new EventEmitter<string>();
-  people: Array<Object> = this.almanac.getPeople();
+  people: Object =  environment.almanac.people;
   
   constructor(private almanac: AlmanacService) { }
+
+  update() {
+    console.log(true);
+  }
 
   editPerson(uid) {
     this.edit.emit(uid);

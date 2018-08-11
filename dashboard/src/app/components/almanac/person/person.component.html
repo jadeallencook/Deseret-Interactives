@@ -10,10 +10,10 @@
         <input type="text" autocomplete="family-name" class="form-control" [(ngModel)]="this.name.last" name="last-name" placeholder="Last name">
       </div>
       <div class="col-3">
-        <input type="text" autocomplete="bday" class="form-control" [(ngModel)]="this.birthDate" name="birth-date" placeholder="Birth Date MM/DD/YYYY">
+        <input type="text" autocomplete="bday" class="form-control" [(ngModel)]="this.birthDate" (keyup)="formatDateInput($event, 'birthDate')" name="birth-date" placeholder="Birth Date MM/DD/YYYY">
       </div>
       <div class="col-3">
-        <input type="text" class="form-control" [(ngModel)]="this.deathDate" name="death-date" placeholder="Death Date MM/DD/YYYY">
+        <input type="text" class="form-control" [(ngModel)]="this.deathDate" name="death-date" (keyup)="formatDateInput($event, 'deathDate')" placeholder="Death Date MM/DD/YYYY">
       </div>
       <!-- birth -->
       <div class="col-3">
@@ -27,10 +27,10 @@
         </select>
       </div>
       <div class="col-3">
-          <select class="form-control" [(ngModel)]="this.birthLocation.state" name="birth-states" autocomplete="state">
-            <option value="" disabled selected>Select State</option>
-            <option *ngFor="let state of this.states.birth" value="{{ state.uid }}">{{ state.name }}</option>
-          </select>
+        <select class="form-control" [(ngModel)]="this.birthLocation.state" name="birth-states" autocomplete="state">
+          <option value="" disabled selected>Select State</option>
+          <option *ngFor="let state of this.states.birth" value="{{ state.uid }}">{{ state.name }}</option>
+        </select>
       </div>
       <div class="col-3">
         <input type="text" autocomplete="postal-code" class="form-control" [(ngModel)]="this.birthLocation.postal" name="birth-postal"
@@ -42,10 +42,10 @@
           placeholder="Death Street">
       </div>
       <div class="col-3">
-          <select class="form-control" [(ngModel)]="this.deathLocation.country" (change)="updateStates()" name="death-countries" autocomplete="country-name">
-            <option value="" disabled selected>Select Country</option>
-            <option *ngFor="let country of this.countries" value="{{ country.uid }}">{{ country.name }}</option>
-          </select>
+        <select class="form-control" [(ngModel)]="this.deathLocation.country" (change)="updateStates()" name="death-countries" autocomplete="country-name">
+          <option value="" disabled selected>Select Country</option>
+          <option *ngFor="let country of this.countries" value="{{ country.uid }}">{{ country.name }}</option>
+        </select>
       </div>
       <div class="col-3">
         <select class="form-control" [(ngModel)]="this.deathLocation.state" name="death-states" autocomplete="state">
@@ -68,10 +68,10 @@
       <!-- calling -->
       <app-calling [uid]="this.uid"></app-calling>
       <div class="col-12">
-        <br />
         <ul>
           <li>
-            <b>This Person's Calling</b>
+            <b *ngIf="this.person.callings.length > 0">This Person's Calling(s)</b>
+            <b *ngIf="this.person.callings.length === 0">This Person Has No Callings</b>
           </li>
           <li *ngFor="let key of this.person.callings">
             {{ callings[key].name }}
@@ -79,11 +79,15 @@
         </ul>
       </div>
       <div class="col-12">
-        <br />
+        <div *ngIf="this.error" class="alert alert-danger" role="alert">
+          {{ this.error }}
+        </div>
         <button class="btn btn-primary" (click)="save()">Save Person</button>
         <button class="btn btn-secondary" (click)="clear()">Clear Person</button>
       </div>
     </div>
   </form>
+  <br />
+  <h4>Recently Added People</h4>
   <app-people (edit)="edit($event)"></app-people>
 </section>

@@ -62,6 +62,14 @@ export class AlmanacService {
   getKeys = (obj) => { return Object.keys(obj) }
   clear = () => { this[this.section] = this.newObj(this['new' + this.capitalize(this.section)]) }
   formatDate = (date) => { return date.month + '/' + date.day + '/' + date.year }
+  compareObjs = (obj1, obj2) => {
+    let test = true;
+    Object.keys(obj1).forEach(key => {
+      if (!obj1[key] || !obj2[key]) test = false;
+      else if (obj1[key] !== obj2[key]) test = false;
+    });
+    return test;
+  }
 
   // generate uid
   guid() {
