@@ -1,6 +1,5 @@
 export class Location {
     street1: string = '';
-    street2: string = '';
     state: string = '';
     postal: number = null;
     country: string = '';
@@ -10,8 +9,6 @@ export class Location {
 export class Event {
     date: string = '';
     location: string = '';
-    people: Array<string> = [];
-    callings: Array<string> = [];
 }
 
 export class Name {

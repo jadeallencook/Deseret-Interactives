@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Person, Name, Location } from '../../../models/almanac';
+import { Person, Name, Location, Date } from '../../../models/almanac';
 import { AlmanacService } from '../../../services/almanac.service';
 import { environment } from '../../../../environments/environment';
 
@@ -34,10 +34,14 @@ export class PersonComponent implements OnInit {
     this.uid = uid;
     this.person = this.people[uid];
     this.name = this.almanac.getName(this.person.name);
-    this.birthDate = this.almanac.formatDate(this.almanac.getDate(this.person.birth.date));
-    this.birthLocation = this.almanac.getLocation(this.person.birth.location);
-    this.deathDate = this.almanac.formatDate(this.almanac.getDate(this.person.death.date));
-    this.deathLocation = this.almanac.getLocation(this.person.death.location);
+    if (this.person.birth.date) this.birthDate = this.almanac.formatDate(this.almanac.getDate(this.person.birth.date));
+    else this.birthDate = '';
+    if (this.person.birth.location) this.birthLocation = this.almanac.getLocation(this.person.birth.location);
+    else this.birthLocation = new Location();
+    if (this.person.death.date) this.deathDate = this.almanac.formatDate(this.almanac.getDate(this.person.death.date));
+    else this.deathDate = '';
+    if (this.person.death.location) this.deathLocation = this.almanac.getLocation(this.person.death.location);
+    else this.deathLocation = new Location();
     this.updateStates();
   }
 
@@ -69,27 +73,60 @@ export class PersonComponent implements OnInit {
   }
 
   save() {
+    // validate person form for db upload
     if (this.validate()) {
       // generate uids
       const uids = {
         person: this.uid,
         name: this.almanac.guid(),
-        dates: {
-          birth: this.almanac.guid(),
-          death: this.almanac.guid()
-        },
-        locations: {
+        location: {
           birth: this.almanac.guid(),
           death: this.almanac.guid()
         }
       }
-      // check name
+      // if no uid for name, create one
       if (!this.person.name) this.person.name = uids.name;
+      // push name data to db
+      this.name.person = uids.person;
       environment.almanac.names[this.person.name] = this.name;
+      // check birth & death location/date
+      ['birth', 'death'].forEach(birthDeath => {
+        const event = this.person[birthDeath];
+        if (event) {
+          ['date', 'location'].forEach(dateLocation => {
+            const capitalizedKey = dateLocation.charAt(0).toUpperCase() + dateLocation.slice(1);
+            const value = this[birthDeath + capitalizedKey];
+            let valid = false;
+            // make sure value is present
+            for (var x in value) {
+              if (value[x] && value[x].length > 0) {
+                valid = true;
+              }
+            }
+            // saving method for dates
+            if (valid && dateLocation === 'date' && value.split('/').length === 3) {
+              let date = value.split('/');
+              const dateUID = parseInt(date[0] + date[1] + date[2]);
+              this.person[birthDeath].date = dateUID;
+              let obj = new Date();
+              if (environment.almanac.dates[dateUID]) obj = environment.almanac.dates[dateUID];
+              obj.month = parseInt(date[0]);
+              obj.day = parseInt(date[1]);
+              obj.year = parseInt(date[2]);
+              if (obj.people[`${birthDeath}s`].indexOf(uids.person) === -1) {
+                obj.people[`${birthDeath}s`].push(uids.person);
+              }
+              environment.almanac.dates[dateUID] = obj;
+            } else if (valid && dateLocation === 'location') {
+              // saving methods for locations
+              console.log(value);
+            }
+          });
+        }
+      });
+      // push or update person in db
       environment.almanac.people[uids.person] = this.person;
-      // check birth location/date
-      console.log(this.birthDate);
-      // check death location/date
+      console.log(environment.almanac);
       this.clear();
     }
   }
@@ -98,7 +135,7 @@ export class PersonComponent implements OnInit {
     if (event.keyCode !== 8 && this[objKey] && isFinite(event.key)) {
       if (this[objKey].length === 2) this[objKey] += '/';
       if (this[objKey].length === 5) this[objKey] += '/';
-      if (this[objKey].length > 9) this[objKey] = this[objKey].substring(0,10);
+      if (this[objKey].length > 9) this[objKey] = this[objKey].substring(0, 10);
     } else if (!isFinite(event.key) && event.keyCode !== 8 && !event.returnValue) {
       this[objKey] = this[objKey].substring(0, this[objKey].length - 1)
     }

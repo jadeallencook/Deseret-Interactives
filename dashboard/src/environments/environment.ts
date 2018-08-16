@@ -291,12 +291,12 @@ export const environment = {
     },
     // dates
     "dates": {
-      "0593cef3-c473-f216-4509-eb2140195d7d": {
+      12141991: {
         "month": 12,
         "day": 14,
         "year": 1991,
-        "person": {
-          "deaths": [""],
+        "people": {
+          "deaths": [],
           "births": ["940eca25-7bf9-82db-7974-03ed857d1615"]
         },
         "callings": {
@@ -304,13 +304,13 @@ export const environment = {
           "ends": []
         }
       },
-      "ac9d0d50-f354-c8f2-7495-f875f83c6e1e": {
+      12142001: {
         "month": 12,
         "day": 14,
         "year": 2001,
-        "person": {
+        "people": {
           "deaths": ["940eca25-7bf9-82db-7974-03ed857d1615"],
-          "births": [""]
+          "births": []
         },
         "callings": {
           "starts": [],
@@ -322,14 +322,13 @@ export const environment = {
     "locations": {
       "d257df6d-5fca-70a5-9d7e-a0bab213f7aa": {
         "street1": "123 Test Street",
-        "street2": "",
         "state": "7baa8029-5525-8eaa-df44-f6ad2c77bd8e",
         "postal": 84111,
         "country": "9e1c5261-ade3-fbe8-06bc-8aa47f4996a2"
       }
     },
     "callings": {
-    // callings
+      // callings
       "50a1a992-e1d3-44d1-21bb-229878229e94": {
         "name": "Test Calling",
         "people": ["940eca25-7bf9-82db-7974-03ed857d1615"]
@@ -340,11 +339,11 @@ export const environment = {
       "940eca25-7bf9-82db-7974-03ed857d1615": {
         "name": "316e37df-71ef-06d6-6606-fc3cfc58e4e4",
         "birth": {
-          "date": "0593cef3-c473-f216-4509-eb2140195d7d",
+          "date": 12141991,
           "location": "d257df6d-5fca-70a5-9d7e-a0bab213f7aa"
         },
         "death": {
-          "date": "ac9d0d50-f354-c8f2-7495-f875f83c6e1e",
+          "date": 12142001,
           "location": "d257df6d-5fca-70a5-9d7e-a0bab213f7aa"
         },
         "photo": "my-photo.jpg",
