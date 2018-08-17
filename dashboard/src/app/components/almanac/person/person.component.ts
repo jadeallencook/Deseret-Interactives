@@ -118,8 +118,14 @@ export class PersonComponent implements OnInit {
               }
               environment.almanac.dates[dateUID] = obj;
             } else if (valid && dateLocation === 'location') {
-              // saving methods for locations
-              console.log(value);
+              // saving method for locations
+              let locationUID = uids.location[birthDeath];
+              // update existing location
+              if (this.person[birthDeath].location) {
+                locationUID = this.person[birthDeath].location;
+              }
+              environment.almanac.locations[locationUID] = this[`${birthDeath}Location`];
+              this.person[birthDeath].location = locationUID;
             }
           });
         }

@@ -14,8 +14,13 @@ export class AlmanacService {
   getName = (uid) => { return this.newObj(environment.almanac.names[uid]) }
   getLocation = (uid) => { return this.newObj(environment.almanac.locations[uid]) }
   getState = (uid) => {
-    const location: Location = this.getLocation(uid);
-    return this.newObj(environment.almanac.states[location.country][location.state]);
+      const location: Location = this.getLocation(uid);
+      if (!location.state) {
+        return 'Not Set';
+      } else {
+        return this.newObj(environment.almanac.states[location.country][location.state]);
+      }
+
   }
   getCountry = (uid) => { return environment.almanac.countries[uid] }
   getDate = (uid) => { return environment.almanac.dates[uid] }
