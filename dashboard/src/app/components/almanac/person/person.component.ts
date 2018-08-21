@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Person, Name, Location, Date } from '../../../models/almanac';
 import { AlmanacService } from '../../../services/almanac.service';
 import { environment } from '../../../../environments/environment';
+import * as firebase from 'firebase';
 
 @Component({
   selector: 'app-person',
@@ -30,19 +31,22 @@ export class PersonComponent implements OnInit {
   constructor(private almanac: AlmanacService) { }
 
   edit(uid: string) {
-    this.clear();
-    this.uid = uid;
-    this.person = this.people[uid];
-    this.name = this.almanac.getName(this.person.name);
-    if (this.person.birth.date) this.birthDate = this.almanac.formatDate(this.almanac.getDate(this.person.birth.date));
-    else this.birthDate = '';
-    if (this.person.birth.location) this.birthLocation = this.almanac.getLocation(this.person.birth.location);
-    else this.birthLocation = new Location();
-    if (this.person.death.date) this.deathDate = this.almanac.formatDate(this.almanac.getDate(this.person.death.date));
-    else this.deathDate = '';
-    if (this.person.death.location) this.deathLocation = this.almanac.getLocation(this.person.death.location);
-    else this.deathLocation = new Location();
-    this.updateStates();
+    firebase.database().ref(`almanac/people/${uid}`).once('value').then((snapshot) => {
+      this.clear();
+      this.uid = uid;
+      this.person = snapshot.val();
+      this.name = this.almanac.getName(this.person.name);
+      if (!this.person.photo) this.person.photo = '';
+      if (this.person.birth.date) this.birthDate = this.almanac.formatDate(this.almanac.getDate(this.person.birth.date));
+      else this.birthDate = '';
+      if (this.person.birth.location) this.birthLocation = this.almanac.getLocation(this.person.birth.location);
+      else this.birthLocation = new Location();
+      if (this.person.death.date) this.deathDate = this.almanac.formatDate(this.almanac.getDate(this.person.death.date));
+      else this.deathDate = '';
+      if (this.person.death.location) this.deathLocation = this.almanac.getLocation(this.person.death.location);
+      else this.deathLocation = new Location();
+      this.updateStates();
+    });
   }
 
   clear() {
@@ -88,7 +92,7 @@ export class PersonComponent implements OnInit {
       if (!this.person.name) this.person.name = uids.name;
       // push name data to db
       this.name.person = uids.person;
-      environment.almanac.names[this.person.name] = this.name;
+      firebase.database().ref(`almanac/names/${this.person.name}`).set(this.name);
       // check birth & death location/date
       ['birth', 'death'].forEach(birthDeath => {
         const event = this.person[birthDeath];
@@ -116,7 +120,7 @@ export class PersonComponent implements OnInit {
               if (obj.people[`${birthDeath}s`].indexOf(uids.person) === -1) {
                 obj.people[`${birthDeath}s`].push(uids.person);
               }
-              environment.almanac.dates[dateUID] = obj;
+              firebase.database().ref(`almanac/dates/${dateUID}`).set(obj);
             } else if (valid && dateLocation === 'location') {
               // saving method for locations
               let locationUID = uids.location[birthDeath];
@@ -124,15 +128,14 @@ export class PersonComponent implements OnInit {
               if (this.person[birthDeath].location) {
                 locationUID = this.person[birthDeath].location;
               }
-              environment.almanac.locations[locationUID] = this[`${birthDeath}Location`];
+              firebase.database().ref(`almanac/locations/${locationUID}`).set(this[`${birthDeath}Location`]);
               this.person[birthDeath].location = locationUID;
             }
           });
         }
       });
       // push or update person in db
-      environment.almanac.people[uids.person] = this.person;
-      console.log(environment.almanac);
+      firebase.database().ref(`almanac/people/${uids.person}`).set(this.person);
       this.clear();
     }
   }
@@ -150,6 +153,14 @@ export class PersonComponent implements OnInit {
   updateStates() {
     this.states.birth = this.almanac.getStates(this.birthLocation.country);
     this.states.death = this.almanac.getStates(this.deathLocation.country);
+  }
+
+  updateCallings() {
+    this.callings = environment.almanac['callings'];
+    let person = environment.almanac.people[this.uid];
+    if (person) {
+      this.person.callings = person.callings;
+    }
   }
 
   ngOnInit() {

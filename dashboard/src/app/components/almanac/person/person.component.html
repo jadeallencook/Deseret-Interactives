@@ -66,12 +66,12 @@
         <textarea type="text" class="form-control" [(ngModel)]="this.person.bio" name="bio" placeholder="Bio"></textarea>
       </div>
       <!-- calling -->
-      <app-calling [uid]="this.uid"></app-calling>
+      <app-calling [uid]="this.uid" (update)="updateCallings()"></app-calling>
       <div class="col-12">
         <ul>
           <li>
-            <b *ngIf="this.person.callings.length > 0">This Person's Calling(s)</b>
-            <b *ngIf="this.person.callings.length === 0">This Person Has No Callings</b>
+            <b *ngIf="this.person.callings && this.person.callings.length > 0">This Person's Calling(s)</b>
+            <b *ngIf="!this.person.callings">This Person Has No Callings</b>
           </li>
           <li *ngFor="let key of this.person.callings">
             {{ callings[key].name }}

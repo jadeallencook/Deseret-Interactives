@@ -15,10 +15,6 @@ export class PeopleComponent implements OnInit {
   
   constructor(private almanac: AlmanacService) { }
 
-  update() {
-    console.log(true);
-  }
-
   editPerson(uid) {
     this.edit.emit(uid);
   }

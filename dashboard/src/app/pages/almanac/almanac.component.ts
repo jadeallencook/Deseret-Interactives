@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Person, Calling } from '../../models/almanac';
 import { environment } from '../../../environments/environment';
 import { AlmanacService } from '../../services/almanac.service';
+import * as firebase from 'firebase';
 
 @Component({
   selector: 'app-almanac',
@@ -11,11 +11,14 @@ import { AlmanacService } from '../../services/almanac.service';
 })
 export class AlmanacComponent implements OnInit {
 
-  // build
-  section: string;
+  section: string = 'loading';
 
   constructor(private AlmanacService: AlmanacService) {
-    this.section = 'person';
+    firebase.database().ref('almanac/').on('value', (snapshot) => {
+      environment.almanac = snapshot.val();
+      this.section = 'person';
+      console.log('Getting value from Firebase...');
+    });
   }
 
   changeSection(section) {

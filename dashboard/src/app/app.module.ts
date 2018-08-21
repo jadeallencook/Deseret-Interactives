@@ -12,6 +12,7 @@ import { AlmanacComponent } from './pages/almanac/almanac.component';
 import { PersonComponent } from './components/almanac/person/person.component';
 import { CallingComponent } from './components/almanac/calling/calling.component';
 import { PeopleComponent } from './components/almanac/people/people.component';
+import { LoadingComponent } from './components/almanac/loading/loading.component';
 
 const appRoutes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -31,7 +32,8 @@ const appRoutes: Routes = [
     AlmanacComponent,
     PersonComponent,
     CallingComponent,
-    PeopleComponent
+    PeopleComponent,
+    LoadingComponent
   ],
   imports: [
     BrowserModule,
