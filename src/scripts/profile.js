@@ -11,6 +11,14 @@ export default function Profile(container, color, allLink, allText, json) {
             image.style.backgroundImage = 'url(' + profile.image + ')';
             R.a(top, image);
             R.a(top, R.c('h2.profile-name', profile.name));
+            if (profile.subtext) {
+                var subtext = R.c('span', profile.subtext);
+                subtext.style.display = 'block';
+                subtext.style.fontSize = '.75em';
+                subtext.style.color = color;
+                subtext.style.fontWeight = 'bold';
+                R.a(top, subtext)
+            }
             R.a(elem, top);
             R.e(profile.bullets, function (bullet) {
                 R.a(elem, R.c('div.bullet', '<b>' + bullet.bullet + ':</b> ' + bullet.text));

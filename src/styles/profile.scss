@@ -30,6 +30,10 @@ div.interactive[data-type="profile"] {
             border-bottom: solid thin grey;
             font-size: 0.75em;
         }
+        div.bullet:nth-last-child(2),
+        div.bullet:last-child {
+            border-bottom: none;
+        }
         div.bullet.view-all {
             border-bottom: none;
             text-align: center;

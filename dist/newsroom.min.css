@@ -462,6 +462,9 @@ div.interactive[data-type="profile"] {
       padding: 15px 0px;
       border-bottom: solid thin grey;
       font-size: 0.75em; }
+    div.interactive[data-type="profile"] div.profile div.bullet:nth-last-child(2),
+    div.interactive[data-type="profile"] div.profile div.bullet:last-child {
+      border-bottom: none; }
     div.interactive[data-type="profile"] div.profile div.bullet.view-all {
       border-bottom: none;
       text-align: center;
