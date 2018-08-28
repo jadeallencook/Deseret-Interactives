@@ -14,12 +14,12 @@ export class AlmanacService {
   getName = (uid) => { return this.newObj(environment.almanac.names[uid]) }
   getLocation = (uid) => { return this.newObj(environment.almanac.locations[uid]) }
   getState = (uid) => {
-      const location: Location = this.getLocation(uid);
-      if (!location.state) {
-        return 'Not Set';
-      } else {
-        return this.newObj(environment.almanac.states[location.country][location.state]);
-      }
+    const location: Location = this.getLocation(uid);
+    if (!location.state) {
+      return 'Not Set';
+    } else {
+      return this.newObj(environment.almanac.states[location.country][location.state]);
+    }
 
   }
   getCountry = (uid) => { return environment.almanac.countries[uid] }
@@ -45,7 +45,12 @@ export class AlmanacService {
         };
       array.push(obj);
     });
-    return array;
+    array.sort(function (a, b) {
+      if (a.name < b.name) return -1;
+      if (a.name > b.name) return 1;
+      return 0;
+    });
+    return this.newObj(array);
   }
   getStates = (uid) => {
     let array = [];
@@ -58,6 +63,11 @@ export class AlmanacService {
         array.push(obj);
       });
     }
+    array.sort(function (a, b) {
+      if (a.name < b.name) return -1;
+      if (a.name > b.name) return 1;
+      return 0;
+    });
     return this.newObj(array);
   }
 
