@@ -34,11 +34,18 @@ export class CallingComponent implements OnInit {
   }
 
   add() {
-    firebase.database().ref(`almanac/callings/${this.AlmanacService.guid()}/`).set(JSON.parse(JSON.stringify(this.calling))).then(() => {
-      this.callings = environment.almanac.callings;
-      this.findCalling();
-      this.reset();
-    });
+    const uid = this.AlmanacService.guid();
+    firebase.database().ref(`almanac/people/${this.uid}/`).once('value', (snapshot) => {
+      if (snapshot.val()) this.calling.people[0] = this.uid;
+      else this.calling.people = [];
+    }).then(() => {
+      firebase.database().ref(`almanac/callings/${uid}/`).set(JSON.parse(JSON.stringify(this.calling))).then(() => {
+        this.callings = environment.almanac.callings;
+        this.findCalling();
+        if (this.calling.people.length) this.addCallingToPerson(uid);
+        this.reset();
+      });
+    })
   }
 
   addCallingToPerson(key) {
