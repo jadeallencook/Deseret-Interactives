@@ -219,10 +219,20 @@ var CallingComponent = /** @class */ (function () {
     };
     CallingComponent.prototype.add = function () {
         var _this = this;
-        __WEBPACK_IMPORTED_MODULE_4_firebase__["database"]().ref("almanac/callings/" + this.AlmanacService.guid() + "/").set(JSON.parse(JSON.stringify(this.calling))).then(function () {
-            _this.callings = __WEBPACK_IMPORTED_MODULE_3__environments_environment__["a" /* environment */].almanac.callings;
-            _this.findCalling();
-            _this.reset();
+        var uid = this.AlmanacService.guid();
+        __WEBPACK_IMPORTED_MODULE_4_firebase__["database"]().ref("almanac/people/" + this.uid + "/").once('value', function (snapshot) {
+            if (snapshot.val())
+                _this.calling.people[0] = _this.uid;
+            else
+                _this.calling.people = [];
+        }).then(function () {
+            __WEBPACK_IMPORTED_MODULE_4_firebase__["database"]().ref("almanac/callings/" + uid + "/").set(JSON.parse(JSON.stringify(_this.calling))).then(function () {
+                _this.callings = __WEBPACK_IMPORTED_MODULE_3__environments_environment__["a" /* environment */].almanac.callings;
+                _this.findCalling();
+                if (_this.calling.people.length)
+                    _this.addCallingToPerson(uid);
+                _this.reset();
+            });
         });
     };
     CallingComponent.prototype.addCallingToPerson = function (key) {
@@ -1179,7 +1189,14 @@ var AlmanacService = /** @class */ (function () {
                 };
                 array.push(obj);
             });
-            return array;
+            array.sort(function (a, b) {
+                if (a.name < b.name)
+                    return -1;
+                if (a.name > b.name)
+                    return 1;
+                return 0;
+            });
+            return _this.newObj(array);
         };
         this.getStates = function (uid) {
             var array = [];
@@ -1192,6 +1209,13 @@ var AlmanacService = /** @class */ (function () {
                     array.push(obj);
                 });
             }
+            array.sort(function (a, b) {
+                if (a.name < b.name)
+                    return -1;
+                if (a.name > b.name)
+                    return 1;
+                return 0;
+            });
             return _this.newObj(array);
         };
         // build
