@@ -10,4 +10,12 @@ ul {
         cursor: pointer;
         margin-left: 15px;
     }
+    li a.delete {
+        color: red;
+    }
+}
+
+div.form-check {
+    margin-top: 6px;
+    text-align: center;
 }

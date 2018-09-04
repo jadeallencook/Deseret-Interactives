@@ -7,7 +7,10 @@ import * as firebase from 'firebase';
   selector: 'app-almanac',
   templateUrl: './almanac.component.html',
   styleUrls: ['./almanac.component.scss'],
-  providers: [AlmanacService]
+  providers: [AlmanacService],
+  host: {
+    class: 'col-12'
+  }
 })
 export class AlmanacComponent implements OnInit {
 

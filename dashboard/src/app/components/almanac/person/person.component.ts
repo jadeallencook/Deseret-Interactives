@@ -113,7 +113,9 @@ export class PersonComponent implements OnInit {
               const dateUID = parseInt(date[0] + date[1] + date[2]);
               this.person[birthDeath].date = dateUID;
               let obj = new Date();
-              if (environment.almanac.dates[dateUID]) obj = environment.almanac.dates[dateUID];
+              if (environment.almanac.dates[dateUID]) {
+                obj = environment.almanac.dates[dateUID];
+              }
               obj.month = parseInt(date[0]);
               obj.day = parseInt(date[1]);
               obj.year = parseInt(date[2]);
@@ -141,11 +143,11 @@ export class PersonComponent implements OnInit {
   }
 
   formatDateInput(event, objKey) {
-    if (event.keyCode !== 8 && this[objKey] && isFinite(event.key)) {
+    if (event.keyCode !== 8 && this[objKey] && isFinite(event.key) && !isNaN(parseInt(event.key))) {
       if (this[objKey].length === 2) this[objKey] += '/';
       if (this[objKey].length === 5) this[objKey] += '/';
       if (this[objKey].length > 9) this[objKey] = this[objKey].substring(0, 10);
-    } else if (!isFinite(event.key) && event.keyCode !== 8 && !event.returnValue) {
+    } else if (event.keyCode !== 16 && event.keyCode !== 8) {
       this[objKey] = this[objKey].substring(0, this[objKey].length - 1)
     }
   }

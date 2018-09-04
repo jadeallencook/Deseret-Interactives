@@ -42,8 +42,8 @@ export class Person {
 
 export class Calling {
     name: string = '';
-    start: Date = new Date();
-    end: Date = new Date();
+    start: number = null;
+    end: number = null;
     people: Array<string> = [''];
     emeritus: boolean = null;
 }

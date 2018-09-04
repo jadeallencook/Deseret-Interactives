@@ -65,6 +65,14 @@
       <div class="col-12">
         <textarea type="text" class="form-control" [(ngModel)]="this.person.bio" name="bio" placeholder="Bio"></textarea>
       </div>
+      <div class="col-12">
+          <div *ngIf="this.error" class="alert alert-danger" role="alert">
+            {{ this.error }}
+          </div>
+          <button class="btn btn-primary" (click)="save()">Save Person</button>
+          <button class="btn btn-secondary" (click)="clear()">Clear Person</button>
+        </div>
+      </div>
       <!-- calling -->
       <app-calling [uid]="this.uid" (update)="updateCallings()"></app-calling>
       <div class="col-12">
@@ -78,14 +86,6 @@
           </li>
         </ul>
       </div>
-      <div class="col-12">
-        <div *ngIf="this.error" class="alert alert-danger" role="alert">
-          {{ this.error }}
-        </div>
-        <button class="btn btn-primary" (click)="save()">Save Person</button>
-        <button class="btn btn-secondary" (click)="clear()">Clear Person</button>
-      </div>
-    </div>
   </form>
   <br />
   <h4>Recently Added People</h4>
