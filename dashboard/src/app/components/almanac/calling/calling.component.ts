@@ -3,6 +3,7 @@ import { Calling, Date } from '../../../models/almanac';
 import { AlmanacService } from '../../../services/almanac.service';
 import { environment } from '../../../../environments/environment';
 import * as firebase from 'firebase';
+import { forEach } from '@angular/router/src/utils/collection';
 
 @Component({
   selector: 'app-calling',
@@ -157,7 +158,41 @@ export class CallingComponent implements OnInit {
   }
 
   delete(key) {
-    console.log(key);
+    const calling = this.callings[key],
+      fb = firebase.database(),
+      dates = ['start', 'end'];
+    // remove calling ref from dates
+    dates.forEach(string => {
+      if (calling[string]) {
+        fb.ref(`almanac/dates/${calling[string]}/`).once('value', (snapshot) => {
+          let date = snapshot.val(),
+            temp = [];
+          date.callings.forEach(calling => {
+            if (calling !== key) {
+              temp.push(calling);
+            }
+          });
+          date.callings = temp;
+          fb.ref(`almanac/dates/${calling[string]}/`).set(date);
+        });
+      }
+    });
+    // remove calling from person
+    if (calling.people) {
+      calling.people.forEach(person => {
+        var callings = [];
+        environment.almanac.people[person].callings.forEach(callingKey => {
+          if (callingKey !== key) {
+            callings.push(callingKey);
+          }
+        });
+        fb.ref(`almanac/people/${person}/callings/`).set(callings);
+      });
+    }
+    // remove calling from fb
+    fb.ref(`almanac/callings/${key}/`).remove().then(() => {
+      this.reset();
+    });
   }
 
   addCallingToPerson(key) {
@@ -177,6 +212,7 @@ export class CallingComponent implements OnInit {
         people.push(this.uid);
       }
       firebase.database().ref(`almanac/people/${this.uid}/callings/`).set(environment.almanac.people[this.uid].callings).then(() => {
+        console.log(people);
         firebase.database().ref(`almanac/callings/${key}/people/`).set(people);
         this.update.emit();
       });
@@ -185,6 +221,7 @@ export class CallingComponent implements OnInit {
 
   findCalling() {
     if (!this.editor.editing) {
+      this.callings = environment.almanac.callings;
       this.callingResults = [];
       Object.keys(this.callings).forEach(calling => {
         if (this.callings[calling].name.toLowerCase().indexOf(this.calling.name.toLowerCase()) > -1 && Object.keys(this.callingResults).length < 10) {

@@ -82,7 +82,8 @@
             <b *ngIf="!this.person.callings">This Person Has No Callings</b>
           </li>
           <li *ngFor="let key of this.person.callings">
-            {{ callings[key].name }}
+            <span *ngIf="callings[key]">{{ callings[key].name }}</span>
+            <span *ngIf="!callings[key]">Calling "{{ key }}" not found...</span>
           </li>
         </ul>
       </div>
