@@ -36,20 +36,31 @@ export class AlmanacService {
     return people;
   }
   getCountries = () => {
-    let array = [];
+    let array = [],
+        unitedStates = {};
     Object.keys(environment.almanac.countries).forEach(function (uid) {
       const name = environment.almanac.countries[uid],
         obj = {
           name: name,
           uid: uid
         };
-      array.push(obj);
+        if (obj.name === 'United States') {
+          unitedStates = obj;
+        }
+        array.push(obj);
     });
     array.sort(function (a, b) {
-      if (a.name < b.name) return -1;
-      if (a.name > b.name) return 1;
-      return 0;
+      if (a.name < b.name) {
+        return -1;
+      } else if (a.name > b.name) {
+        return 1;
+      } else {
+        return 0;
+      }
     });
+    if (unitedStates) {
+      array.unshift(unitedStates);
+    }
     return this.newObj(array);
   }
   getStates = (uid) => {

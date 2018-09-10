@@ -19,7 +19,7 @@ export class AlmanacComponent implements OnInit {
   constructor(private AlmanacService: AlmanacService) {
     firebase.database().ref('almanac/').on('value', (snapshot) => {
       environment.almanac = snapshot.val();
-      this.section = 'person';
+      this.section = 'countries';
       console.log('Getting value from Firebase...');
     });
   }
