@@ -31,6 +31,23 @@ export class Date {
     }
 }
 
+export class Country {
+    name: string = '';
+    history: string = '';
+    year: string = '';
+}
+
+export class Year {
+    population: number = null;
+    membership: number = null;
+    branches: Object = {
+        wards: null,
+        missions: null
+    }
+    missions: number = null;
+    stake: number = null;
+}
+
 export class Person {
     name: string = '';
     birth: Event = new Event();
