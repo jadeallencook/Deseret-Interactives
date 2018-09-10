@@ -34,7 +34,7 @@ export class Date {
 export class Country {
     name: string = '';
     history: string = '';
-    year: Object = {};
+    year: Array<string> = [];
 }
 
 export class Year {

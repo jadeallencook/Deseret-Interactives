@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { environment } from '../../environments/environment';
-import { Location } from '../models/almanac';
+import { Location, Country } from '../models/almanac';
 import { forEach } from '../../../node_modules/@angular/router/src/utils/collection';
 
 @Injectable()
@@ -37,17 +37,14 @@ export class AlmanacService {
   }
   getCountries = () => {
     let array = [],
-        unitedStates = {};
+      unitedStates = {};
     Object.keys(environment.almanac.countries).forEach(function (uid) {
-      const name = environment.almanac.countries[uid],
-        obj = {
-          name: name,
-          uid: uid
-        };
-        if (obj.name === 'United States') {
-          unitedStates = obj;
-        }
-        array.push(obj);
+      const obj = environment.almanac.countries[uid];
+      obj.uid = uid;
+      if (obj.name === 'United States') {
+        unitedStates = obj;
+      }
+      array.push(obj);
     });
     array.sort(function (a, b) {
       if (a.name < b.name) {
