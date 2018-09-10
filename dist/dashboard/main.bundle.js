@@ -104,12 +104,14 @@ var AppComponent = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__components_almanac_calling_calling_component__ = __webpack_require__("./src/app/components/almanac/calling/calling.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__components_almanac_people_people_component__ = __webpack_require__("./src/app/components/almanac/people/people.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__components_almanac_loading_loading_component__ = __webpack_require__("./src/app/components/almanac/loading/loading.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__components_almanac_countries_countries_component__ = __webpack_require__("./src/app/components/almanac/countries/countries.component.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -146,7 +148,8 @@ var AppModule = /** @class */ (function () {
                 __WEBPACK_IMPORTED_MODULE_10__components_almanac_person_person_component__["a" /* PersonComponent */],
                 __WEBPACK_IMPORTED_MODULE_11__components_almanac_calling_calling_component__["a" /* CallingComponent */],
                 __WEBPACK_IMPORTED_MODULE_12__components_almanac_people_people_component__["a" /* PeopleComponent */],
-                __WEBPACK_IMPORTED_MODULE_13__components_almanac_loading_loading_component__["a" /* LoadingComponent */]
+                __WEBPACK_IMPORTED_MODULE_13__components_almanac_loading_loading_component__["a" /* LoadingComponent */],
+                __WEBPACK_IMPORTED_MODULE_14__components_almanac_countries_countries_component__["a" /* CountriesComponent */]
             ],
             imports: [
                 __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
@@ -213,11 +216,11 @@ var CallingComponent = /** @class */ (function () {
         this.date = {
             start: {
                 ui: '',
-                fb: new __WEBPACK_IMPORTED_MODULE_1__models_almanac__["b" /* Date */]()
+                fb: new __WEBPACK_IMPORTED_MODULE_1__models_almanac__["c" /* Date */]()
             },
             end: {
                 ui: '',
-                fb: new __WEBPACK_IMPORTED_MODULE_1__models_almanac__["b" /* Date */]()
+                fb: new __WEBPACK_IMPORTED_MODULE_1__models_almanac__["c" /* Date */]()
             },
         };
         this.editor = {
@@ -235,18 +238,18 @@ var CallingComponent = /** @class */ (function () {
         this.date = {
             start: {
                 ui: '',
-                fb: new __WEBPACK_IMPORTED_MODULE_1__models_almanac__["b" /* Date */]()
+                fb: new __WEBPACK_IMPORTED_MODULE_1__models_almanac__["c" /* Date */]()
             },
             end: {
                 ui: '',
-                fb: new __WEBPACK_IMPORTED_MODULE_1__models_almanac__["b" /* Date */]()
+                fb: new __WEBPACK_IMPORTED_MODULE_1__models_almanac__["c" /* Date */]()
             },
         };
         this.findCalling();
     };
     CallingComponent.prototype.dateFBExport = function (string) {
         var array = string.split('/');
-        var date = new __WEBPACK_IMPORTED_MODULE_1__models_almanac__["b" /* Date */]();
+        var date = new __WEBPACK_IMPORTED_MODULE_1__models_almanac__["c" /* Date */]();
         date.month = parseInt(array[0]);
         date.day = parseInt(array[1]);
         date.year = parseInt(array[2]);
@@ -343,7 +346,39 @@ var CallingComponent = /** @class */ (function () {
         }
     };
     CallingComponent.prototype.delete = function (key) {
-        console.log(key);
+        var _this = this;
+        var calling = this.callings[key], fb = __WEBPACK_IMPORTED_MODULE_4_firebase__["database"](), dates = ['start', 'end'];
+        // remove calling ref from dates
+        dates.forEach(function (string) {
+            if (calling[string]) {
+                fb.ref("almanac/dates/" + calling[string] + "/").once('value', function (snapshot) {
+                    var date = snapshot.val(), temp = [];
+                    date.callings.forEach(function (calling) {
+                        if (calling !== key) {
+                            temp.push(calling);
+                        }
+                    });
+                    date.callings = temp;
+                    fb.ref("almanac/dates/" + calling[string] + "/").set(date);
+                });
+            }
+        });
+        // remove calling from person
+        if (calling.people) {
+            calling.people.forEach(function (person) {
+                var callings = [];
+                __WEBPACK_IMPORTED_MODULE_3__environments_environment__["a" /* environment */].almanac.people[person].callings.forEach(function (callingKey) {
+                    if (callingKey !== key) {
+                        callings.push(callingKey);
+                    }
+                });
+                fb.ref("almanac/people/" + person + "/callings/").set(callings);
+            });
+        }
+        // remove calling from fb
+        fb.ref("almanac/callings/" + key + "/").remove().then(function () {
+            _this.reset();
+        });
     };
     CallingComponent.prototype.addCallingToPerson = function (key) {
         var _this = this;
@@ -366,6 +401,7 @@ var CallingComponent = /** @class */ (function () {
                 people.push(this.uid);
             }
             __WEBPACK_IMPORTED_MODULE_4_firebase__["database"]().ref("almanac/people/" + this.uid + "/callings/").set(__WEBPACK_IMPORTED_MODULE_3__environments_environment__["a" /* environment */].almanac.people[this.uid].callings).then(function () {
+                console.log(people);
                 __WEBPACK_IMPORTED_MODULE_4_firebase__["database"]().ref("almanac/callings/" + key + "/people/").set(people);
                 _this.update.emit();
             });
@@ -374,6 +410,7 @@ var CallingComponent = /** @class */ (function () {
     CallingComponent.prototype.findCalling = function () {
         var _this = this;
         if (!this.editor.editing) {
+            this.callings = __WEBPACK_IMPORTED_MODULE_3__environments_environment__["a" /* environment */].almanac.callings;
             this.callingResults = [];
             Object.keys(this.callings).forEach(function (calling) {
                 if (_this.callings[calling].name.toLowerCase().indexOf(_this.calling.name.toLowerCase()) > -1 && Object.keys(_this.callingResults).length < 10) {
@@ -418,6 +455,109 @@ var CallingComponent = /** @class */ (function () {
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__services_almanac_service__["a" /* AlmanacService */]])
     ], CallingComponent);
     return CallingComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/components/almanac/countries/countries.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<br />\n<div class=\"row\">\n  <div class=\"col-6\">\n    <div class=\"dropdown\">\n      <button class=\"btn btn-secondary dropdown-toggle\" type=\"button\" id=\"dropdownMenuButton\" data-toggle=\"dropdown\"\n        aria-haspopup=\"true\" aria-expanded=\"false\">\n        Choose Country\n      </button>\n      <div class=\"dropdown-menu\" aria-labelledby=\"dropdownMenuButton\">\n        <a class=\"dropdown-item\" *ngFor=\"let country of almanac.getCountries()\" (click)=\"edit(country.uid)\">\n          {{ country.name }}\n        </a>\n      </div>\n    </div>\n  </div>\n  <div class=\"col-6\">\n    <input type=\"text\" class=\"form-control\" [(ngModel)]=\"country.name\" name=\"name\" placeholder=\"Name\" disabled>\n  </div>\n  <div class=\"col-12\">\n    <textarea class=\"form-control\" name=\"history\" [(ngModel)]=\"country.history\" placeholder=\"Country's history...\" id=\"history\"></textarea>\n  </div>\n  <div class=\"col-12\">\n      <button class=\"btn btn-primary\" (click)=\"saveCountry()\">Save Country</button>\n  </div>\n  <div class=\"col-3\">\n      <input type=\"number\" class=\"form-control\" [(ngModel)]=\"editor.year\" (change)=\"getYear()\" name=\"year\" placeholder=\"Year\">\n  </div>\n  <div class=\"col-3\">\n    <input type=\"number\" class=\"form-control\" placeholder=\"Population\" [(ngModel)]=\"year.population\">\n  </div>\n  <div class=\"col-3\">\n      <input type=\"number\" class=\"form-control\" placeholder=\"Membership\" [(ngModel)]=\"year.membership\">\n  </div>\n  <div class=\"col-3\">\n      <input type=\"number\" class=\"form-control\" placeholder=\"Branches in wards\" [(ngModel)]=\"year.branches.wards\">\n  </div>\n  <div class=\"col-3\">\n      <input type=\"number\" class=\"form-control\" placeholder=\"Branches in missions\" [(ngModel)]=\"year.branches.missions\">\n  </div>\n  <div class=\"col-3\">\n      <input type=\"number\" class=\"form-control\" placeholder=\"Missions\" [(ngModel)]=\"year.missions\">\n  </div>\n  <div class=\"col-3\">\n      <input type=\"number\" class=\"form-control\" placeholder=\"First Stake\" [(ngModel)]=\"year.stake\">\n  </div>\n  <div class=\"col-3\">\n      <button class=\"btn btn-primary\" *ngIf=\"editor.key\" (click)=\"saveYear()\">Save Year</button>\n      <button class=\"btn btn-secondary\" *ngIf=\"!editor.key\">Select Country First</button>\n  </div>\n</div>\n"
+
+/***/ }),
+
+/***/ "./src/app/components/almanac/countries/countries.component.scss":
+/***/ (function(module, exports) {
+
+module.exports = "div.row > div {\n  padding-bottom: 25px; }\n\na.dropdown-item {\n  cursor: pointer; }\n\nbutton.dropdown-toggle {\n  width: 100%; }\n\ndiv.row > div > button {\n  width: 100%; }\n"
+
+/***/ }),
+
+/***/ "./src/app/components/almanac/countries/countries.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CountriesComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__environments_environment__ = __webpack_require__("./src/environments/environment.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__models_almanac__ = __webpack_require__("./src/app/models/almanac.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__services_almanac_service__ = __webpack_require__("./src/app/services/almanac.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_firebase__ = __webpack_require__("./node_modules/firebase/dist/index.cjs.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_firebase___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_firebase__);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+var CountriesComponent = /** @class */ (function () {
+    function CountriesComponent(almanac) {
+        this.almanac = almanac;
+        this.countries = __WEBPACK_IMPORTED_MODULE_1__environments_environment__["a" /* environment */].almanac.countries;
+        this.country = new __WEBPACK_IMPORTED_MODULE_2__models_almanac__["b" /* Country */]();
+        this.year = new __WEBPACK_IMPORTED_MODULE_2__models_almanac__["g" /* Year */]();
+        this.editor = {
+            key: null,
+            year: new Date().getFullYear()
+        };
+    }
+    CountriesComponent.prototype.getYear = function () {
+        if (__WEBPACK_IMPORTED_MODULE_1__environments_environment__["a" /* environment */].almanac.years[this.editor.year] && __WEBPACK_IMPORTED_MODULE_1__environments_environment__["a" /* environment */].almanac.years[this.editor.year][this.editor.key]) {
+            this.year = Object.assign(new __WEBPACK_IMPORTED_MODULE_2__models_almanac__["g" /* Year */](), __WEBPACK_IMPORTED_MODULE_1__environments_environment__["a" /* environment */].almanac.years[this.editor.year][this.editor.key]);
+        }
+        else {
+            this.year = new __WEBPACK_IMPORTED_MODULE_2__models_almanac__["g" /* Year */]();
+        }
+    };
+    CountriesComponent.prototype.saveYear = function () {
+        if (this.editor.key) {
+            __WEBPACK_IMPORTED_MODULE_4_firebase__["database"]().ref("/almanac/years/" + this.editor.year + "/" + this.editor.key + "/").set(this.year).then(function () {
+                console.log(true);
+            });
+        }
+    };
+    CountriesComponent.prototype.reset = function () {
+        this.country = new __WEBPACK_IMPORTED_MODULE_2__models_almanac__["b" /* Country */]();
+        this.year = new __WEBPACK_IMPORTED_MODULE_2__models_almanac__["g" /* Year */]();
+        this.getYear();
+        this.editor.key = null;
+    };
+    CountriesComponent.prototype.saveCountry = function () {
+        var _this = this;
+        if (this.editor.key) {
+            var country = this.almanac.newObj(this.country);
+            delete country['uid'];
+            __WEBPACK_IMPORTED_MODULE_4_firebase__["database"]().ref("/almanac/countries/" + this.editor.key + "/").set(country).then(function () {
+                _this.reset();
+            });
+        }
+    };
+    CountriesComponent.prototype.edit = function (key) {
+        this.editor.key = key;
+        this.country = this.countries[this.editor.key];
+        this.getYear();
+    };
+    CountriesComponent.prototype.ngOnInit = function () {
+    };
+    CountriesComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
+            selector: 'app-countries',
+            template: __webpack_require__("./src/app/components/almanac/countries/countries.component.html"),
+            styles: [__webpack_require__("./src/app/components/almanac/countries/countries.component.scss")]
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_3__services_almanac_service__["a" /* AlmanacService */]])
+    ], CountriesComponent);
+    return CountriesComponent;
 }());
 
 
@@ -542,7 +682,7 @@ var PeopleComponent = /** @class */ (function () {
 /***/ "./src/app/components/almanac/person/person.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<section>\n  <h4>New Person</h4>\n  <form>\n    <div class=\"row\">\n      <!-- basic -->\n      <div class=\"col-3\">\n        <input type=\"text\" autocomplete=\"given-name\" class=\"form-control\" [(ngModel)]=\"this.name.first\" name=\"first-name\" placeholder=\"First name\">\n      </div>\n      <div class=\"col-3\">\n        <input type=\"text\" autocomplete=\"family-name\" class=\"form-control\" [(ngModel)]=\"this.name.last\" name=\"last-name\" placeholder=\"Last name\">\n      </div>\n      <div class=\"col-3\">\n        <input type=\"text\" autocomplete=\"bday\" class=\"form-control\" [(ngModel)]=\"this.birthDate\" (keyup)=\"formatDateInput($event, 'birthDate')\" name=\"birth-date\" placeholder=\"Birth Date MM/DD/YYYY\">\n      </div>\n      <div class=\"col-3\">\n        <input type=\"text\" class=\"form-control\" [(ngModel)]=\"this.deathDate\" name=\"death-date\" (keyup)=\"formatDateInput($event, 'deathDate')\" placeholder=\"Death Date MM/DD/YYYY\">\n      </div>\n      <!-- birth -->\n      <div class=\"col-3\">\n        <input type=\"text\" autocomplete=\"address-level1\" class=\"form-control\" [(ngModel)]=\"this.birthLocation.street1\" name=\"birth-street\"\n          placeholder=\"Birth Street\">\n      </div>\n      <div class=\"col-3\">\n        <select class=\"form-control\" [(ngModel)]=\"this.birthLocation.country\" (change)=\"updateStates()\" name=\"birth-countries\" autocomplete=\"country-name\">\n          <option value=\"\" disabled selected>Select Country</option>\n          <option *ngFor=\"let country of this.countries\" value=\"{{ country.uid }}\">{{ country.name }}</option>\n        </select>\n      </div>\n      <div class=\"col-3\">\n        <select class=\"form-control\" [(ngModel)]=\"this.birthLocation.state\" name=\"birth-states\" autocomplete=\"state\">\n          <option value=\"\" disabled selected>Select State</option>\n          <option *ngFor=\"let state of this.states.birth\" value=\"{{ state.uid }}\">{{ state.name }}</option>\n        </select>\n      </div>\n      <div class=\"col-3\">\n        <input type=\"text\" autocomplete=\"postal-code\" class=\"form-control\" [(ngModel)]=\"this.birthLocation.postal\" name=\"birth-postal\"\n          placeholder=\"Birth Zip\" type=\"number\">\n      </div>\n      <!-- death -->\n      <div class=\"col-3\">\n        <input type=\"text\" autocomplete=\"address-level1\" class=\"form-control\" [(ngModel)]=\"this.deathLocation.street1\" name=\"death-street1\"\n          placeholder=\"Death Street\">\n      </div>\n      <div class=\"col-3\">\n        <select class=\"form-control\" [(ngModel)]=\"this.deathLocation.country\" (change)=\"updateStates()\" name=\"death-countries\" autocomplete=\"country-name\">\n          <option value=\"\" disabled selected>Select Country</option>\n          <option *ngFor=\"let country of this.countries\" value=\"{{ country.uid }}\">{{ country.name }}</option>\n        </select>\n      </div>\n      <div class=\"col-3\">\n        <select class=\"form-control\" [(ngModel)]=\"this.deathLocation.state\" name=\"death-states\" autocomplete=\"state\">\n          <option value=\"\" disabled selected>Select State</option>\n          <option *ngFor=\"let state of this.states.death\" value=\"{{ state.uid }}\">{{ state.name }}</option>\n        </select>\n      </div>\n      <div class=\"col-3\">\n        <input type=\"text\" autocomplete=\"postal-code\" class=\"form-control\" [(ngModel)]=\"this.deathLocation.postal\" name=\"death-postal\"\n          placeholder=\"Death Zip\" type=\"number\">\n      </div>\n      <!-- photo -->\n      <div class=\"col-12\">\n        <input type=\"text\" autocomplete=\"url\" class=\"form-control\" [(ngModel)]=\"this.person.photo\" name=\"photo-url\" placeholder=\"Photo URL\">\n      </div>\n      <!-- bio -->\n      <div class=\"col-12\">\n        <textarea type=\"text\" class=\"form-control\" [(ngModel)]=\"this.person.bio\" name=\"bio\" placeholder=\"Bio\"></textarea>\n      </div>\n      <div class=\"col-12\">\n          <div *ngIf=\"this.error\" class=\"alert alert-danger\" role=\"alert\">\n            {{ this.error }}\n          </div>\n          <button class=\"btn btn-primary\" (click)=\"save()\">Save Person</button>\n          <button class=\"btn btn-secondary\" (click)=\"clear()\">Clear Person</button>\n        </div>\n      </div>\n      <!-- calling -->\n      <app-calling [uid]=\"this.uid\" (update)=\"updateCallings()\"></app-calling>\n      <div class=\"col-12\">\n        <ul>\n          <li>\n            <b *ngIf=\"this.person.callings && this.person.callings.length > 0\">This Person's Calling(s)</b>\n            <b *ngIf=\"!this.person.callings\">This Person Has No Callings</b>\n          </li>\n          <li *ngFor=\"let key of this.person.callings\">\n            {{ callings[key].name }}\n          </li>\n        </ul>\n      </div>\n  </form>\n  <br />\n  <h4>Recently Added People</h4>\n  <app-people (edit)=\"edit($event)\"></app-people>\n</section>\n"
+module.exports = "<section>\n  <h4>New Person</h4>\n  <form>\n    <div class=\"row\">\n      <!-- basic -->\n      <div class=\"col-3\">\n        <input type=\"text\" autocomplete=\"given-name\" class=\"form-control\" [(ngModel)]=\"this.name.first\" name=\"first-name\" placeholder=\"First name\">\n      </div>\n      <div class=\"col-3\">\n        <input type=\"text\" autocomplete=\"family-name\" class=\"form-control\" [(ngModel)]=\"this.name.last\" name=\"last-name\" placeholder=\"Last name\">\n      </div>\n      <div class=\"col-3\">\n        <input type=\"text\" autocomplete=\"bday\" class=\"form-control\" [(ngModel)]=\"this.birthDate\" (keyup)=\"formatDateInput($event, 'birthDate')\" name=\"birth-date\" placeholder=\"Birth Date MM/DD/YYYY\">\n      </div>\n      <div class=\"col-3\">\n        <input type=\"text\" class=\"form-control\" [(ngModel)]=\"this.deathDate\" name=\"death-date\" (keyup)=\"formatDateInput($event, 'deathDate')\" placeholder=\"Death Date MM/DD/YYYY\">\n      </div>\n      <!-- birth -->\n      <div class=\"col-3\">\n        <input type=\"text\" autocomplete=\"address-level1\" class=\"form-control\" [(ngModel)]=\"this.birthLocation.street1\" name=\"birth-street\"\n          placeholder=\"Birth Street\">\n      </div>\n      <div class=\"col-3\">\n        <select class=\"form-control\" [(ngModel)]=\"this.birthLocation.country\" (change)=\"updateStates()\" name=\"birth-countries\" autocomplete=\"country-name\">\n          <option value=\"\" disabled selected>Select Country</option>\n          <option *ngFor=\"let country of this.countries\" value=\"{{ country.uid }}\">{{ country.name }}</option>\n        </select>\n      </div>\n      <div class=\"col-3\">\n        <select class=\"form-control\" [(ngModel)]=\"this.birthLocation.state\" name=\"birth-states\" autocomplete=\"state\">\n          <option value=\"\" disabled selected>Select State</option>\n          <option *ngFor=\"let state of this.states.birth\" value=\"{{ state.uid }}\">{{ state.name }}</option>\n        </select>\n      </div>\n      <div class=\"col-3\">\n        <input type=\"text\" autocomplete=\"postal-code\" class=\"form-control\" [(ngModel)]=\"this.birthLocation.postal\" name=\"birth-postal\"\n          placeholder=\"Birth Zip\" type=\"number\">\n      </div>\n      <!-- death -->\n      <div class=\"col-3\">\n        <input type=\"text\" autocomplete=\"address-level1\" class=\"form-control\" [(ngModel)]=\"this.deathLocation.street1\" name=\"death-street1\"\n          placeholder=\"Death Street\">\n      </div>\n      <div class=\"col-3\">\n        <select class=\"form-control\" [(ngModel)]=\"this.deathLocation.country\" (change)=\"updateStates()\" name=\"death-countries\" autocomplete=\"country-name\">\n          <option value=\"\" disabled selected>Select Country</option>\n          <option *ngFor=\"let country of this.countries\" value=\"{{ country.uid }}\">{{ country.name }}</option>\n        </select>\n      </div>\n      <div class=\"col-3\">\n        <select class=\"form-control\" [(ngModel)]=\"this.deathLocation.state\" name=\"death-states\" autocomplete=\"state\">\n          <option value=\"\" disabled selected>Select State</option>\n          <option *ngFor=\"let state of this.states.death\" value=\"{{ state.uid }}\">{{ state.name }}</option>\n        </select>\n      </div>\n      <div class=\"col-3\">\n        <input type=\"text\" autocomplete=\"postal-code\" class=\"form-control\" [(ngModel)]=\"this.deathLocation.postal\" name=\"death-postal\"\n          placeholder=\"Death Zip\" type=\"number\">\n      </div>\n      <!-- photo -->\n      <div class=\"col-12\">\n        <input type=\"text\" autocomplete=\"url\" class=\"form-control\" [(ngModel)]=\"this.person.photo\" name=\"photo-url\" placeholder=\"Photo URL\">\n      </div>\n      <!-- bio -->\n      <div class=\"col-12\">\n        <textarea type=\"text\" class=\"form-control\" [(ngModel)]=\"this.person.bio\" name=\"bio\" placeholder=\"Bio\"></textarea>\n      </div>\n      <div class=\"col-12\">\n          <div *ngIf=\"this.error\" class=\"alert alert-danger\" role=\"alert\">\n            {{ this.error }}\n          </div>\n          <button class=\"btn btn-primary\" (click)=\"save()\">Save Person</button>\n          <button class=\"btn btn-secondary\" (click)=\"clear()\">Clear Person</button>\n        </div>\n      </div>\n      <!-- calling -->\n      <app-calling [uid]=\"this.uid\" (update)=\"updateCallings()\"></app-calling>\n      <div class=\"col-12\">\n        <ul>\n          <li>\n            <b *ngIf=\"this.person.callings && this.person.callings.length > 0\">This Person's Calling(s)</b>\n            <b *ngIf=\"!this.person.callings\">This Person Has No Callings</b>\n          </li>\n          <li *ngFor=\"let key of this.person.callings\">\n            <span *ngIf=\"callings[key]\">{{ callings[key].name }}</span>\n            <span *ngIf=\"!callings[key]\">Calling \"{{ key }}\" not found...</span>\n          </li>\n        </ul>\n      </div>\n  </form>\n  <br />\n  <h4>Recently Added People</h4>\n  <app-people (edit)=\"edit($event)\"></app-people>\n</section>\n"
 
 /***/ }),
 
@@ -581,10 +721,10 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var PersonComponent = /** @class */ (function () {
     function PersonComponent(almanac) {
         this.almanac = almanac;
-        this.person = new __WEBPACK_IMPORTED_MODULE_1__models_almanac__["e" /* Person */]();
-        this.name = new __WEBPACK_IMPORTED_MODULE_1__models_almanac__["d" /* Name */]();
-        this.birthLocation = new __WEBPACK_IMPORTED_MODULE_1__models_almanac__["c" /* Location */]();
-        this.deathLocation = new __WEBPACK_IMPORTED_MODULE_1__models_almanac__["c" /* Location */]();
+        this.person = new __WEBPACK_IMPORTED_MODULE_1__models_almanac__["f" /* Person */]();
+        this.name = new __WEBPACK_IMPORTED_MODULE_1__models_almanac__["e" /* Name */]();
+        this.birthLocation = new __WEBPACK_IMPORTED_MODULE_1__models_almanac__["d" /* Location */]();
+        this.deathLocation = new __WEBPACK_IMPORTED_MODULE_1__models_almanac__["d" /* Location */]();
         this.callings = __WEBPACK_IMPORTED_MODULE_3__environments_environment__["a" /* environment */].almanac['callings'];
         this.uid = this.almanac.guid();
         this.people = __WEBPACK_IMPORTED_MODULE_3__environments_environment__["a" /* environment */].almanac.people;
@@ -611,7 +751,7 @@ var PersonComponent = /** @class */ (function () {
             if (_this.person.birth.location)
                 _this.birthLocation = _this.almanac.getLocation(_this.person.birth.location);
             else
-                _this.birthLocation = new __WEBPACK_IMPORTED_MODULE_1__models_almanac__["c" /* Location */]();
+                _this.birthLocation = new __WEBPACK_IMPORTED_MODULE_1__models_almanac__["d" /* Location */]();
             if (_this.person.death.date)
                 _this.deathDate = _this.almanac.formatDate(_this.almanac.getDate(_this.person.death.date));
             else
@@ -619,18 +759,18 @@ var PersonComponent = /** @class */ (function () {
             if (_this.person.death.location)
                 _this.deathLocation = _this.almanac.getLocation(_this.person.death.location);
             else
-                _this.deathLocation = new __WEBPACK_IMPORTED_MODULE_1__models_almanac__["c" /* Location */]();
+                _this.deathLocation = new __WEBPACK_IMPORTED_MODULE_1__models_almanac__["d" /* Location */]();
             _this.updateStates();
         });
     };
     PersonComponent.prototype.clear = function () {
-        this.person = new __WEBPACK_IMPORTED_MODULE_1__models_almanac__["e" /* Person */]();
-        this.name = new __WEBPACK_IMPORTED_MODULE_1__models_almanac__["d" /* Name */]();
+        this.person = new __WEBPACK_IMPORTED_MODULE_1__models_almanac__["f" /* Person */]();
+        this.name = new __WEBPACK_IMPORTED_MODULE_1__models_almanac__["e" /* Name */]();
         this.uid = this.almanac.guid();
         this.birthDate = '';
-        this.birthLocation = new __WEBPACK_IMPORTED_MODULE_1__models_almanac__["c" /* Location */]();
+        this.birthLocation = new __WEBPACK_IMPORTED_MODULE_1__models_almanac__["d" /* Location */]();
         this.deathDate = '';
-        this.deathLocation = new __WEBPACK_IMPORTED_MODULE_1__models_almanac__["c" /* Location */]();
+        this.deathLocation = new __WEBPACK_IMPORTED_MODULE_1__models_almanac__["d" /* Location */]();
     };
     PersonComponent.prototype.validate = function () {
         var _this = this;
@@ -692,7 +832,7 @@ var PersonComponent = /** @class */ (function () {
                             var date = value.split('/');
                             var dateUID = parseInt(date[0] + date[1] + date[2]);
                             _this.person[birthDeath].date = dateUID;
-                            var obj = new __WEBPACK_IMPORTED_MODULE_1__models_almanac__["b" /* Date */]();
+                            var obj = new __WEBPACK_IMPORTED_MODULE_1__models_almanac__["c" /* Date */]();
                             if (__WEBPACK_IMPORTED_MODULE_3__environments_environment__["a" /* environment */].almanac.dates[dateUID]) {
                                 obj = __WEBPACK_IMPORTED_MODULE_3__environments_environment__["a" /* environment */].almanac.dates[dateUID];
                             }
@@ -844,11 +984,13 @@ var NavbarComponent = /** @class */ (function () {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return Location; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "d", function() { return Location; });
 /* unused harmony export Event */
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "d", function() { return Name; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return Date; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "e", function() { return Person; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "e", function() { return Name; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return Date; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return Country; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "g", function() { return Year; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "f", function() { return Person; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Calling; });
 var Location = /** @class */ (function () {
     function Location() {
@@ -895,6 +1037,29 @@ var Date = /** @class */ (function () {
     return Date;
 }());
 
+var Country = /** @class */ (function () {
+    function Country() {
+        this.name = '';
+        this.history = '';
+        this.year = [];
+    }
+    return Country;
+}());
+
+var Year = /** @class */ (function () {
+    function Year() {
+        this.population = null;
+        this.membership = null;
+        this.branches = {
+            wards: null,
+            missions: null
+        };
+        this.missions = null;
+        this.stake = null;
+    }
+    return Year;
+}());
+
 var Person = /** @class */ (function () {
     function Person() {
         this.name = '';
@@ -925,7 +1090,7 @@ var Calling = /** @class */ (function () {
 /***/ "./src/app/pages/almanac/almanac.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<h1>Almanac</h1>\n\n<div class=\"dropdown\">\n  <button class=\"btn btn-secondary dropdown-toggle\" type=\"button\" id=\"dropdownMenuButton\" data-toggle=\"dropdown\" aria-haspopup=\"true\"\n    aria-expanded=\"false\">\n    New Entry\n  </button>\n  <div class=\"dropdown-menu\" aria-labelledby=\"dropdownMenuButton\">\n    <a (click)=\"changeSection('person')\" class=\"dropdown-item\">Person</a>\n    <a (click)=\"changeSection('calling')\" class=\"dropdown-item\">Calling</a>\n  </div>\n</div>\n\n<app-person *ngIf=\"section === 'person'\"></app-person>\n<app-calling *ngIf=\"section === 'calling'\"></app-calling>\n<app-loading *ngIf=\"section === 'loading'\"></app-loading>\n"
+module.exports = "<h1>Almanac</h1>\n\n<div class=\"dropdown\">\n  <button class=\"btn btn-secondary dropdown-toggle\" type=\"button\" id=\"dropdownMenuButton\" data-toggle=\"dropdown\" aria-haspopup=\"true\"\n    aria-expanded=\"false\">\n    Choose Section\n  </button>\n  <div class=\"dropdown-menu\" aria-labelledby=\"dropdownMenuButton\">\n    <a (click)=\"changeSection('person')\" class=\"dropdown-item\">Person</a>\n    <a (click)=\"changeSection('calling')\" class=\"dropdown-item\">Calling</a>\n    <a (click)=\"changeSection('countries')\" class=\"dropdown-item\">Countries</a>\n  </div>\n</div>\n\n<app-person *ngIf=\"section === 'person'\"></app-person>\n<app-calling *ngIf=\"section === 'calling'\"></app-calling>\n<app-countries *ngIf=\"section === 'countries'\"></app-countries>\n<app-loading *ngIf=\"section === 'loading'\"></app-loading>\n"
 
 /***/ }),
 
@@ -966,7 +1131,7 @@ var AlmanacComponent = /** @class */ (function () {
         this.section = 'loading';
         __WEBPACK_IMPORTED_MODULE_3_firebase__["database"]().ref('almanac/').on('value', function (snapshot) {
             __WEBPACK_IMPORTED_MODULE_1__environments_environment__["a" /* environment */].almanac = snapshot.val();
-            _this.section = 'person';
+            _this.section = 'countries';
             console.log('Getting value from Firebase...');
         });
     }
@@ -1324,21 +1489,29 @@ var AlmanacService = /** @class */ (function () {
             return people;
         };
         this.getCountries = function () {
-            var array = [];
+            var array = [], unitedStates = {};
             Object.keys(__WEBPACK_IMPORTED_MODULE_1__environments_environment__["a" /* environment */].almanac.countries).forEach(function (uid) {
-                var name = __WEBPACK_IMPORTED_MODULE_1__environments_environment__["a" /* environment */].almanac.countries[uid], obj = {
-                    name: name,
-                    uid: uid
-                };
+                var obj = __WEBPACK_IMPORTED_MODULE_1__environments_environment__["a" /* environment */].almanac.countries[uid];
+                obj.uid = uid;
+                if (obj.name === 'United States') {
+                    unitedStates = obj;
+                }
                 array.push(obj);
             });
             array.sort(function (a, b) {
-                if (a.name < b.name)
+                if (a.name < b.name) {
                     return -1;
-                if (a.name > b.name)
+                }
+                else if (a.name > b.name) {
                     return 1;
-                return 0;
+                }
+                else {
+                    return 0;
+                }
             });
+            if (unitedStates) {
+                array.unshift(unitedStates);
+            }
             return _this.newObj(array);
         };
         this.getStates = function (uid) {
