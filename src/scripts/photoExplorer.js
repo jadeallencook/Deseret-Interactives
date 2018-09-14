@@ -17,7 +17,7 @@ export default function PhotoExplorer(container, json) {
         imageMapResize();
         // create span to append info when hotspot is clicked
         var info = R.c('span');
-        info.innerText = data.intro;
+        info.innerHTML = data.intro;
         info.style.fontSize = '0.75em';
         R.a(container, info);
         // set event listeners for all the hotspots
@@ -28,7 +28,11 @@ export default function PhotoExplorer(container, json) {
                 var num = elem.getAttribute('data-hotspot');
                 num = parseInt(num) - 1;
                 // append info from json
-                info.innerText = data.hotspots.info[num];
+                info.innerHTML = '<b>' + (num + 1) + '.</b> ' + data.hotspots.info[num];
+                // log event in google analytics 
+                if ('ga' in window) {
+                    ga('send', 'event', 'Photo Explorer (Hotspot Clicked)', window.location.href, (num + 1));
+                }
             }
         });
     });
