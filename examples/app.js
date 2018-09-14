@@ -1,6 +1,10 @@
 (function () {
 	// add new interactives here
 	var interactives = {
+		photoExplorer: {
+			type: "photoExplorer",
+			json: "../src/json/lupo-comic.json"
+		},
 		textBox: {
 			type: "textBox",
 			header: "Elit Ligula Adipiscing",

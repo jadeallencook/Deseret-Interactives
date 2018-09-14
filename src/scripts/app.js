@@ -12,6 +12,7 @@ import GuessingGame from './guessingGame.js';
 import Firebase from '../libs/Firebase/firebase';
 import QAndA from './qAndA.js';
 import TextBox from './textBox.js';
+import PhotoExplorer from './photoExplorer.js';
 
 window.Newsroom = {
     parameter: function (interactive, parameter) {
@@ -54,6 +55,7 @@ window.Newsroom = {
             else if (type === 'guessingGame') new GuessingGame(interactive, Newsroom.parameter(interactive, 'json'));
             else if (type === 'qAndA') new QAndA(interactive, Newsroom.parameter(interactive, 'color'), Newsroom.parameter(interactive, 'height'), Newsroom.parameter(interactive, 'hoverBg'), Newsroom.parameter(interactive, 'title'), Newsroom.parameter(interactive, 'background'), Newsroom.parameter(interactive, 'json'));
 			else if (type === 'textBox') new TextBox(interactive, Newsroom.parameter(interactive, 'header'), Newsroom.parameter(interactive, 'image'), Newsroom.parameter(interactive, 'json'), Newsroom.parameter(interactive, 'color'));
+			else if (type === 'photoExplorer') new PhotoExplorer(interactive, Newsroom.parameter(interactive, 'json'));
 			else console.warn('Newsroom Interactives: There was no type set for the interactive.');
         }
     },
