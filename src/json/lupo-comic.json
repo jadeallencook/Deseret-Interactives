@@ -1,6 +1,6 @@
 {
-    "photo": "../src/images/lupo-comic.png",
-    "intro": "<center><i>Click a number to get started!</i></center>",
+    "photo": "https://www.deseretnews.com/project/assets/images/lupo-comic.png",
+    "intro": "<h5>Explore This Comic</h5><span>Click on a number to get started!</span>",
     "hotspots": {
         "map": "<map name=\"image-map\"> <area data-hotspot=\"1\" coords=\"1004,1392,59,1236\" shape=\"rect\"> <area data-hotspot=\"2\" coords=\"1002,94,56\" shape=\"circle\"> <area data-hotspot=\"3\" coords=\"219,867,111\" shape=\"circle\"> <area data-hotspot=\"4\" coords=\"265,626,93\" shape=\"circle\"> <area data-hotspot=\"5\" coords=\"413,729,63\" shape=\"circle\"> <area data-hotspot=\"6\" coords=\"420,826,948,1022\" shape=\"rect\"> <area data-hotspot=\"7\" coords=\"4,4,218,128\" shape=\"rect\"><\/map>",
         "info": [

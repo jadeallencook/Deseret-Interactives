@@ -1,10 +1,10 @@
 import imageMapResize from '../libs/Image-Map-Resizer/imageMapResizer.min';
 
 export default function PhotoExplorer(container, json) {
+    container.innerHTML = '<h1>Loading...</h1>';
     // get json from location
     Newsroom.ajax(json).then(function (data) {
-        // make interactive float left 
-        container.classList.add('inline');
+        container.innerHTML = null;
         // import "rapid" from newroom to write less code
         var R = new Newsroom.rapid;
         // create/append image & set map id

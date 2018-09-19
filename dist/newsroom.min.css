@@ -618,4 +618,23 @@ div.interactive[data-type="textBox"] {
     font-size: 0.85em;
     line-height: 0em; }
 
+div.interactive[data-type="photoExplorer"] {
+  display: inline-block;
+  width: 100%;
+  margin-bottom: 25px; }
+  div.interactive[data-type="photoExplorer"] h1 {
+    text-align: center; }
+  div.interactive[data-type="photoExplorer"] img {
+    width: 45%;
+    float: left;
+    margin-right: 25px; }
+
+@media only screen and (max-device-width: 480px) {
+  div.interactive[data-type="photoExplorer"] {
+    display: block; }
+    div.interactive[data-type="photoExplorer"] img {
+      width: 100%;
+      float: none;
+      margin: 0px 0px 5px 0px; } }
+
 /*# sourceMappingURL=newsroom.min.css.map */
