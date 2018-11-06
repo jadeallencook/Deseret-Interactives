@@ -42,6 +42,7 @@
 		},
 		slideshow: {
 			type: "slideshow",
+			width: "full",
 			title: "Coral Bleaching",
 			color: "#67A0B6",
 			json: "../src/json/coral-bleaching.json"

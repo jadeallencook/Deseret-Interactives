@@ -48,7 +48,7 @@ window.Newsroom = {
             else if (type === 'navigational') new Navigational(interactive, Newsroom.parameter(interactive, 'json'));
             else if (type === 'faqs') new Faqs(interactive, Newsroom.parameter(interactive, 'menuImage'), Newsroom.parameter(interactive, 'json'));
             else if (type === 'bullets') new Bullets(interactive, Newsroom.parameter(interactive, 'color'), Newsroom.parameter(interactive, 'title'), Newsroom.parameter(interactive, 'json'));
-            else if (type === 'slideshow') new Slideshow(interactive, Newsroom.parameter(interactive, 'title'), Newsroom.parameter(interactive, 'color'), Newsroom.parameter(interactive, 'json'));
+            else if (type === 'slideshow') new Slideshow(interactive, Newsroom.parameter(interactive, 'width'), Newsroom.parameter(interactive, 'title'), Newsroom.parameter(interactive, 'color'), Newsroom.parameter(interactive, 'json'));
             else if (type === 'choropleth') new Choropleth(interactive, Newsroom.parameter(interactive, 'usm'));
             else if (type === 'lineGraph') new LineGraph(interactive, Newsroom.parameter(interactive, 'json'));
             else if (type === 'profile') new Profile(interactive, Newsroom.parameter(interactive, 'color'), Newsroom.parameter(interactive, 'allLink'), Newsroom.parameter(interactive, 'allText'), Newsroom.parameter(interactive, 'json'));

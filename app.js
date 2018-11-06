@@ -8,7 +8,7 @@ var interactives = {
 	profile: '<div class="interactive" data-type="profile" data-color="#" data-json="#" data-json="#" data-json="#"></div>',
 	lineGraph: '<div class="interactive" data-type="lineGraph" data-json="#"></div>',
 	choropleth: '<div class="interactive" data-type="choropleth" data-usm="#"></div>',
-	slideshow: '<div class="interactive" data-type="slideshow" data-title="#" data-color="#" data-json="#"></div>',
+	slideshow: '<div class="interactive" data-type="slideshow" data-width="#" data-title="#" data-color="#" data-json="#"></div>',
 	bullets: '<div class="interactive" data-type="bullets" data-color="#" data-title="#" data-json="#"></div>',
 	faqs: '<div class="interactive" data-type="faqs" data-menuImage="#" data-json="#"></div>',
 	navigational: '<div class="interactive" data-type="navigational" data-json="#"></div>',
