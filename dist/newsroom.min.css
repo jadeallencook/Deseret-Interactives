@@ -636,5 +636,74 @@ div.interactive[data-type="photoExplorer"] {
       width: 100%;
       float: none;
       margin: 0px 0px 5px 0px; } }
+div.interactive[data-type="recipe"] {
+  font-family: 'Handlee', cursive;
+  background-color: #e7dda2;
+  filter: drop-shadow(-5px 5px 0px #505050);
+  padding-bottom: 15px;
+  height: 450px;
+  overflow: hidden;
+  position: relative; }
+@keyframes corner {
+  0% {
+    border-top: 60px solid transparent;
+    border-bottom: 60px solid transparent;
+    border-left: 60px solid rgba(231, 221, 162, 0); }
+  50% {
+    border-top: 75px solid transparent;
+    border-bottom: 46px solid transparent;
+    border-left: 60px solid #b1a97a; }
+  100% {
+    border-top: 60px solid transparent;
+    border-bottom: 60px solid transparent;
+    border-left: 60px solid rgba(231, 221, 162, 0); } }
+  div.interactive[data-type="recipe"] span.title,
+  div.interactive[data-type="recipe"] span.line {
+    display: block; }
+  div.interactive[data-type="recipe"] span.title {
+    border-bottom: solid medium #8f1010;
+    padding: 15px 15px 5px 15px;
+    margin-bottom: 10px;
+    font-weight: bold; }
+  div.interactive[data-type="recipe"] span.line {
+    padding: 5px 15px 0px 15px;
+    font-size: .9em; }
+    div.interactive[data-type="recipe"] span.line span.amount {
+      font-weight: bold;
+      color: #10328f; }
+    div.interactive[data-type="recipe"] span.line span.center {
+      margin-top: 155px;
+      display: block; }
+    div.interactive[data-type="recipe"] span.line span.alert {
+      color: #8f1010; }
+    div.interactive[data-type="recipe"] span.line span.corner-msg {
+      color: #8f1010;
+      position: absolute;
+      bottom: 15px;
+      font-size: 0.85em;
+      bottom: -380px; }
+  div.interactive[data-type="recipe"] div.corner {
+    width: 0;
+    height: 0;
+    border-top: 60px solid transparent;
+    border-bottom: 60px solid transparent;
+    border-left: 60px solid #b1a97a;
+    position: absolute;
+    right: -9px;
+    bottom: -39px;
+    cursor: pointer;
+    transform: rotate(45deg);
+    animation-name: corner;
+    animation-iteration-count: infinite;
+    animation-duration: 2s; }
+  div.interactive[data-type="recipe"] div.corner:hover {
+    border-top: 75px solid transparent;
+    border-bottom: 46px solid transparent;
+    border-left: 60px solid #b1a97a;
+    animation: none; }
+
+@media only screen and (max-device-width: 480px) {
+  div.interactive[data-type="recipe"] {
+    width: 100%; } }
 
 /*# sourceMappingURL=newsroom.min.css.map */

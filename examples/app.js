@@ -1,6 +1,10 @@
 (function () {
 	// add new interactives here
 	var interactives = {
+		recipe: {
+			type: "recipe",
+			json: "../src/json/recipe.json"
+		},
 		photoExplorer: {
 			type: "photoExplorer",
 			json: "../src/json/lupo-comic.json"

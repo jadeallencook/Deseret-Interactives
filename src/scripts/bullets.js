@@ -15,9 +15,7 @@ export default function Bullets(container, color, title, json) {
                 var bullet = section.bullets[y];
                 var itemElem = R.c('li', bullet);
                 R.a(listElem, itemElem);
-
             }
         }
-        console.log(json);
     });
 }
