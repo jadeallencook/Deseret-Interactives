@@ -706,33 +706,31 @@ div.interactive[data-type="recipe"] {
 @media only screen and (max-device-width: 480px) {
   div.interactive[data-type="recipe"] {
     width: 100%; } }
-div.interactive[data-type="icons"] {
-  height: 725px; }
-  div.interactive[data-type="icons"] span.back {
-    cursor: pointer;
-    display: block;
-    font-weight: bold;
-    margin-left: 35px; }
-  div.interactive[data-type="icons"] span.back::before {
-    content: '⬅';
-    font-size: 1.25em;
-    display: block;
-    margin-bottom: -32px;
-    margin-left: -34px; }
-  div.interactive[data-type="icons"] span.back:hover {
-    opacity: 0.5; }
-  div.interactive[data-type="icons"] span {
-    display: block;
-    margin-bottom: 15px; }
-  div.interactive[data-type="icons"] img.icon {
-    width: 40%;
-    margin: 5px 15px 5px 0px;
-    cursor: pointer; }
-  div.interactive[data-type="icons"] img.icon:hover {
-    opacity: 0.5; }
-  div.interactive[data-type="icons"] img.page {
-    width: 100%;
-    cursor: pointer; }
+div.interactive[data-type="icons"] span.back {
+  cursor: pointer;
+  display: block;
+  font-weight: bold;
+  margin-left: 35px; }
+div.interactive[data-type="icons"] span.back::before {
+  content: '⬅';
+  font-size: 1.25em;
+  display: block;
+  margin-bottom: -32px;
+  margin-left: -34px; }
+div.interactive[data-type="icons"] span.back:hover {
+  opacity: 0.5; }
+div.interactive[data-type="icons"] span {
+  display: block;
+  margin-bottom: 15px; }
+div.interactive[data-type="icons"] img.icon {
+  width: 40%;
+  margin: 5px 15px 5px 0px;
+  cursor: pointer; }
+div.interactive[data-type="icons"] img.icon:hover {
+  opacity: 0.5; }
+div.interactive[data-type="icons"] img.page {
+  width: 100%;
+  cursor: pointer; }
 
 @media only screen and (max-width: 550px) {
   div.interactive[data-type="icons"] {
