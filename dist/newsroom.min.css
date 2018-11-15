@@ -706,13 +706,11 @@ div.interactive[data-type="recipe"] {
   div.interactive[data-type="recipe"] {
     width: 100%; } }
 div.interactive[data-type="icons"] {
-  height: 600px;
-  position: relative; }
-  div.interactive[data-type="icons"] span.close {
-    position: absolute;
+  height: 725px; }
+  div.interactive[data-type="icons"] span.back {
     cursor: pointer;
-    right: 0px; }
-  div.interactive[data-type="icons"] span.close:hover {
+    display: block; }
+  div.interactive[data-type="icons"] span.back:hover {
     opacity: 0.5; }
   div.interactive[data-type="icons"] span {
     display: block;
@@ -725,5 +723,9 @@ div.interactive[data-type="icons"] {
     opacity: 0.5; }
   div.interactive[data-type="icons"] img.page {
     width: 100%; }
+
+@media only screen and (max-device-width: 480px) {
+  div.interactive[data-type="icons"] {
+    height: 850px; } }
 
 /*# sourceMappingURL=newsroom.min.css.map */

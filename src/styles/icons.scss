@@ -1,12 +1,10 @@
 div.interactive[data-type="icons"] {
-    height: 600px;
-    position: relative;
-    span.close {
-        position: absolute;
+    height: 725px;
+    span.back {
         cursor: pointer;
-        right: 0px;
+        display: block;
     }
-    span.close:hover {
+    span.back:hover {
         opacity: 0.5;
     }
     span {
@@ -25,4 +23,6 @@ div.interactive[data-type="icons"] {
         width: 100%;
     }
 }
-@media only screen and (max-device-width: 480px) {div.interactive[data-type="icons"] {}}
+@media only screen and (max-device-width: 480px) {div.interactive[data-type="icons"] {
+    height: 850px;
+}}

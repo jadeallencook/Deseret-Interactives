@@ -6,12 +6,15 @@ export default function Icons(container, json) {
         function clear() {
             container.innerHTML = null;
         }
-        function menu() {
+        function headers() {
             var header = R.c('h4', json.header);
             var subheader = R.c('span', json.subheader);
             clear();
             R.a(container, header);
             R.a(container, subheader);
+        }
+        function menu() {
+            headers();
             var icons = json.sections;
             for (var x = 0, max = icons.length; x < max; x++) {
                 var icon = R.c('img');
@@ -26,11 +29,11 @@ export default function Icons(container, json) {
             }
         }
         function section(num) {
-            clear();
-            var close = R.c('span', 'X');
-            close.classList.add('close');
-            R.a(container, close);
-            close.onclick = menu;
+            headers();
+            var back = R.c('span', '&#x2B05; Back');
+            back.classList.add('back');
+            R.a(container, back);
+            back.onclick = menu;
             num = parseInt(num);
             var image = R.c('img');
             image.setAttribute('src', json.images.large + json.sections[num].page);
