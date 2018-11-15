@@ -3,6 +3,15 @@ div.interactive[data-type="icons"] {
     span.back {
         cursor: pointer;
         display: block;
+        font-weight: bold;
+        margin-left: 35px;
+    }
+    span.back::before {
+        content: '⬅';
+        font-size: 1.25em;
+        display: block;
+        margin-bottom: -32px;
+        margin-left: -34px;
     }
     span.back:hover {
         opacity: 0.5;
@@ -21,6 +30,7 @@ div.interactive[data-type="icons"] {
     }
     img.page {
         width: 100%;
+        cursor: pointer;
     }
 }
 @media only screen and (max-device-width: 480px) {div.interactive[data-type="icons"] {

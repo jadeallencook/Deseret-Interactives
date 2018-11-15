@@ -1,3 +1,4 @@
+@charset "UTF-8";
 div.interactive h2 {
   font-size: 2em;
   font-weight: bold;
@@ -709,7 +710,15 @@ div.interactive[data-type="icons"] {
   height: 725px; }
   div.interactive[data-type="icons"] span.back {
     cursor: pointer;
-    display: block; }
+    display: block;
+    font-weight: bold;
+    margin-left: 35px; }
+  div.interactive[data-type="icons"] span.back::before {
+    content: '⬅';
+    font-size: 1.25em;
+    display: block;
+    margin-bottom: -32px;
+    margin-left: -34px; }
   div.interactive[data-type="icons"] span.back:hover {
     opacity: 0.5; }
   div.interactive[data-type="icons"] span {
@@ -722,7 +731,8 @@ div.interactive[data-type="icons"] {
   div.interactive[data-type="icons"] img.icon:hover {
     opacity: 0.5; }
   div.interactive[data-type="icons"] img.page {
-    width: 100%; }
+    width: 100%;
+    cursor: pointer; }
 
 @media only screen and (max-device-width: 480px) {
   div.interactive[data-type="icons"] {

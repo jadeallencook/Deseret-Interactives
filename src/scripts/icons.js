@@ -30,7 +30,7 @@ export default function Icons(container, json) {
         }
         function section(num) {
             headers();
-            var back = R.c('span', '&#x2B05; Back');
+            var back = R.c('span', 'Back');
             back.classList.add('back');
             R.a(container, back);
             back.onclick = menu;
