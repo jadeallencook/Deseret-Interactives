@@ -734,6 +734,11 @@ div.interactive[data-type="icons"] {
     width: 100%;
     cursor: pointer; }
 
+@media only screen and (max-width: 550px) {
+  div.interactive[data-type="icons"] {
+    display: block;
+    float: none;
+    width: 100%; } }
 @media only screen and (max-device-width: 480px) {
   div.interactive[data-type="icons"] {
     height: 850px; } }
