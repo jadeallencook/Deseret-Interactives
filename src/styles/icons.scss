@@ -1,0 +1,28 @@
+div.interactive[data-type="icons"] {
+    height: 600px;
+    position: relative;
+    span.close {
+        position: absolute;
+        cursor: pointer;
+        right: 0px;
+    }
+    span.close:hover {
+        opacity: 0.5;
+    }
+    span {
+        display: block;
+        margin-bottom: 15px;
+    }
+    img.icon {
+        width: 40%;
+        margin: 5px 15px 5px 0px;
+        cursor: pointer;
+    }
+    img.icon:hover {
+        opacity: 0.5;
+    }
+    img.page {
+        width: 100%;
+    }
+}
+@media only screen and (max-device-width: 480px) {div.interactive[data-type="icons"] {}}

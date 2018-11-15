@@ -705,5 +705,25 @@ div.interactive[data-type="recipe"] {
 @media only screen and (max-device-width: 480px) {
   div.interactive[data-type="recipe"] {
     width: 100%; } }
+div.interactive[data-type="icons"] {
+  height: 600px;
+  position: relative; }
+  div.interactive[data-type="icons"] span.close {
+    position: absolute;
+    cursor: pointer;
+    right: 0px; }
+  div.interactive[data-type="icons"] span.close:hover {
+    opacity: 0.5; }
+  div.interactive[data-type="icons"] span {
+    display: block;
+    margin-bottom: 15px; }
+  div.interactive[data-type="icons"] img.icon {
+    width: 40%;
+    margin: 5px 15px 5px 0px;
+    cursor: pointer; }
+  div.interactive[data-type="icons"] img.icon:hover {
+    opacity: 0.5; }
+  div.interactive[data-type="icons"] img.page {
+    width: 100%; }
 
 /*# sourceMappingURL=newsroom.min.css.map */

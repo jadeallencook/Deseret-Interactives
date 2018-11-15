@@ -1,6 +1,10 @@
 (function () {
 	// add new interactives here
 	var interactives = {
+		icons: {
+			type: "icons",
+			json: "../src/json/pollution.json"
+		},
 		recipe: {
 			type: "recipe",
 			json: "../src/json/recipe.json"

@@ -14,6 +14,7 @@ import QAndA from './qAndA.js';
 import TextBox from './textBox.js';
 import PhotoExplorer from './photoExplorer.js';
 import Recipe from './recipe.js';
+import Icons from './icons.js';
 
 window.Newsroom = {
     parameter: function (interactive, parameter) {
@@ -58,6 +59,7 @@ window.Newsroom = {
             else if (type === 'textBox') new TextBox(interactive, Newsroom.parameter(interactive, 'header'), Newsroom.parameter(interactive, 'image'), Newsroom.parameter(interactive, 'json'), Newsroom.parameter(interactive, 'color'));
             else if (type === 'photoExplorer') new PhotoExplorer(interactive, Newsroom.parameter(interactive, 'json'));
             else if (type === 'recipe') new Recipe(interactive, Newsroom.parameter(interactive, 'json'));
+			else if (type === 'icons') new Icons(interactive, Newsroom.parameter(interactive, 'json'));
 			else console.warn('Newsroom Interactives: There was no type set for the interactive.');
         }
     },
