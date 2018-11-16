@@ -16,9 +16,7 @@ export default function Recipe(container, json) {
             },
             write: function (html) {
                 var line = R.c('span', html);
-                line.classList.add('line');
-                line.classList.add('animated');
-                line.classList.add('slideInLeft');
+                line.classList += 'line animated slideInLeft';
                 R.a(container, line);
             },
             overview: function () {
@@ -35,44 +33,52 @@ export default function Recipe(container, json) {
                     app.write(html);
                 });
             },
-            corner(next) {
+            corner() {
                 var corner = R.c('div');
                 corner.classList.add('corner');
                 R.a(container, corner);
                 corner.onclick = function () {
+                    if (app.page === 'overview') app.page = 'ingredients';
+                    else if (app.page === 'ingredients') app.page = 0;
+                    else if (Number.isInteger(app.page) && app.page < (recipe.steps.length - 1)) app.page++;
+                    else if (Number.isInteger(app.page) && app.page === (recipe.steps.length - 1)) app.page = 'overview';
+                    else app.page = 'overview';
                     var elems = document.querySelectorAll('.line');
                     for (var x = 0, max = elems.length; x < max; x++) {
                         var elem = elems[x];
                         elem.classList.add('slideOutLeft');
                     }
-                    setTimeout(function() {
-                        if (Number.isInteger(next)) {
-                            app.step(next);
-                        } else {
-                            app.page = next
-                            app.render();
-                        }
-                    }, 750);
+                    setTimeout(app.render, 750);
                 }
                 app.write(null);
-                app.write('<span class="corner-msg">Click the corner to continue...</span>');
-            },
-            step: function (num) {
-                app.clear();
-                var text = ('Step ' + (num + 1) + '/' + recipe.steps.length);
-                if ((num + 1) < recipe.steps.length) {
-                    app.corner((num + 1), text);
-                } else {
-                    app.corner('overview', text);
+                var msg = R.c('span', 'Click the corner to continue or');
+                msg.classList += 'line corner-msg animated slideInLeft';
+                var back = R.c('span', '<span>click here</span> to go back...');
+                back.classList += 'line back animated slideInLeft';
+                back.onclick = function () {
+                    if (app.page === 'overview') app.page = recipe.steps.length - 1;
+                    else if (app.page === 'ingredients') app.page = 'overview';
+                    else if (Number.isInteger(app.page) && app.page === 0) app.page = 'ingredients';
+                    else if (Number.isInteger(app.page) < (recipe.steps.length - 1)) app.page--;
+                    app.render();
                 }
-                var step = recipe.steps[num];
-                app.write('<b>Step ' + (num + 1) + '/' + recipe.steps.length + '</b> ');
+                R.a(container, msg);
+                R.a(container, back);
+            },
+            step: function () {
+                app.clear();
+                var text = ('Step ' + (app.page + 1) + '/' + recipe.steps.length);
+                if ((app.page + 1) < recipe.steps.length) app.corner((app.page + 1), text);
+                else app.corner('overview', text);
+                var step = recipe.steps[app.page];
+                app.write('<b>Step ' + (app.page + 1) + '/' + recipe.steps.length + '</b> ');
                 app.write(null);
                 app.write(step);
             },
             render: function () {
                 app.clear();
-                app[app.page]();
+                if (Number.isInteger(app.page)) app.step();
+                else app[app.page]();
             }
         }
         app.render();
