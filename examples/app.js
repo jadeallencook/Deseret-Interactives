@@ -1,6 +1,10 @@
 (function () {
 	// add new interactives here
 	var interactives = {
+		quizlet: {
+			type: "quizlet",
+			json: "../src/json/afs-quizlet.json"
+		},
 		icons: {
 			type: "icons",
 			json: "../src/json/pollution.json"

@@ -752,5 +752,62 @@ div.interactive[data-type="icons"] img.page {
 @media only screen and (max-device-width: 480px) {
   div.interactive[data-type="icons"] {
     height: 850px; } }
+div.interactive[data-type="quizlet"] {
+  background-color: #dfe0e1;
+  color: #3b3c3d;
+  padding: 15px 10px; }
+  div.interactive[data-type="quizlet"] h1.question-title {
+    text-align: center;
+    font-size: 1.4em;
+    text-transform: capitalize;
+    line-height: 1em; }
+  div.interactive[data-type="quizlet"] hr.question-border,
+  div.interactive[data-type="quizlet"] hr.question-border-small {
+    border: none;
+    background-color: #3b3c3d;
+    height: 2px;
+    margin-top: -5px; }
+  div.interactive[data-type="quizlet"] hr.question-border-small {
+    width: 75%; }
+  div.interactive[data-type="quizlet"] h1.question-sub {
+    font-size: 1em;
+    color: #6c6d6e;
+    border: solid 2px #c26554;
+    width: 70%;
+    line-height: 1em;
+    padding: 15px 10px;
+    text-align: center;
+    margin: 15px auto; }
+  div.interactive[data-type="quizlet"] h1.question-submit {
+    background-color: #c26554;
+    color: #FFF;
+    text-align: center;
+    padding: 5px 0px;
+    width: 70%;
+    font-size: 1.25em;
+    text-transform: uppercase;
+    border-radius: 10px;
+    margin: 0px auto;
+    cursor: pointer;
+    filter: drop-shadow(0px 5px 0px #b04a37); }
+  div.interactive[data-type="quizlet"] h1.question-submit:hover {
+    opacity: 0.5; }
+  div.interactive[data-type="quizlet"] div.question-wrapper {
+    margin: 15px 0px; }
+    div.interactive[data-type="quizlet"] div.question-wrapper div.question-bubble {
+      border: solid 2px #c26554;
+      width: 15px;
+      height: 15px;
+      border-radius: 100%;
+      cursor: pointer;
+      margin-bottom: -4px;
+      margin-left: 30px;
+      display: inline-block; }
+    div.interactive[data-type="quizlet"] div.question-wrapper div.question-bubble:hover,
+    div.interactive[data-type="quizlet"] div.question-wrapper div.question-bubble.selected {
+      background-color: #c26554;
+      border-color: #b04a37; }
+    div.interactive[data-type="quizlet"] div.question-wrapper span.question-response {
+      margin-left: 30px; }
 
 /*# sourceMappingURL=newsroom.min.css.map */

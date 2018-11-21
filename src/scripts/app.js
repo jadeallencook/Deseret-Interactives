@@ -15,6 +15,7 @@ import TextBox from './textBox.js';
 import PhotoExplorer from './photoExplorer.js';
 import Recipe from './recipe.js';
 import Icons from './icons.js';
+import Quizlet from './quizlet.js';
 
 window.Newsroom = {
     parameter: function (interactive, parameter) {
@@ -60,6 +61,7 @@ window.Newsroom = {
             else if (type === 'photoExplorer') new PhotoExplorer(interactive, Newsroom.parameter(interactive, 'json'));
             else if (type === 'recipe') new Recipe(interactive, Newsroom.parameter(interactive, 'json'));
 			else if (type === 'icons') new Icons(interactive, Newsroom.parameter(interactive, 'json'));
+			else if (type === 'quizlet') new Quizlet(interactive, Newsroom.parameter(interactive, 'json'));
 			else console.warn('Newsroom Interactives: There was no type set for the interactive.');
         }
     },
