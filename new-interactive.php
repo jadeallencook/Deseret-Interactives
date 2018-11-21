@@ -8,7 +8,7 @@ $file = fopen("src/styles/" . $name . ".scss", "w") or die("Unable to open file!
 fwrite($file, "div.interactive[data-type=\"" . $name . "\"] {}\n@media only screen and (max-device-width: 480px) {div.interactive[data-type=\"" . $name . "\"] {}}");
 fclose($file);
 $file = fopen("src/scripts/" . $name . ".js", "w") or die("Unable to open file!");
-fwrite($file, "export default function " . ucwords($name) . "(container) {\n\tR.a(container, R.c('h1', 'Loading...'));\n\tcontainer.classList.add('inline');\n\t;Newsroom.ajax(json).then(function (sections) {});\n}");
+fwrite($file, "export default function " . ucwords($name) . "(container) {\n\tvar R = new Newsroom.rapid;\n\tR.a(container, R.c('h1', 'Loading...'));\n\tcontainer.classList.add('inline');\n\t;Newsroom.ajax(json).then(function (sections) {});\n}");
 fclose($file);
 
 // app.js
