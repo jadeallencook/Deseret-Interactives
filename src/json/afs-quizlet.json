@@ -1,14 +1,14 @@
 {
     "title": "How important are the following things to your personal identity?",
-    "catagories": [{
+    "categories": [{
         "title": "Race",
-        "subcatagories": ["white", "black", "hispanic"]
+        "subcategories": ["white", "black", "hispanic"]
     }, {
         "title": "Gender",
-        "subcatagories": ["women", "men"]
+        "subcategories": ["women", "men"]
     }, {
         "title": "Political Affiliation",
-        "subcatagories": ["republican", "democrat", "independent"]
+        "subcategories": ["republican", "democrat", "independent"]
     }],
     "questions": [{
         "text": "My role as a spouse or partner",
@@ -20,7 +20,7 @@
             "men": 0.73,
             "women": 0.67,
             "republican": 0.78,
-            "demcrat": 0.64,
+            "democrat": 0.64,
             "independent": 0.62
         }
     }, {
@@ -33,7 +33,7 @@
             "men": 0.4,
             "women": 0.45,
             "republican": 0.58,
-            "demcrat": 0.33,
+            "democrat": 0.33,
             "independent": 0.38
         }
     }, {
@@ -46,7 +46,7 @@
             "men": 0.29,
             "women": 0.3,
             "republican": 0.28,
-            "demcrat": 0.32,
+            "democrat": 0.32,
             "independent": 0.26
         }
     }, {
@@ -59,7 +59,7 @@
             "men": 0.29,
             "women": 0.27,
             "republican": 0.36,
-            "demcrat": 0.32,
+            "democrat": 0.32,
             "independent": 0.09
         }
     }, {
@@ -72,7 +72,7 @@
             "men": 0.38,
             "women": 0.36,
             "republican": 0.39,
-            "demcrat": 0.39,
+            "democrat": 0.39,
             "independent": 0.29
         }
     }, {
@@ -85,7 +85,7 @@
             "men": 0.28,
             "women": 0.31,
             "republican": 0.32,
-            "demcrat": 0.3,
+            "democrat": 0.3,
             "independent": 0.25
         }
     }],
