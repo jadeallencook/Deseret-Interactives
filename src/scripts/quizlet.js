@@ -87,7 +87,7 @@ export default function Quizlet(container, json) {
                     console.log();
                     var subPercent = json.questions[app.question].results[sub];
                     subPercent = Math.round(subPercent * 100) + '%';
-                    var title = R.c('h1', sub + '<span>' + subPercent + '</span>');
+                    var title = R.c('h1', sub + '<span id="percent">' + subPercent + '</span>');
                     R.a(wrapper, title);
                 });
                 R.a(categories, wrapper);

@@ -887,6 +887,10 @@ div.interactive[data-type="quizlet"] {
 
 @media only screen and (max-device-width: 480px) {
   div.interactive[data-type="quizlet"] {
-    width: 94%; } }
+    width: 94%; }
+
+  div.answer-categories div.answer-sub-wrapper h1 span#percent {
+    margin-bottom: 5px;
+    line-height: 1em; } }
 
 /*# sourceMappingURL=newsroom.min.css.map */
