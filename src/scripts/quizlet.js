@@ -79,13 +79,13 @@ export default function Quizlet(container, json) {
             R.a(container, percentage);
             // categories
             var categories = R.c('div.answer-categories');
-            R.e(json.categories, function(category) {
+            R.e(json.categories, function (category) {
                 var title = R.c('h1.answer-category-title', category.title);
                 R.a(categories, title);
                 var wrapper = R.c('div.answer-sub-wrapper');
-                R.e(category.subcategories, function(sub) {
+                R.e(category.subcategories, function (sub) {
                     console.log();
-                    var subPercent =  json.questions[app.question].results[sub];
+                    var subPercent = json.questions[app.question].results[sub];
                     subPercent = Math.round(subPercent * 100) + '%';
                     var title = R.c('h1', sub + '<span>' + subPercent + '</span>');
                     R.a(wrapper, title);
@@ -94,11 +94,14 @@ export default function Quizlet(container, json) {
             });
             R.a(container, categories);
             // next btn 
-            var nextBtn = R.c('h1.answer-btn', 'next question <span>▶</span>');
-            nextBtn.onclick = ask;
-            R.a(container, nextBtn);
-            app.answer = null;
             app.question++;
+            if (app.question < json.questions.length) {
+                var nextBtn = R.c('h1.answer-btn', 'next question <span>▶</span>');
+                nextBtn.onclick = ask;
+                R.a(container, nextBtn);
+                app.answer = null;
+                app.question++;
+            }
         }
 
         // init 
