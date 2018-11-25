@@ -2,8 +2,7 @@
 	// add new interactives here
 	var interactives = {
 		quizlet: {
-			type: "quizlet",
-			json: "../src/json/afs-quizlet.json"
+			type: "quizlet"
 		},
 		icons: {
 			type: "icons",
